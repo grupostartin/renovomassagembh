@@ -1,0 +1,125 @@
+import React from 'react';
+import { Service } from '../types';
+import { getWhatsAppLink } from '../data/siteData';
+import { X, Clock, CheckCircle2, AlertCircle, MessageCircle, Heart } from 'lucide-react';
+
+interface ServiceModalProps {
+  service: Service | null;
+  onClose: () => void;
+}
+
+export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
+  if (!service) return null;
+
+  const whatsappMessage = `Olá! Gostaria de agendar uma sessão de *${service.title}* na Renovo Massagem.`;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#111812]/80 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+      
+      <div 
+        className="relative w-full max-w-2xl bg-[#F3EFE6] text-[#1E241A] rounded-3xl shadow-2xl overflow-hidden my-8 border border-[#8A6B4F]/20 animate-in zoom-in-95 duration-300"
+        onClick={(e) => e.stopPropagation()}
+      >
+        
+        {/* Modal Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-[#1E241A]/60 text-[#F3EFE6] hover:bg-[#1E241A] transition-colors shadow-lg"
+          aria-label="Fechar modal"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Modal Header Image */}
+        <div className="relative h-56 sm:h-64 w-full overflow-hidden">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1E241A]/90 via-[#1E241A]/40 to-transparent" />
+          <div className="absolute bottom-4 left-6 right-6 text-[#F5EFDD]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7CB259] text-[#111812] text-xs font-semibold mb-2">
+              <Clock className="w-3.5 h-3.5" />
+              {service.duration}
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl font-semibold tracking-wide">
+              {service.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* Modal Content */}
+        <div className="p-6 sm:p-8 space-y-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+          
+          <p className="text-base text-[#1E241A]/85 leading-relaxed font-normal">
+            {service.fullDescription}
+          </p>
+
+          {/* Recommended For Box */}
+          <div className="p-4 rounded-2xl bg-[#4A5D3A]/10 border border-[#4A5D3A]/20 flex items-start gap-3">
+            <Heart className="w-5 h-5 text-[#4A5D3A] shrink-0 mt-0.5" />
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#4A5D3A]">Recomendado para</h4>
+              <p className="text-sm font-medium text-[#1E241A] mt-0.5">{service.recommendedFor}</p>
+            </div>
+          </div>
+
+          {/* Main Benefits */}
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-[#1E241A] mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#7CB259]" />
+              Principais Benefícios
+            </h4>
+            <ul className="grid grid-cols-1 gap-2.5">
+              {service.benefits.map((benefit, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-[#1E241A]/80">
+                  <CheckCircle2 className="w-4 h-4 text-[#5C6B47] shrink-0 mt-0.5" />
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Indications */}
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-[#1E241A] mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#8A6B4F]" />
+              Indicações Comuns
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {service.indications.map((ind, idx) => (
+                <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#8A6B4F]/10 text-[#1E241A] text-xs font-medium border border-[#8A6B4F]/20">
+                  <AlertCircle className="w-3.5 h-3.5 text-[#8A6B4F]" />
+                  {ind}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Modal Action Footer */}
+        <div className="p-6 bg-[#EBE5D8] border-t border-[#8A6B4F]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-[#1E241A]/70 text-center sm:text-left">
+            <p className="font-medium text-[#1E241A]">Atendimento em Belo Horizonte - MG</p>
+            <p>Sessões com hora marcada e ambiente esterilizado.</p>
+          </div>
+
+          <a
+            href={getWhatsAppLink(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#7CB259] text-[#111812] font-semibold text-sm hover:bg-[#8FBF6E] transition-all duration-300 shadow-lg shadow-[#7CB259]/20"
+          >
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>Agendar este serviço</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  );
+};
