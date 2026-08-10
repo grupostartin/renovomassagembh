@@ -8,27 +8,28 @@ export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   return (
-    <section id="servicos" className="py-24 bg-[#F3EFE6] text-[#1E241A] relative overflow-hidden">
+    // Seção clara: creme (#F2F0EA)
+    <section id="servicos" className="py-24 bg-[#F2F0EA] text-[#15140C] relative overflow-hidden">
       
-      {/* Decorative organic background watermark */}
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#8A6B4F]/5 blur-3xl pointer-events-none" />
+      {/* Decorative background watermark — bege areia */}
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#C4B49A]/8 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4A5D3A]/10 border border-[#4A5D3A]/20 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#5C6B47]" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#4A5D3A]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D5240]/10 border border-[#4D5240]/25 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#4D5240]" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#4D5240]">
               Especialidades Terapêuticas
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#1E241A] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#15140C] mb-4">
             Nossos Serviços
           </h2>
-          <div className="w-12 h-0.5 bg-[#8A6B4F] mx-auto mb-4 rounded-full" />
-          <p className="text-base sm:text-lg text-[#1E241A]/75 font-normal">
+          <div className="w-12 h-0.5 bg-[#8D8074] mx-auto mb-4 rounded-full" />
+          <p className="text-base sm:text-lg text-[#15140C]/70 font-normal">
             Massagens desenvolvidas para cada necessidade e momento do seu corpo
           </p>
         </div>
@@ -39,10 +40,10 @@ export const Services: React.FC = () => {
             <div
               key={service.id}
               onClick={() => setSelectedService(service)}
-              className="group bg-[#FBF9F5] rounded-3xl overflow-hidden border border-[#8A6B4F]/15 hover:border-[#5C6B47] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-1"
+              className="group bg-white rounded-3xl overflow-hidden border border-[#C4B49A]/20 hover:border-[#4D5240] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-1"
             >
               <div>
-                {/* Image Container with generous border radius */}
+                {/* Image Container */}
                 <div className="relative h-52 w-full overflow-hidden">
                   <img
                     src={service.image}
@@ -50,21 +51,21 @@ export const Services: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1E241A]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   
                   {/* Duration Badge */}
-                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#111812]/80 text-[#F5EFDD] text-xs font-medium backdrop-blur-md">
-                    <Clock className="w-3 h-3 text-[#8FBF6E]" />
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-xs font-medium backdrop-blur-md">
+                    <Clock className="w-3 h-3 text-[#4E7A36]" />
                     {service.duration}
                   </span>
                 </div>
 
                 {/* Card Content */}
                 <div className="p-6">
-                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#1E241A] mb-2 group-hover:text-[#4A5D3A] transition-colors">
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#15140C] mb-2 group-hover:text-[#4D5240] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-[#1E241A]/75 font-normal leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm text-[#15140C]/70 font-normal leading-relaxed mb-4 line-clamp-3">
                     {service.shortDescription}
                   </p>
                 </div>
@@ -78,7 +79,7 @@ export const Services: React.FC = () => {
                     e.stopPropagation();
                     setSelectedService(service);
                   }}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#4A5D3A] group-hover:text-[#1E241A] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#4D5240] group-hover:text-[#15140C] transition-colors"
                 >
                   <span>Saiba mais</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

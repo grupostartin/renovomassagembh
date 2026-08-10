@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
+/* ─── Nova Paleta de Cores — Renovo Massagem ───────────────────────────────
+   Cream    #F2F0EA  → fundos claros, superfícies principais
+   Sand     #C4B49A  → bordas, detalhes quentes
+   Taupe    #8D8074  → texto secundário em fundos claros
+   Forest   #4D5240  → verde militar escuro (cor primária)
+   Leaf     #4E7A36  → verde folha (acento / CTA)
+   Dark     #15140C  → preto esverdeado (fundo escuro)
+──────────────────────────────────────────────────────────────────────────── */
+
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #1A2418;
-    color: #F5EFDD;
+    background-color: #15140C;
+    color: #F2F0EA;
   }
 
   h1, h2, h3, h4, .font-serif {
@@ -29,13 +38,13 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111812;
+  background: #0e0d08;
 }
 ::-webkit-scrollbar-thumb {
-  background: #4A5D3A;
+  background: #4D5240;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7CB259;
+  background: #4E7A36;
 }
 

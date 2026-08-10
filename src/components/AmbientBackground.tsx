@@ -18,13 +18,13 @@ const PARTICLE_COUNT = 40;
 
 const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
   const r = (n: number) => seeded(i * 17 + n);
-  const hue = r(7) > 0.55 ? 'green' : r(7) > 0.3 ? 'gold' : 'cream';
+  const hue = r(7) > 0.55 ? 'green' : r(7) > 0.3 ? 'sand' : 'cream';
   const color =
     hue === 'green'
-      ? `rgba(124,178,89,${(0.45 + r(8) * 0.45).toFixed(2)})`
-      : hue === 'gold'
-      ? `rgba(186,157,102,${(0.4 + r(9) * 0.4).toFixed(2)})`
-      : `rgba(245,239,221,${(0.25 + r(10) * 0.3).toFixed(2)})`;
+      ? `rgba(78,122,54,${(0.45 + r(8) * 0.45).toFixed(2)})`
+      : hue === 'sand'
+      ? `rgba(196,180,154,${(0.4 + r(9) * 0.4).toFixed(2)})`
+      : `rgba(242,240,234,${(0.25 + r(10) * 0.3).toFixed(2)})`;
 
   return {
     id: i,
@@ -39,12 +39,12 @@ const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
 
 // ─── Smoke orbs ─────────────────────────────────────────────────────────────
 const ORBS = [
-  { id: 0, x: 8,  y: 15, size: 500, color: 'rgba(124,178,89,0.09)',   duration: 26, delay: 0,  dx:  70, dy: -50 },
-  { id: 1, x: 85, y: 55, size: 450, color: 'rgba(186,157,102,0.08)',  duration: 32, delay: 7,  dx: -65, dy:  60 },
-  { id: 2, x: 50, y: 80, size: 380, color: 'rgba(124,178,89,0.07)',   duration: 20, delay: 4,  dx:  90, dy: -70 },
-  { id: 3, x: 20, y: 65, size: 320, color: 'rgba(245,239,221,0.055)', duration: 38, delay: 13, dx: -80, dy:  35 },
-  { id: 4, x: 70, y: 10, size: 420, color: 'rgba(186,157,102,0.07)',  duration: 28, delay: 18, dx:  45, dy:  80 },
-  { id: 5, x: 35, y: 40, size: 280, color: 'rgba(124,178,89,0.065)',  duration: 24, delay: 9,  dx: -55, dy: -65 },
+  { id: 0, x: 8,  y: 15, size: 500, color: 'rgba(78,122,54,0.09)',    duration: 26, delay: 0,  dx:  70, dy: -50 },
+  { id: 1, x: 85, y: 55, size: 450, color: 'rgba(196,180,154,0.08)', duration: 32, delay: 7,  dx: -65, dy:  60 },
+  { id: 2, x: 50, y: 80, size: 380, color: 'rgba(77,82,64,0.08)',     duration: 20, delay: 4,  dx:  90, dy: -70 },
+  { id: 3, x: 20, y: 65, size: 320, color: 'rgba(242,240,234,0.05)', duration: 38, delay: 13, dx: -80, dy:  35 },
+  { id: 4, x: 70, y: 10, size: 420, color: 'rgba(196,180,154,0.07)', duration: 28, delay: 18, dx:  45, dy:  80 },
+  { id: 5, x: 35, y: 40, size: 280, color: 'rgba(78,122,54,0.065)',   duration: 24, delay: 9,  dx: -55, dy: -65 },
 ];
 
 export function AmbientBackground() {

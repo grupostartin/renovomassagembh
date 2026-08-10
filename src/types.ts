@@ -39,3 +39,50 @@ export interface BookingPreference {
   preferredPeriod: string;
   clientName: string;
 }
+
+export interface AvailabilitySlot {
+  startTime: string;
+  endTime: string;
+}
+
+export interface AvailabilityResponse {
+  mode: 'demo' | 'google-calendar';
+  date: string;
+  slots: AvailabilitySlot[];
+  settings: {
+    timeZone: string;
+    bufferMinutes: number;
+    minimumLeadMinutes: number;
+    bookingWindowDays: number;
+    today: string;
+  };
+}
+
+export interface CreateBookingRequest {
+  serviceId: string;
+  durationMinutes: number;
+  date: string;
+  startTime: string;
+  clientName: string;
+  clientPhone: string;
+  clientEmail?: string;
+}
+
+export interface ConfirmedBooking {
+  id: string;
+  status: 'confirmed';
+  serviceId: string;
+  serviceTitle: string;
+  durationMinutes: number;
+  date: string;
+  startTime: string;
+  endTime: string;
+  clientName: string;
+  clientPhone: string;
+  clientEmail?: string;
+}
+
+export interface CreateBookingResponse {
+  mode: 'demo' | 'google-calendar';
+  booking: ConfirmedBooking;
+}
