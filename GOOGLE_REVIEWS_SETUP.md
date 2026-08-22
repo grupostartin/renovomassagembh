@@ -94,7 +94,7 @@ Reinicie ou publique novamente o serviço depois de salvar os segredos.
 
 ### Vercel
 
-O projeto inclui a função serverless `api/google-reviews.ts`, que disponibiliza
+O projeto inclui a função serverless `api/google-reviews.js`, que disponibiliza
 as avaliações em `/api/google-reviews` sem enviar a chave para o navegador.
 
 Depois de cadastrar ou alterar as variáveis em **Settings > Environment
