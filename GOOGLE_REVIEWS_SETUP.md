@@ -92,6 +92,19 @@ Cadastre estas variáveis como segredos no painel da hospedagem:
 Não coloque a chave no código, no GitHub ou em variáveis com prefixo `VITE_`.
 Reinicie ou publique novamente o serviço depois de salvar os segredos.
 
+### Vercel
+
+O projeto inclui a função serverless `api/google-reviews.ts`, que disponibiliza
+as avaliações em `/api/google-reviews` sem enviar a chave para o navegador.
+
+Depois de cadastrar ou alterar as variáveis em **Settings > Environment
+Variables**, faça uma nova implantação. A Vercel não aplica variáveis novas a
+uma implantação que já estava pronta.
+
+`GOOGLE_PLACE_ID` é opcional. Se você ainda não tiver um Place ID válido, remova
+essa variável ou deixe seu valor vazio; a função localizará o estabelecimento
+usando `GOOGLE_PLACE_QUERY`.
+
 ## Comportamento sem chave ou durante falhas
 
 Se a chave ainda não estiver configurada, ou se o Google ficar indisponível, o
