@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import express, { type NextFunction, type Request, type Response } from 'express';
 import { createServer as createViteServer } from 'vite';
 import {
+  BOOKING_ENABLED_IN_PRODUCTION,
   BOOKING_TIME_ZONE,
   BOOKING_WINDOW_DAYS,
   BUFFER_MINUTES,
@@ -18,6 +19,7 @@ import {
 const app = express();
 const port = Number(process.env.PORT) || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
+const isBookingEnabled = !isProduction || BOOKING_ENABLED_IN_PRODUCTION;
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(currentDirectory, '..');
 
@@ -25,51 +27,58 @@ app.disable('x-powered-by');
 app.use(express.json({ limit: '20kb' }));
 
 app.get('/api/health', (_request, response) => {
-  response.json({ ok: true, mode: 'demo', calendarConnected: false });
+  response.json({
+    ok: true,
+    mode: 'demo',
+    calendarConnected: false,
+    bookingEnabled: isBookingEnabled,
+  });
 });
 
-app.get('/api/availability', (request, response, next) => {
-  try {
-    const serviceId = String(request.query.serviceId ?? '');
-    const durationMinutes = Number(request.query.durationMinutes);
-    const date = String(request.query.date ?? '');
-    const slots = getAvailability({ serviceId, durationMinutes, date });
+if (isBookingEnabled) {
+  app.get('/api/availability', (request, response, next) => {
+    try {
+      const serviceId = String(request.query.serviceId ?? '');
+      const durationMinutes = Number(request.query.durationMinutes);
+      const date = String(request.query.date ?? '');
+      const slots = getAvailability({ serviceId, durationMinutes, date });
 
-    response.json({
-      mode: 'demo',
-      date,
-      slots,
-      settings: {
-        timeZone: BOOKING_TIME_ZONE,
-        bufferMinutes: BUFFER_MINUTES,
-        minimumLeadMinutes: MINIMUM_LEAD_MINUTES,
-        bookingWindowDays: BOOKING_WINDOW_DAYS,
-        today: getTodayInBookingTimeZone(),
-      },
-    });
-  } catch (error) {
-    next(error);
-  }
-});
+      response.json({
+        mode: 'demo',
+        date,
+        slots,
+        settings: {
+          timeZone: BOOKING_TIME_ZONE,
+          bufferMinutes: BUFFER_MINUTES,
+          minimumLeadMinutes: MINIMUM_LEAD_MINUTES,
+          bookingWindowDays: BOOKING_WINDOW_DAYS,
+          today: getTodayInBookingTimeZone(),
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
 
-app.post('/api/bookings', (request, response, next) => {
-  try {
-    const body = request.body && typeof request.body === 'object' ? request.body : {};
-    const booking = createDemoBooking({
-      serviceId: String(body.serviceId ?? ''),
-      durationMinutes: Number(body.durationMinutes),
-      date: String(body.date ?? ''),
-      startTime: String(body.startTime ?? ''),
-      clientName: String(body.clientName ?? ''),
-      clientPhone: String(body.clientPhone ?? ''),
-      clientEmail: body.clientEmail ? String(body.clientEmail) : undefined,
-    });
+  app.post('/api/bookings', (request, response, next) => {
+    try {
+      const body = request.body && typeof request.body === 'object' ? request.body : {};
+      const booking = createDemoBooking({
+        serviceId: String(body.serviceId ?? ''),
+        durationMinutes: Number(body.durationMinutes),
+        date: String(body.date ?? ''),
+        startTime: String(body.startTime ?? ''),
+        clientName: String(body.clientName ?? ''),
+        clientPhone: String(body.clientPhone ?? ''),
+        clientEmail: body.clientEmail ? String(body.clientEmail) : undefined,
+      });
 
-    response.status(201).json({ mode: 'demo', booking });
-  } catch (error) {
-    next(error);
-  }
-});
+      response.status(201).json({ mode: 'demo', booking });
+    } catch (error) {
+      next(error);
+    }
+  });
+}
 
 app.use('/api', (_request, response) => {
   response.status(404).json({ message: 'Endpoint não encontrado.' });

@@ -1,3 +1,7 @@
+// Temporary launch gate: development always shows the agenda. Change this to
+// true when the agenda is ready to be released in production.
+export const BOOKING_ENABLED_IN_PRODUCTION = false;
+
 export const BOOKING_TIME_ZONE = 'America/Sao_Paulo';
 export const BOOKING_UTC_OFFSET = '-03:00';
 export const BOOKING_WINDOW_DAYS = 30;

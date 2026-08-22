@@ -11,6 +11,9 @@ import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { BookingModal } from './components/BookingModal';
+import { BOOKING_ENABLED_IN_PRODUCTION } from './data/bookingConfig';
+
+const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 
 export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -24,12 +27,18 @@ export default function App() {
       {!splashDone && <SplashScreen onFinished={handleSplashFinished} />}
       
       {/* Header */}
-      <Header onOpenBookingModal={() => setBookingModalOpen(true)} />
+      <Header
+        bookingEnabled={isBookingEnabled}
+        onOpenBookingModal={() => setBookingModalOpen(true)}
+      />
 
       {/* Main Content Sections */}
       <main>
         {/* 1. Hero Section */}
-        <Hero onOpenBookingModal={() => setBookingModalOpen(true)} />
+        <Hero
+          bookingEnabled={isBookingEnabled}
+          onOpenBookingModal={() => setBookingModalOpen(true)}
+        />
 
         {/* 1b. Mobile-only: "Você precisa de que hoje?" picker */}
         <MobileNeedPicker />
@@ -47,7 +56,10 @@ export default function App() {
         <Testimonials />
 
         {/* 6. Final CTA Banner */}
-        <CTASection onOpenBookingModal={() => setBookingModalOpen(true)} />
+        <CTASection
+          bookingEnabled={isBookingEnabled}
+          onOpenBookingModal={() => setBookingModalOpen(true)}
+        />
       </main>
 
       {/* Footer */}
@@ -57,10 +69,12 @@ export default function App() {
       <FloatingWhatsApp />
 
       {/* Interactive Quick Booking Modal */}
-      <BookingModal
-        isOpen={bookingModalOpen}
-        onClose={() => setBookingModalOpen(false)}
-      />
+      {isBookingEnabled && (
+        <BookingModal
+          isOpen={bookingModalOpen}
+          onClose={() => setBookingModalOpen(false)}
+        />
+      )}
 
     </div>
   );

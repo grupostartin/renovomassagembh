@@ -3,10 +3,11 @@ import { getWhatsAppLink } from '../data/siteData';
 import { MessageCircle, Sparkles, Calendar } from 'lucide-react';
 
 interface CTASectionProps {
+  bookingEnabled: boolean;
   onOpenBookingModal: () => void;
 }
 
-export const CTASection: React.FC<CTASectionProps> = ({ onOpenBookingModal }) => {
+export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   return (
     // Gradiente: verde militar escuro → preto esverdeado
     <section id="contato" className="py-20 bg-gradient-to-r from-[#2a2c1e] via-[#1f2117] to-[#15140C] text-[#F2F0EA] relative overflow-hidden border-y border-[#4D5240]/30">
@@ -50,13 +51,15 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenBookingModal }) =>
               <span>Agende via WhatsApp</span>
             </a>
 
-            <button
-              onClick={onOpenBookingModal}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#15140C]/60 hover:bg-[#15140C] text-[#F2F0EA] border border-[#4D5240]/45 hover:border-[#4E7A36] text-sm font-medium transition-all duration-300"
-            >
-              <Calendar className="w-4 h-4 text-[#4E7A36]" />
-              <span>Escolher Horário</span>
-            </button>
+            {bookingEnabled && (
+              <button
+                onClick={onOpenBookingModal}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#15140C]/60 hover:bg-[#15140C] text-[#F2F0EA] border border-[#4D5240]/45 hover:border-[#4E7A36] text-sm font-medium transition-all duration-300"
+              >
+                <Calendar className="w-4 h-4 text-[#4E7A36]" />
+                <span>Escolher Horário</span>
+              </button>
+            )}
           </div>
 
         </div>

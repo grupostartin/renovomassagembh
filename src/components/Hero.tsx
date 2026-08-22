@@ -20,10 +20,11 @@ const HERO_PARTICLES = Array.from({ length: 22 }, (_, i) => ({
 }));
 
 interface HeroProps {
+  bookingEnabled: boolean;
   onOpenBookingModal: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
+export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-[#15140C]">
       
@@ -109,13 +110,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingModal }) => {
               <span>Agendar minha massagem</span>
             </a>
 
-            <button
-              onClick={onOpenBookingModal}
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#15140C]/60 hover:bg-[#15140C] text-[#F2F0EA] border border-[#4D5240]/45 hover:border-[#4E7A36] text-sm font-medium transition-all duration-300 backdrop-blur-sm"
-            >
-              <Calendar className="w-4 h-4 text-[#4E7A36]" />
-              <span>Escolher serviço e horário</span>
-            </button>
+            {bookingEnabled && (
+              <button
+                onClick={onOpenBookingModal}
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#15140C]/60 hover:bg-[#15140C] text-[#F2F0EA] border border-[#4D5240]/45 hover:border-[#4E7A36] text-sm font-medium transition-all duration-300 backdrop-blur-sm"
+              >
+                <Calendar className="w-4 h-4 text-[#4E7A36]" />
+                <span>Escolher serviço e horário</span>
+              </button>
+            )}
           </div>
 
           {/* 3 Key Differentials */}

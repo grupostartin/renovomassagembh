@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import newLogo from '../assets/images/Captura_de_tela_2026-08-10_000636-removebg-preview.png';
+import brandLogo from '../assets/images/Captura_de_tela_2026-08-10_000636-removebg-preview.png';
 
 interface SplashScreenProps {
   onFinished: () => void;
@@ -160,16 +160,19 @@ export function SplashScreen({ onFinished }: SplashScreenProps) {
           }} />
           {/* Nova logo */}
           <img
-            src={newLogo}
+            src={brandLogo}
             alt="Renovo Massagem"
+            width={411}
+            height={315}
+            decoding="async"
+            draggable={false}
             style={{
               width: '170px',
               height: '170px',
               objectFit: 'contain',
               position: 'relative',
               zIndex: 1,
-              // A logo é verde escuro sobre fundo transparente — sem filtro
-              filter: 'drop-shadow(0 0 16px rgba(78,122,54,0.35))',
+              filter: 'brightness(1.65) saturate(0.9) drop-shadow(0 0 16px rgba(78,122,54,0.35))',
             }}
           />
         </div>

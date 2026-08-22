@@ -4,10 +4,11 @@ import { getWhatsAppLink } from '../data/siteData';
 import { Menu, X, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
+  bookingEnabled: boolean;
   onOpenBookingModal: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
+export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -123,15 +124,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBookingModal }) => {
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Agendar via WhatsApp</span>
             </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBookingModal();
-              }}
-              className="w-full py-2.5 text-center text-xs text-[#4E7A36] underline hover:text-[#F2F0EA]"
-            >
-              Simular Agendamento Rápido
-            </button>
+            {bookingEnabled && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenBookingModal();
+                }}
+                className="w-full py-2.5 text-center text-xs text-[#4E7A36] underline hover:text-[#F2F0EA]"
+              >
+                Simular Agendamento Rápido
+              </button>
+            )}
           </div>
         </div>
       )}
