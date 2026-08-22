@@ -10,14 +10,28 @@ export interface Service {
   recommendedFor: string;
 }
 
-export interface Testimonial {
+export interface GoogleReview {
   id: string;
-  name: string;
-  location: string;
+  authorName: string;
+  authorUri?: string;
+  authorPhotoUri?: string;
   rating: number;
   text: string;
-  avatarUrl: string;
-  serviceUsed: string;
+  relativePublishTimeDescription: string;
+  publishTime?: string;
+  googleMapsUri: string;
+  flagContentUri?: string;
+}
+
+export interface GoogleReviewsResponse {
+  source: 'google-places';
+  placeId: string;
+  placeName: string;
+  rating: number;
+  userRatingCount: number;
+  googleMapsUri: string;
+  orderBy: 'relevance';
+  reviews: GoogleReview[];
 }
 
 export interface Benefit {

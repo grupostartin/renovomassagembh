@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express, { type NextFunction, type Request, type Response } from 'express';
+import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
 import {
   BOOKING_ENABLED_IN_PRODUCTION,
@@ -15,13 +16,26 @@ import {
   getAvailability,
   getTodayInBookingTimeZone,
 } from './bookingStore.ts';
+import {
+  GOOGLE_REVIEWS_FALLBACK_URI,
+  GooglePlacesConfigurationError,
+  loadGoogleReviews,
+} from './googleReviews.ts';
+
+const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
+const projectRoot = path.resolve(currentDirectory, '..');
+dotenv.config({ path: path.join(projectRoot, '.env.local'), quiet: true });
+dotenv.config({ path: path.join(projectRoot, '.env'), quiet: true });
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
 const isBookingEnabled = !isProduction || BOOKING_ENABLED_IN_PRODUCTION;
-const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-const projectRoot = path.resolve(currentDirectory, '..');
+const GOOGLE_REVIEWS_WINDOW_MS = 60_000;
+const GOOGLE_REVIEWS_MAX_REQUESTS_PER_WINDOW = 30;
+let googleReviewsWindowStartedAt = Date.now();
+let googleReviewsRequestCount = 0;
+let googleReviewsRequestInFlight: ReturnType<typeof loadGoogleReviews> | null = null;
 
 app.disable('x-powered-by');
 app.use(express.json({ limit: '20kb' }));
@@ -32,7 +46,58 @@ app.get('/api/health', (_request, response) => {
     mode: 'demo',
     calendarConnected: false,
     bookingEnabled: isBookingEnabled,
+    googleReviewsConfigured: Boolean(process.env.GOOGLE_PLACES_API_KEY?.trim()),
   });
+});
+
+app.get('/api/google-reviews', async (_request, response) => {
+  response.set('Cache-Control', 'private, no-store, max-age=0');
+  response.set('Pragma', 'no-cache');
+
+  const now = Date.now();
+  if (now - googleReviewsWindowStartedAt >= GOOGLE_REVIEWS_WINDOW_MS) {
+    googleReviewsWindowStartedAt = now;
+    googleReviewsRequestCount = 0;
+  }
+
+  if (googleReviewsRequestCount >= GOOGLE_REVIEWS_MAX_REQUESTS_PER_WINDOW) {
+    response.set('Retry-After', '60');
+    response.status(429).json({
+      configured: Boolean(process.env.GOOGLE_PLACES_API_KEY?.trim()),
+      message: 'Muitas solicitações de avaliações. Tente novamente em instantes.',
+      googleMapsUri: GOOGLE_REVIEWS_FALLBACK_URI,
+    });
+    return;
+  }
+
+  googleReviewsRequestCount += 1;
+
+  try {
+    if (!googleReviewsRequestInFlight) {
+      googleReviewsRequestInFlight = loadGoogleReviews().finally(() => {
+        googleReviewsRequestInFlight = null;
+      });
+    }
+
+    const reviews = await googleReviewsRequestInFlight;
+    response.json(reviews);
+  } catch (error) {
+    if (error instanceof GooglePlacesConfigurationError) {
+      response.status(503).json({
+        configured: false,
+        message: error.message,
+        googleMapsUri: GOOGLE_REVIEWS_FALLBACK_URI,
+      });
+      return;
+    }
+
+    console.error('[Google Reviews] Falha ao carregar avaliações:', error);
+    response.status(502).json({
+      configured: true,
+      message: 'As avaliações do Google Maps estão temporariamente indisponíveis.',
+      googleMapsUri: GOOGLE_REVIEWS_FALLBACK_URI,
+    });
+  }
 });
 
 if (isBookingEnabled) {

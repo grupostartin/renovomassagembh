@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrandLogo } from './BrandLogo';
-import { SERVICES, getWhatsAppLink, INSTAGRAM_HANDLE, INSTAGRAM_URL, ADDRESS_FULL, GOOGLE_MAPS_URL, PHONE_DISPLAY, BUSINESS_HOURS, RATING, RATING_COUNT } from '../data/siteData';
+import { SERVICES, getWhatsAppLink, INSTAGRAM_HANDLE, INSTAGRAM_URL, ADDRESS_FULL, GOOGLE_MAPS_URL, GOOGLE_REVIEWS_URL, PHONE_DISPLAY, BUSINESS_HOURS } from '../data/siteData';
 import { Instagram, MapPin, Clock, MessageCircle, Heart, ChevronDown } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -121,9 +121,14 @@ export const Footer: React.FC = () => {
                 <svg className="w-4 h-4 text-[#4E7A36] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                <span className="text-[#F2F0EA]/75">
-                  <span className="text-[#4E7A36] font-semibold">{RATING.toFixed(1)}</span> · {RATING_COUNT} avaliações no Google
-                </span>
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F2F0EA]/75 hover:text-[#4E7A36] transition-colors"
+                >
+                  Veja as avaliações reais no Google Maps
+                </a>
               </li>
 
               {/* Address */}
@@ -183,8 +188,16 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F2F0EA]/45 gap-4">
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between text-xs text-[#F2F0EA]/45 gap-4">
           <p>© {currentYear} Renovo Massagem. Todos os direitos reservados.</p>
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Links legais">
+            <a href="/politica-de-privacidade" className="hover:text-[#4E7A36] transition-colors">
+              Política de Privacidade
+            </a>
+            <a href="/termos-de-uso" className="hover:text-[#4E7A36] transition-colors">
+              Termos de Uso
+            </a>
+          </nav>
           <p className="flex items-center gap-1">
             <span>Desenvolvido com</span>
             <Heart className="w-3.5 h-3.5 text-[#4E7A36] fill-current" />

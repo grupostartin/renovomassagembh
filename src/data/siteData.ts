@@ -1,4 +1,4 @@
-import { Service, Testimonial, Benefit, TrustBadge } from '../types';
+import { Service, Benefit, TrustBadge } from '../types';
 
 import heroMassageImg from '../assets/images/hero_massage_1784953104266.jpg';
 import hotStonesZenImg from '../assets/images/hot_stones_zen_1784953117607.jpg';
@@ -15,9 +15,8 @@ export const INSTAGRAM_URL = 'https://instagram.com/renovomassagembh';
 export const LOCATION_TEXT = 'Palmares, Belo Horizonte - MG';
 export const ADDRESS_FULL = 'R. José Cleto, 200 - Palmares, Belo Horizonte - MG, 31160-470';
 export const ADDRESS_DETAIL = 'R. José Cleto, 200 - Palmares, BH - MG | Atendimento com hora marcada';
-export const GOOGLE_MAPS_URL = 'https://maps.google.com/?q=R.+José+Cleto,+200,+Palmares,+Belo+Horizonte,+MG';
-export const RATING = 5.0;
-export const RATING_COUNT = 237;
+export const GOOGLE_MAPS_URL = 'https://share.google/jmwzEries0xE3eP6o';
+export const GOOGLE_REVIEWS_URL = GOOGLE_MAPS_URL;
 export const BUSINESS_HOURS = [
   { day: 'Segunda-feira', hours: '09:00 – 18:00', open: true },
   { day: 'Terça-feira',   hours: '09:00 – 18:00', open: true },
@@ -152,45 +151,6 @@ export const TRUST_BADGES: TrustBadge[] = [
     title: 'Higiene e Segurança',
     subtitle: 'Rigoroso protocolo de higienização, lençóis descartáveis e toalhas esterilizadas.',
     icon: 'ShieldCheck'
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Ana Paula S.',
-    location: 'Belo Horizonte, MG',
-    rating: 5,
-    text: 'Ambiente incrível e profissionais excepcionais! Saio sempre renovada e completamente relaxada. A massagem com pedras quentes é divina.',
-    avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200',
-    serviceUsed: 'Massagem com Pedras Quentes'
-  },
-  {
-    id: '2',
-    name: 'Marcos T.',
-    location: 'Belo Horizonte, MG',
-    rating: 5,
-    text: 'Melhor massagem terapêutica que já fiz em BH. Aliviou minhas dores crônicas nas costas e melhorou muito minha qualidade de sono e vida.',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
-    serviceUsed: 'Massagem Terapêutica'
-  },
-  {
-    id: '3',
-    name: 'Juliana M.',
-    location: 'Belo Horizonte, MG',
-    rating: 5,
-    text: 'Atendimento personalizado e técnicas incríveis. É meu refúgio de paz no meio da correria da semana. Recomendo de olhos fechados!',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
-    serviceUsed: 'Massagem Relaxante'
-  },
-  {
-    id: '4',
-    name: 'Camila R.',
-    location: 'Belo Horizonte, MG',
-    rating: 5,
-    text: 'A reflexologia podal é maravilhosa! Cheguei cansada com pernas pesadas e saí parecendo que estava pisando em nuvens. Nota 1000!',
-    avatarUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200',
-    serviceUsed: 'Reflexologia Podal'
   }
 ];
 

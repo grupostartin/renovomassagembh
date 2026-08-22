@@ -3,18 +3,20 @@ import brandLogo from '../assets/images/Captura_de_tela_2026-08-10_000636-remove
 
 interface BrandLogoProps {
   className?: string;
+  href?: string;
   variant?: 'light' | 'dark';
   showSubtitle?: boolean;
 }
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({ 
   className = '', 
+  href = '#home',
   variant = 'light',
   showSubtitle = true 
 }) => {
   return (
     <a
-      href="#home"
+      href={href}
       aria-label="Renovo Massagem — ir para o início"
       className={`inline-flex items-center gap-3 group cursor-pointer ${className}`}
     >

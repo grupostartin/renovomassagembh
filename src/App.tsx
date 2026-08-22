@@ -11,11 +11,12 @@ import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { BookingModal } from './components/BookingModal';
+import { LegalPage } from './components/LegalPage';
 import { BOOKING_ENABLED_IN_PRODUCTION } from './data/bookingConfig';
 
 const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 
-export default function App() {
+function MainSite() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
   const handleSplashFinished = useCallback(() => setSplashDone(true), []);
@@ -78,4 +79,18 @@ export default function App() {
 
     </div>
   );
+}
+
+export default function App() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+
+  if (path === '/politica-de-privacidade') {
+    return <LegalPage kind="privacy" />;
+  }
+
+  if (path === '/termos-de-uso') {
+    return <LegalPage kind="terms" />;
+  }
+
+  return <MainSite />;
 }
