@@ -28,7 +28,6 @@ export const Services: React.FC = () => {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#15140C] mb-4">
             Nossos Serviços
           </h2>
-          <div className="w-12 h-0.5 bg-[#8D8074] mx-auto mb-4 rounded-full" />
           <p className="text-base sm:text-lg text-[#15140C]/70 font-normal">
             Massagens desenvolvidas para cada necessidade e momento do seu corpo
           </p>

@@ -7,13 +7,24 @@ import { getGoogleReviews, GoogleReviewsApiError } from '../services/googleRevie
 const GOOGLE_REVIEW_POLICY_URL =
   'https://support.google.com/contributionpolicy/answer/7400114?hl=pt-BR';
 
-function RatingStars({ rating }: { rating: number }) {
+function RatingStars({
+  rating,
+  className = '',
+  starClassName = 'w-4 h-4',
+}: {
+  rating: number;
+  className?: string;
+  starClassName?: string;
+}) {
   return (
-    <div className="flex items-center gap-1 text-[#C4B49A]" aria-label={`${rating} de 5 estrelas`}>
+    <div
+      className={`flex items-center gap-1 text-[#C4B49A] ${className}`}
+      aria-label={`${rating} de 5 estrelas`}
+    >
       {Array.from({ length: 5 }, (_, index) => (
         <Star
           key={index}
-          className={`w-4 h-4 ${index < Math.round(rating) ? 'fill-current' : 'opacity-30'}`}
+          className={`${starClassName} ${index < Math.round(rating) ? 'fill-current' : 'opacity-30'}`}
         />
       ))}
     </div>
@@ -230,7 +241,11 @@ export const Testimonials = () => {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#F2F0EA] mb-4">
             O que nossos clientes dizem
           </h2>
-          <div className="w-12 h-0.5 bg-[#4E7A36] mx-auto mb-4 rounded-full" />
+          <RatingStars
+            rating={5}
+            className="justify-center mb-4"
+            starClassName="w-5 h-5"
+          />
           <p className="text-base sm:text-lg text-[#F2F0EA]/75 font-light">
             {reviewsData
               ? `${reviewsData.rating.toFixed(1).replace('.', ',')} de 5 · ${reviewsData.userRatingCount.toLocaleString('pt-BR')} avaliações no Google Maps`
