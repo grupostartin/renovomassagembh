@@ -3,10 +3,8 @@ import { getWhatsAppLink } from '../data/siteData';
 
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
-import serviceHotStonesImg from '../assets/images/service_hot_stones_1784953159084.jpg';
 import serviceReflexologyImg from '../assets/images/service_reflexology_1784953168367.jpg';
-import heroMassageImg from '../assets/images/hero_massage_1784953104266.jpg';
-import hotStonesZenImg from '../assets/images/hot_stones_zen_1784953117607.jpg';
+import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
 
 // ─── "Você precisa de que?" cards ───────────────────────────────────────────
 // Cada card representa uma queixa/necessidade real, com link direto ao WhatsApp
@@ -20,37 +18,37 @@ const NEED_CARDS = [
   },
   {
     id: 'cervical',
-    label: 'Aliviar\ndor na\nCervical',
-    image: serviceTherapeuticImg,
-    message: 'Olá! Estou com dor na cervical e quero agendar uma massagem terapêutica na Renovo Massagem.',
+    label: 'Cuidar da\nCervical',
+    image: serviceCranioFacialImg,
+    message: 'Olá! Estou com desconforto na região da cervical e quero saber qual dos serviços da Renovo Massagem é mais adequado para mim.',
     accent: '#4E7A36',
   },
   {
     id: 'insonia',
-    label: 'Combater\na Insônia',
-    image: hotStonesZenImg,
-    message: 'Olá! Sofro com insônia e estresse. Quero agendar uma sessão que me ajude a dormir melhor na Renovo Massagem.',
+    label: 'Desacelerar\ne Descansar',
+    image: serviceRelaxingImg,
+    message: 'Olá! Tenho dificuldade para desacelerar e quero conhecer uma opção relaxante da Renovo Massagem.',
     accent: '#4D5240',
   },
   {
     id: 'lombar',
-    label: 'Aliviar\ndor na\nLombar e\nCostas',
-    image: heroMassageImg,
-    message: 'Olá! Tenho dores na lombar e nas costas. Quero agendar uma massagem terapêutica na Renovo Massagem.',
+    label: 'Cuidar da\nLombar e\nCostas',
+    image: serviceTherapeuticImg,
+    message: 'Olá! Estou com desconforto na lombar e nas costas e quero saber qual dos serviços da Renovo Massagem é mais adequado para mim.',
     accent: '#4E7A36',
   },
   {
     id: 'estresse',
-    label: 'Reduzir\no Estresse\ne Ansiedade',
-    image: serviceHotStonesImg,
-    message: 'Olá! Preciso reduzir meu estresse e ansiedade. Quero agendar uma sessão de massagem na Renovo Massagem.',
+    label: 'Relaxar\no Corpo e\na Mente',
+    image: serviceRelaxingImg,
+    message: 'Olá! Quero uma pausa para relaxar e conhecer a melhor opção de massagem da Renovo Massagem para mim.',
     accent: '#4D5240',
   },
   {
     id: 'pernas',
-    label: 'Aliviar\ndor e\nCansaço\nnas Pernas',
+    label: 'Descansar\nPés e\nPernas',
     image: serviceReflexologyImg,
-    message: 'Olá! Minhas pernas estão cansadas e pesadas. Quero agendar uma reflexologia podal na Renovo Massagem.',
+    message: 'Olá! Meus pés e pernas estão cansados. Quero conhecer o Pés Relax da Renovo Massagem.',
     accent: '#4E7A36',
   },
 ];

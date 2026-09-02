@@ -21,15 +21,15 @@ export const Benefits: React.FC = () => {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D5240]/30 border border-[#4E7A36]/30 mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-[#4E7A36]" />
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#F2F0EA]">
-                  Transformação de Dentro para Fora
+                  Bem-estar que você sente
                 </span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#F2F0EA] mb-4">
-                Benefícios das Massagens
+                O que você pode sentir
               </h2>
               <p className="text-base sm:text-lg text-[#F2F0EA]/75 font-light leading-relaxed">
-                A massoterapia regular vai além do relaxamento imediato — ela reconfigura a resposta do seu corpo ao estresse físico e mental.
+                Cada pessoa responde de um jeito. A proposta é oferecer conforto, relaxamento e uma experiência ajustada às suas necessidades.
               </p>
             </div>
 
@@ -74,8 +74,10 @@ export const Benefits: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-[#4D5240]/40 shadow-2xl group">
               <img
-                src={HERO_IMAGES.zenStones}
-                alt="Pedras vulcânicas quentes e elementos naturais da Renovo Massagem"
+                src={HERO_IMAGES.careMoment}
+                alt="Sessão de bambuterapia em ambiente acolhedor"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[420px] lg:h-[520px] object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />

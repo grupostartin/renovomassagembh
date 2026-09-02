@@ -1,6 +1,6 @@
 {
   "name": "Renovo Massagem",
-  "description": "Renovo Massagem - Massoterapia e Bem-estar em Belo Horizonte",
+  "description": "Renovo Massagem - Massagens e cuidados corporais em Belo Horizonte",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

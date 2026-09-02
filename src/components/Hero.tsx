@@ -95,7 +95,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl text-[#F2F0EA]/80 font-light leading-relaxed mb-8 max-w-xl">
-            Massagens terapêuticas e rituais de bem-estar que aliviam tensões, reduzem o estresse diário e renovam a sua vitalidade em um ambiente calmo e acolhedor.
+            Massagens e rituais de cuidado pensados para relaxar, acolher diferentes necessidades e oferecer uma pausa de bem-estar em Belo Horizonte.
           </p>
 
           {/* CTA Group */}

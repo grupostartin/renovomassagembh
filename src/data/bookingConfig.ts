@@ -20,26 +20,48 @@ export interface BusinessDayConfig {
   close: string;
 }
 
+// Durações usadas somente na agenda de demonstração. Confirme os tempos
+// comerciais com a Renovo antes de liberar BOOKING_ENABLED_IN_PRODUCTION.
 export const BOOKING_SERVICES: BookingServiceConfig[] = [
+  {
+    id: 'bambuterapia',
+    title: 'Bambuterapia',
+    durations: [50],
+  },
+  {
+    id: 'cranio-facial',
+    title: 'Crânio Facial',
+    durations: [30],
+  },
+  {
+    id: 'esfoliacao-corporal',
+    title: 'Esfoliação Corporal',
+    durations: [45],
+  },
   {
     id: 'relaxante',
     title: 'Massagem Relaxante',
     durations: [60, 80],
   },
   {
-    id: 'terapeutica',
-    title: 'Massagem Terapêutica',
-    durations: [50, 80],
+    id: 'ventosaterapia',
+    title: 'Ventosaterapia',
+    durations: [30],
   },
   {
-    id: 'pedras-quentes',
-    title: 'Massagem com Pedras Quentes',
-    durations: [75],
+    id: 'desportiva',
+    title: 'Massagem Desportiva',
+    durations: [50],
   },
   {
-    id: 'reflexologia',
-    title: 'Reflexologia Podal',
-    durations: [45],
+    id: 'pes-relax',
+    title: 'Pés Relax',
+    durations: [30],
+  },
+  {
+    id: 'quick-massage',
+    title: 'Quick Massage',
+    durations: [15],
   },
 ];
 

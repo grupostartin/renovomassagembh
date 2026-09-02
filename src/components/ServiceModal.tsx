@@ -1,7 +1,7 @@
 import React from 'react';
 import { Service } from '../types';
 import { getWhatsAppLink } from '../data/siteData';
-import { X, Clock, CheckCircle2, AlertCircle, MessageCircle, Heart } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, AlertCircle, MessageCircle, Heart, Info } from 'lucide-react';
 
 interface ServiceModalProps {
   service: Service | null;
@@ -14,7 +14,12 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
   const whatsappMessage = `Olá! Gostaria de agendar uma sessão de *${service.title}* na Renovo Massagem.`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#15140C]/80 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#15140C]/80 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={`service-title-${service.id}`}
+    >
       
       <div 
         className="relative w-full max-w-2xl bg-[#F2F0EA] text-[#15140C] rounded-3xl shadow-2xl overflow-hidden my-8 border border-[#C4B49A]/25 animate-in zoom-in-95 duration-300"
@@ -35,16 +40,17 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
           <img
             src={service.image}
             alt={service.title}
+            decoding="async"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/90 via-[#15140C]/40 to-transparent" />
           <div className="absolute bottom-4 left-6 right-6 text-[#F2F0EA]">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4E7A36] text-[#F2F0EA] text-xs font-semibold mb-2">
-              <Clock className="w-3.5 h-3.5" />
-              {service.duration}
+              <Sparkles className="w-3.5 h-3.5" />
+              {service.category}
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-semibold tracking-wide">
+            <h3 id={`service-title-${service.id}`} className="font-serif text-2xl sm:text-3xl font-semibold tracking-wide">
               {service.title}
             </h3>
           </div>
@@ -82,11 +88,11 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
             </ul>
           </div>
 
-          {/* Indications */}
+          {/* When to choose */}
           <div>
             <h4 className="font-serif text-lg font-semibold text-[#15140C] mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#8D8074]" />
-              Indicações Comuns
+              Quando escolher
             </h4>
             <div className="flex flex-wrap gap-2">
               {service.indications.map((ind, idx) => (
@@ -96,6 +102,15 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
                 </span>
               ))}
             </div>
+          </div>
+
+          <div className="flex items-start gap-2.5 rounded-2xl border border-[#C4B49A]/30 bg-white/65 p-4 text-xs leading-relaxed text-[#15140C]/65">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-[#4D5240]" />
+            <p>
+              Informe antes da sessão se estiver grávida, usar anticoagulantes ou tiver lesões,
+              sensibilidade, doença de pele ou outra condição de saúde. Os serviços promovem
+              bem-estar e não substituem avaliação ou tratamento médico.
+            </p>
           </div>
 
         </div>

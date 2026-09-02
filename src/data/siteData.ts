@@ -1,12 +1,15 @@
 import { Service, Benefit, TrustBadge } from '../types';
 
 import heroMassageImg from '../assets/images/hero_massage_1784953104266.jpg';
-import hotStonesZenImg from '../assets/images/hot_stones_zen_1784953117607.jpg';
 import renovoSpaRoomImg from '../assets/images/renovo_spa_room_1784953126229.jpg';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
-import serviceHotStonesImg from '../assets/images/service_hot_stones_1784953159084.jpg';
 import serviceReflexologyImg from '../assets/images/service_reflexology_1784953168367.jpg';
+import serviceBambuterapiaImg from '../assets/images/service_bambuterapia.png';
+import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
+import serviceEsfoliacaoImg from '../assets/images/service_esfoliacao_corporal.png';
+import serviceVentosaterapiaImg from '../assets/images/service_ventosaterapia.png';
+import serviceQuickMassageImg from '../assets/images/service_quick_massage.png';
 
 export const WHATSAPP_NUMBER = '5531994046817'; // (31) 99404-6817
 export const PHONE_DISPLAY = '(31) 99404-6817';
@@ -29,107 +32,171 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroMassageImg,
-  zenStones: hotStonesZenImg,
+  careMoment: serviceBambuterapiaImg,
   spaRoom: renovoSpaRoomImg,
 };
 
 export const SERVICES: Service[] = [
   {
+    id: 'bambuterapia',
+    title: 'Bambuterapia',
+    shortDescription: 'Hastes de bambu deslizam e rolam pelo corpo em uma massagem ritmada, firme e envolvente.',
+    fullDescription: 'A bambuterapia combina manobras manuais com hastes de bambu de diferentes tamanhos. Os movimentos de deslizamento, rolamento e pressão são ajustados à sensibilidade de cada pessoa, criando uma experiência corporal dinâmica e profundamente relaxante.',
+    category: 'Corporal',
+    benefits: [
+      'Sensação de relaxamento e bem-estar corporal',
+      'Pressão ampla e uniforme sobre a musculatura',
+      'Atenção especial às áreas mais sobrecarregadas',
+      'Experiência sensorial diferente da massagem manual'
+    ],
+    indications: ['Cansaço muscular', 'Tensão do dia a dia', 'Preferência por pressão moderada ou firme', 'Momento de autocuidado'],
+    image: serviceBambuterapiaImg,
+    recommendedFor: 'Quem gosta de uma massagem corporal ritmada, com pressão adaptada'
+  },
+  {
+    id: 'cranio-facial',
+    title: 'Crânio Facial',
+    shortDescription: 'Toques suaves na cabeça, face e pescoço para desacelerar e aliviar a sensação de tensão cotidiana.',
+    fullDescription: 'Uma massagem focalizada no couro cabeludo, testa, têmporas, face e parte superior do pescoço. As manobras são leves e cuidadosas, pensadas para proporcionar conforto, relaxar a expressão e oferecer uma pausa restauradora em meio à rotina.',
+    category: 'Cabeça e face',
+    benefits: [
+      'Relaxamento concentrado na cabeça e na face',
+      'Sensação de conforto na testa, têmporas e couro cabeludo',
+      'Pausa relaxante para quem passa muito tempo diante de telas',
+      'Toque suave, acolhedor e pouco invasivo'
+    ],
+    indications: ['Tensão cotidiana na face', 'Rotina intensa de telas', 'Cansaço mental', 'Preferência por massagem suave'],
+    image: serviceCranioFacialImg,
+    recommendedFor: 'Quem busca uma experiência delicada e focada na região da cabeça'
+  },
+  {
+    id: 'esfoliacao-corporal',
+    title: 'Esfoliação Corporal',
+    shortDescription: 'Cuidado suave que remove células mortas da superfície e deixa a pele com toque mais liso e renovado.',
+    fullDescription: 'O ritual utiliza um esfoliante corporal adequado, aplicado com movimentos suaves e circulares. Depois da remoção do produto, a pele recebe hidratação para preservar o conforto e a maciez. A intensidade é escolhida conforme a sensibilidade e o tipo de pele.',
+    category: 'Cuidado da pele',
+    benefits: [
+      'Remoção suave de células mortas da superfície',
+      'Textura mais lisa e toque uniforme',
+      'Preparo da pele para a etapa de hidratação',
+      'Ritual corporal revigorante e acolhedor'
+    ],
+    indications: ['Pele áspera ou opaca', 'Renovação do toque da pele', 'Preparação para hidratação', 'Ritual de autocuidado'],
+    image: serviceEsfoliacaoImg,
+    recommendedFor: 'Quem deseja renovar a textura da pele com um cuidado delicado'
+  },
+  {
     id: 'relaxante',
     title: 'Massagem Relaxante',
-    shortDescription: 'Alívio do estresse e tensão muscular. Promove relaxamento profundo e bem-estar.',
-    fullDescription: 'Desenvolvida com movimentos suaves, ritmados e envolventes combinados com óleos essenciais puros. A Massagem Relaxante acalma o sistema nervoso, alivia o estresse do cotidiano e devolve a sensação de paz ao corpo e à mente.',
-    duration: '60 min ou 80 min',
+    shortDescription: 'Movimentos suaves e ritmados para aliviar a sensação de tensão e criar uma pausa de tranquilidade.',
+    fullDescription: 'A massagem relaxante utiliza movimentos contínuos, suaves e envolventes, com pressão ajustada ao seu conforto. É um momento de pausa para desacelerar, perceber o corpo e sair da sessão com uma agradável sensação de leveza e bem-estar.',
+    category: 'Relaxamento',
     benefits: [
-      'Indução ao relaxamento físico e mental profundo',
-      'Alívio imediato da ansiedade e estresse muscular',
-      'Estimulação da produção de serotonina e endorfina',
-      'Melhora da elasticidade e hidratação da pele'
+      'Sensação de relaxamento físico e mental',
+      'Redução da percepção de tensão muscular',
+      'Pausa acolhedora para uma rotina intensa',
+      'Movimentos e pressão adaptados à sua preferência'
     ],
-    indications: ['Estresse crônico', 'Tensão emocional', 'Insônia e ansiedade', 'Fadiga acumulada'],
+    indications: ['Estresse do dia a dia', 'Tensão muscular leve', 'Cansaço acumulado', 'Dificuldade para desacelerar'],
     image: serviceRelaxingImg,
     recommendedFor: 'Quem busca desacelerar a rotina e repor energias'
   },
   {
-    id: 'terapeutica',
-    title: 'Massagem Terapêutica',
-    shortDescription: 'Técnicas específicas para dores musculares, tensões e problemas posturais.',
-    fullDescription: 'Focada na descompressão muscular e no alívio de nós de tensão (pontos gatilho). Utiliza pressão moderada a firme direcionada para regiões de maior desconforto como cervical, ombros e lombar.',
-    duration: '50 min ou 80 min',
+    id: 'ventosaterapia',
+    title: 'Ventosaterapia',
+    shortDescription: 'Ventosas secas criam uma sucção controlada sobre a pele como complemento ao cuidado corporal.',
+    fullDescription: 'Na ventosaterapia seca, ventosas são posicionadas sobre a pele e produzem sucção por um período controlado. A intensidade e o tempo são ajustados após uma conversa inicial. A técnica pode deixar marcas circulares temporárias e é oferecida como prática complementar de bem-estar.',
+    category: 'Técnica complementar',
     benefits: [
-      'Desativação de pontos gatilho dolorosos',
-      'Melhora significativa da postura e amplitude de movimento',
-      'Aceleração da recuperação muscular pós-esforço',
-      'Redução de enxaquecas tensionais'
+      'Estímulo sensorial concentrado em áreas específicas',
+      'Sensação de relaxamento localizado',
+      'Pode complementar outras manobras de massagem',
+      'Aplicação ajustada ao conforto de cada pessoa'
     ],
-    indications: ['Dores nas costas e pescoço', 'Tensão por trabalho no computador', 'Rigidez muscular', 'Postura incorreta'],
+    indications: ['Tensão muscular localizada', 'Quem já conhece a técnica', 'Cuidado corporal complementar', 'Atendimento após triagem'],
+    image: serviceVentosaterapiaImg,
+    recommendedFor: 'Quem deseja incluir ventosas secas em um atendimento personalizado'
+  },
+  {
+    id: 'desportiva',
+    title: 'Massagem Desportiva',
+    shortDescription: 'Manobras direcionadas às regiões mais exigidas no treino, adaptadas ao momento e ao objetivo do praticante.',
+    fullDescription: 'A massagem desportiva trabalha os tecidos moles com pressão e ritmo definidos conforme a modalidade, a fase do treino e a sensibilidade do praticante. O foco pode estar na preparação, no conforto depois do esforço ou na atenção a grupos musculares mais solicitados.',
+    category: 'Recuperação esportiva',
+    benefits: [
+      'Sensação de recuperação após o esforço físico',
+      'Atenção aos grupos musculares mais utilizados',
+      'Conforto e relaxamento entre treinos',
+      'Pressão adaptada à rotina e ao objetivo esportivo'
+    ],
+    indications: ['Praticantes de atividade física', 'Pós-treino', 'Rotina frequente de exercícios', 'Sobrecarga muscular do esporte'],
     image: serviceTherapeuticImg,
-    recommendedFor: 'Pessoas com dores pontuais, contraturas e estresse postural'
+    recommendedFor: 'Pessoas ativas que desejam cuidado muscular alinhado à rotina de treinos'
   },
   {
-    id: 'pedras-quentes',
-    title: 'Massagem com Pedras Quentes',
-    shortDescription: 'Combinação de calor e técnicas especiais para relaxamento profundo e renovação.',
-    fullDescription: 'Uma experiência sensorial inesquecível que combina deslizamentos manuais e o calor reconfortante de pedras vulcânicas aquecidas. O calor penetra profundamente na musculatura, proporcionando alívio térmico imediato e reequilíbrio energético.',
-    duration: '75 min',
+    id: 'pes-relax',
+    title: 'Pés Relax',
+    shortDescription: 'Massagem concentrada nos pés e tornozelos para oferecer descanso, conforto e uma agradável sensação de leveza.',
+    fullDescription: 'Pés Relax é um ritual de cuidado focado nos pés e tornozelos. Deslizamentos, pressões confortáveis e mobilizações suaves são combinados para descansar uma região muito exigida pela rotina, sempre com intensidade adaptada à sua sensibilidade.',
+    category: 'Pés e tornozelos',
     benefits: [
-      'Vasodilatação profunda e desintoxicação tecidual',
-      'Acalma a mente em níveis profundos de meditação',
-      'Sensação prolongada de acolhimento e calor vital',
-      'Alívio do cansaço muscular acumulado'
+      'Sensação de descanso para pés cansados',
+      'Relaxamento concentrado nos pés e tornozelos',
+      'Conforto após longos períodos em pé',
+      'Pausa rápida e acolhedora na rotina'
     ],
-    indications: ['Tensão acumulada grave', 'Sensibilidade ao frio/rigidez', 'Ansiedade e estresse', 'Agotamento físico'],
-    image: serviceHotStonesImg,
-    recommendedFor: 'Uma pausa revigorante e ritual de puro autocuidado'
-  },
-  {
-    id: 'reflexologia',
-    title: 'Reflexologia Podal',
-    shortDescription: 'Estimula pontos específicos dos pés que correspondem a órgãos e sistemas do corpo.',
-    fullDescription: 'Técnica milenar baseada no estímulo de zonas reflexas nos pés relacionadas a diversos órgãos e estruturas corporais. Promove alívio imediato no peso das pernas e reequilíbrio de todo o organismo.',
-    duration: '45 min',
-    benefits: [
-      'Sensação imediata de leveza nas pernas e pés',
-      'Estimulação da drenagem e circulação periférica',
-      'Equilíbrio e alívio do estresse acumulado no corpo',
-      'Harmonização das funções orgânicas'
-    ],
-    indications: ['Pés cansados e inchados', 'Retenção de líquidos', 'Ansiedade e insônia', 'Rotina com longos períodos em pé'],
+    indications: ['Pés cansados', 'Rotina em pé', 'Uso prolongado de calçados', 'Preferência por atendimento focalizado'],
     image: serviceReflexologyImg,
-    recommendedFor: 'Alívio rápido do cansaço diário e revitalização global'
+    recommendedFor: 'Quem sente os pés sobrecarregados e quer uma pausa de cuidado'
+  },
+  {
+    id: 'quick-massage',
+    title: 'Quick Massage',
+    shortDescription: 'Sessão expressa, realizada com roupa em cadeira ergonômica, com foco em costas, ombros, braços e pescoço.',
+    fullDescription: 'A Quick Massage é uma opção prática para uma pausa breve de bem-estar. A pessoa permanece vestida e acomodada em uma cadeira ergonômica enquanto recebe manobras rápidas nas costas, ombros, braços e pescoço. É especialmente conveniente para rotinas corridas e ações em empresas ou eventos.',
+    category: 'Sessão expressa',
+    benefits: [
+      'Atendimento rápido e sem necessidade de trocar de roupa',
+      'Foco nas regiões mais exigidas pela postura sentada',
+      'Pausa de relaxamento que cabe em uma rotina corrida',
+      'Formato prático para empresas e eventos'
+    ],
+    indications: ['Rotina de escritório', 'Pouco tempo disponível', 'Tensão em ombros e pescoço', 'Ações corporativas e eventos'],
+    image: serviceQuickMassageImg,
+    recommendedFor: 'Quem precisa de uma pausa prática, rápida e confortável'
   }
 ];
 
 export const BENEFITS: Benefit[] = [
   {
     id: 'estresse',
-    title: 'Alívio do estresse e ansiedade',
-    description: 'Reduz os níveis de cortisol no organismo, acalmando os batimentos cardíacos e a mente acelerada.'
+    title: 'Relaxamento e pausa mental',
+    description: 'Movimentos confortáveis podem favorecer uma sensação de calma e ajudar você a desacelerar por alguns momentos.'
   },
   {
-    id: 'circulacao',
-    title: 'Melhora da circulação sanguínea',
-    description: 'Estimula o fluxo de oxigênio e nutrientes para as células, facilitando a eliminação de toxinas.'
+    id: 'conforto',
+    title: 'Conforto muscular',
+    description: 'A massagem pode proporcionar alívio temporário da sensação de tensão, especialmente em pescoço e ombros.'
   },
   {
     id: 'dores',
-    title: 'Redução de dores musculares',
-    description: 'Solta nós de tensão e alivia espasmos e contraturas decorrentes de má postura ou esforço.'
+    title: 'Cuidado direcionado',
+    description: 'Pressão, ritmo e áreas de atenção são ajustados ao seu conforto, à sua rotina e ao objetivo da sessão.'
   },
   {
     id: 'sono',
-    title: 'Melhora da qualidade do sono',
-    description: 'Estimula ondas cerebrais de relaxamento, ajudando a combater a insônia e noites agitadas.'
+    title: 'Um ritual para desacelerar',
+    description: 'A experiência relaxante pode tornar o fim do dia mais tranquilo, sem substituir cuidados para problemas de sono.'
   },
   {
     id: 'energia',
-    title: 'Aumento da disposição e energia',
-    description: 'Revitaliza o corpo exausto, renovando o vigor físico e mental para a sua rotina.'
+    title: 'Pausa que cabe na rotina',
+    description: 'Há opções corporais, focalizadas e expressas para diferentes momentos, do autocuidado ao pós-treino.'
   },
   {
     id: 'bem-estar',
-    title: 'Promoção do bem-estar geral',
-    description: 'Conecta corpo e mente em um momento exclusivo de pausa e cuidado individualizado.'
+    title: 'Sensação de bem-estar',
+    description: 'Um ambiente acolhedor e o toque profissional transformam a sessão em um momento dedicado a você.'
   }
 ];
 

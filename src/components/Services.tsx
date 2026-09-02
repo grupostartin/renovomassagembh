@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SERVICES } from '../data/siteData';
 import { Service } from '../types';
 import { ServiceModal } from './ServiceModal';
-import { ArrowRight, Clock, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
@@ -21,7 +21,7 @@ export const Services: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D5240]/10 border border-[#4D5240]/25 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#4D5240]" />
             <span className="text-xs font-semibold uppercase tracking-widest text-[#4D5240]">
-              Especialidades Terapêuticas
+              Massagens e rituais de cuidado
             </span>
           </div>
 
@@ -29,11 +29,11 @@ export const Services: React.FC = () => {
             Nossos Serviços
           </h2>
           <p className="text-base sm:text-lg text-[#15140C]/70 font-normal">
-            Massagens desenvolvidas para cada necessidade e momento do seu corpo
+            Oito experiências de cuidado para diferentes necessidades e momentos
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {SERVICES.map((service) => (
             <div
@@ -47,15 +47,17 @@ export const Services: React.FC = () => {
                   <img
                     src={service.image}
                     alt={service.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   
-                  {/* Duration Badge */}
+                  {/* Service Category Badge */}
                   <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-xs font-medium backdrop-blur-md">
-                    <Clock className="w-3 h-3 text-[#4E7A36]" />
-                    {service.duration}
+                    <Sparkles className="w-3 h-3 text-[#9BC47C]" />
+                    {service.category}
                   </span>
                 </div>
 
