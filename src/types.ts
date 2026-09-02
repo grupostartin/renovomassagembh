@@ -34,12 +34,6 @@ export interface GoogleReviewsResponse {
   reviews: GoogleReview[];
 }
 
-export interface Benefit {
-  id: string;
-  title: string;
-  description: string;
-}
-
 export interface TrustBadge {
   id: string;
   title: string;

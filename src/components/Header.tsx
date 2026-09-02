@@ -28,7 +28,6 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
     { name: 'Home', href: '#home' },
     { name: 'Sobre', href: '#sobre' },
     { name: 'Serviços', href: '#servicos' },
-    { name: 'Benefícios', href: '#beneficios' },
     { name: 'Depoimentos', href: '#depoimentos' },
     { name: 'Contato', href: '#contato' },
   ];
@@ -37,15 +36,15 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#15140C]/95 backdrop-blur-md border-b border-[#4D5240]/25 py-3.5 shadow-lg shadow-black/30' 
-          : 'bg-gradient-to-b from-[#15140C]/80 via-[#15140C]/40 to-transparent py-5'
+          ? 'bg-[#F2F0EA]/95 backdrop-blur-md border-b border-[#4D5240]/15 py-3.5 shadow-lg shadow-[#4D5240]/10' 
+          : 'bg-[#E9DFD0]/80 backdrop-blur-sm border-b border-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <BrandLogo />
+          <BrandLogo variant="dark" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -53,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-[#F2F0EA]/80 hover:text-[#4E7A36] transition-colors duration-200 relative group py-1"
+                className="text-sm font-medium text-[#34412F]/80 hover:text-[#4E7A36] transition-colors duration-200 relative group py-1"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#4E7A36] group-hover:w-full transition-all duration-300 rounded-full" />
@@ -88,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-lg text-[#F2F0EA] hover:bg-[#4D5240]/20 transition-colors"
+              className="p-2.5 rounded-lg text-[#34412F] hover:bg-[#4D5240]/10 transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -100,20 +99,20 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#15140C] border-b border-[#4D5240]/30 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-[#F2F0EA] border-b border-[#4D5240]/20 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top duration-200">
           <nav className="flex flex-col space-y-2 pt-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-base font-medium text-[#F2F0EA] hover:text-[#4E7A36] hover:bg-[#4D5240]/20 transition-all"
+                className="px-3 py-2.5 rounded-lg text-base font-medium text-[#34412F] hover:text-[#4E7A36] hover:bg-[#4D5240]/10 transition-all"
               >
                 {link.name}
               </a>
             ))}
           </nav>
-          <div className="pt-3 border-t border-[#4D5240]/20 flex flex-col gap-2">
+          <div className="pt-3 border-t border-[#4D5240]/15 flex flex-col gap-2">
             <a
               href={getWhatsAppLink()}
               target="_blank"
@@ -130,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
                   setMobileMenuOpen(false);
                   onOpenBookingModal();
                 }}
-                className="w-full py-2.5 text-center text-xs text-[#4E7A36] underline hover:text-[#F2F0EA]"
+                className="w-full py-2.5 text-center text-xs text-[#4E7A36] underline hover:text-[#34412F]"
               >
                 Simular Agendamento Rápido
               </button>

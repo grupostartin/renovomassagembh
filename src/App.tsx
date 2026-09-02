@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { MobileNeedPicker } from './components/MobileNeedPicker';
 import { Services } from './components/Services';
-import { Benefits } from './components/Benefits';
 import { About } from './components/About';
 import { Testimonials } from './components/Testimonials';
 import { CTASection } from './components/CTASection';
@@ -47,16 +46,13 @@ function MainSite() {
         {/* 2. Services Section */}
         <Services />
 
-        {/* 3. Benefits Section */}
-        <Benefits />
-
-        {/* 4. About Section */}
+        {/* 3. About Section */}
         <About />
 
-        {/* 5. Testimonials Section */}
+        {/* 4. Testimonials Section */}
         <Testimonials />
 
-        {/* 6. Final CTA Banner */}
+        {/* 5. Final CTA Banner */}
         <CTASection
           bookingEnabled={isBookingEnabled}
           onOpenBookingModal={() => setBookingModalOpen(true)}

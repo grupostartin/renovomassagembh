@@ -1,4 +1,4 @@
-import { Service, Benefit, TrustBadge } from '../types';
+import { Service, TrustBadge } from '../types';
 
 import heroMassageImg from '../assets/images/hero_massage_1784953104266.jpg';
 import renovoSpaRoomImg from '../assets/images/renovo_spa_room_1784953126229.jpg';
@@ -32,7 +32,6 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroMassageImg,
-  careMoment: serviceBambuterapiaImg,
   spaRoom: renovoSpaRoomImg,
 };
 
@@ -164,39 +163,6 @@ export const SERVICES: Service[] = [
     indications: ['Rotina de escritório', 'Pouco tempo disponível', 'Tensão em ombros e pescoço', 'Ações corporativas e eventos'],
     image: serviceQuickMassageImg,
     recommendedFor: 'Quem precisa de uma pausa prática, rápida e confortável'
-  }
-];
-
-export const BENEFITS: Benefit[] = [
-  {
-    id: 'estresse',
-    title: 'Relaxamento e pausa mental',
-    description: 'Movimentos confortáveis podem favorecer uma sensação de calma e ajudar você a desacelerar por alguns momentos.'
-  },
-  {
-    id: 'conforto',
-    title: 'Conforto muscular',
-    description: 'A massagem pode proporcionar alívio temporário da sensação de tensão, especialmente em pescoço e ombros.'
-  },
-  {
-    id: 'dores',
-    title: 'Cuidado direcionado',
-    description: 'Pressão, ritmo e áreas de atenção são ajustados ao seu conforto, à sua rotina e ao objetivo da sessão.'
-  },
-  {
-    id: 'sono',
-    title: 'Um ritual para desacelerar',
-    description: 'A experiência relaxante pode tornar o fim do dia mais tranquilo, sem substituir cuidados para problemas de sono.'
-  },
-  {
-    id: 'energia',
-    title: 'Pausa que cabe na rotina',
-    description: 'Há opções corporais, focalizadas e expressas para diferentes momentos, do autocuidado ao pós-treino.'
-  },
-  {
-    id: 'bem-estar',
-    title: 'Sensação de bem-estar',
-    description: 'Um ambiente acolhedor e o toque profissional transformam a sessão em um momento dedicado a você.'
   }
 ];
 
