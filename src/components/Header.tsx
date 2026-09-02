@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#F2F0EA]/95 backdrop-blur-md border-b border-[#4D5240]/15 py-3.5 shadow-lg shadow-[#4D5240]/10' 
+          ? 'bg-[#F2F0EA]/95 backdrop-blur-md border-b border-[#4D5240]/15 py-3.5 shadow-lg shadow-[#4D5240]/10'
           : 'bg-[#E9DFD0]/80 backdrop-blur-sm border-b border-transparent py-5'
       }`}
     >
