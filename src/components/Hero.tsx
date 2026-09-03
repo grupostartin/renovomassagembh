@@ -32,12 +32,12 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
         <img
           src={HERO_IMAGES.main}
           alt="Recepção da Renovo Massagem em Belo Horizonte"
-          className="w-full h-full object-cover object-[46%_center] sm:object-[38%_center] lg:object-left brightness-[1.04] contrast-[0.96]"
+          className="w-full h-full object-cover object-[72%_center] md:object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-[#E9DFD0]/65 md:bg-[#E9DFD0]/10" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.98)_0%,rgba(233,223,208,0.90)_25%,rgba(233,223,208,0.30)_46%,rgba(233,223,208,0.04)_62%,rgba(233,223,208,0.01)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/35 via-transparent to-[#F8F5EF]/10" />
+        <div className="absolute inset-0 bg-[#E9DFD0]/55 md:bg-[#E9DFD0]/5" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.30)_0%,rgba(233,223,208,0.14)_30%,rgba(233,223,208,0.00)_56%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/20 via-transparent to-[#F8F5EF]/5" />
       </div>
 
       <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/45 blur-3xl pointer-events-none" />
