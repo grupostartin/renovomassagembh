@@ -26,21 +26,9 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
-      
-      {/* Background image softened into the beige hero */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={HERO_IMAGES.main}
-          alt="Sessão de massagem relaxante na Renovo Massagem"
-          className="w-full h-full object-cover object-[65%_center] scale-105 opacity-25 saturate-50 animate-fade-in"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#E9DFD0] via-[#E9DFD0]/95 to-[#E9DFD0]/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F2F0EA]/65 via-transparent to-[#E9DFD0]/45" />
-      </div>
-
-      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#4E7A36]/10 blur-3xl pointer-events-none" />
+    <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
+      <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/70 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 right-0 w-[34rem] h-[34rem] rounded-full bg-[#4E7A36]/10 blur-3xl pointer-events-none" />
 
       {/* Floating ambient particles */}
       <style>{`
@@ -75,7 +63,8 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-2xl lg:max-w-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(480px,1.1fr)] items-center gap-12 lg:gap-10 xl:gap-16">
+          <div className="max-w-2xl">
           
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/70 border border-[#4E7A36]/25 backdrop-blur-sm mb-6 shadow-sm">
@@ -86,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-wide text-[#34412F] leading-[1.08] mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.08] mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
             Renove seu corpo.<br />
             <span className="text-[#4E7A36] italic font-semibold">Reequilibre</span>{' '}
             <span className="text-[#3F5D35]">sua mente.</span>
@@ -98,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           </p>
 
           {/* CTA Group */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
             <a
               href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar uma massagem na Renovo Massagem.')}
               target="_blank"
@@ -153,6 +142,29 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
               </div>
             </div>
 
+          </div>
+
+          </div>
+
+          {/* Foto real do espaço, mantida clara e em destaque */}
+          <div className="relative lg:pl-2 animate-fade-in">
+            <div className="absolute -inset-5 rounded-[2.5rem] bg-[#F8F5EF]/55 blur-2xl" aria-hidden="true" />
+            <figure className="relative rounded-[2rem] bg-[#F8F5EF]/85 p-2.5 border border-white/70 shadow-[0_28px_70px_rgba(77,82,64,0.22)]">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[1.55rem] bg-[#D9CDBD]">
+                <img
+                  src={HERO_IMAGES.main}
+                  alt="Recepção da Renovo Massagem em Belo Horizonte"
+                  className="w-full h-full object-cover object-center"
+                  fetchPriority="high"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/20 via-transparent to-white/5 pointer-events-none" />
+                <figcaption className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 inline-flex items-center gap-2 rounded-full bg-[#F8F5EF]/90 px-4 py-2 text-xs sm:text-sm font-semibold text-[#3F5D35] shadow-lg backdrop-blur-md border border-white/70">
+                  <span className="w-2 h-2 rounded-full bg-[#4E7A36]" />
+                  Nosso espaço no bairro Palmares
+                </figcaption>
+              </div>
+            </figure>
+            <div className="absolute -right-4 -bottom-4 w-24 h-24 rounded-full border border-[#4E7A36]/20" aria-hidden="true" />
           </div>
 
         </div>

@@ -1,6 +1,6 @@
 import { Service, TrustBadge } from '../types';
 
-import heroMassageImg from '../assets/images/hero_massage_1784953104266.jpg';
+import heroRenovoPersonalImg from '../assets/images/hero_renovo_personal.webp';
 import renovoSpaRoomImg from '../assets/images/renovo_spa_room_1784953126229.jpg';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
@@ -31,7 +31,7 @@ export const BUSINESS_HOURS = [
 ];
 
 export const HERO_IMAGES = {
-  main: heroMassageImg,
+  main: heroRenovoPersonalImg,
   spaRoom: renovoSpaRoomImg,
 };
 
