@@ -32,11 +32,11 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
         <img
           src={HERO_IMAGES.main}
           alt="Recepção da Renovo Massagem em Belo Horizonte"
-          className="w-full h-full object-cover object-center brightness-[1.04] contrast-[0.96]"
+          className="w-full h-full object-cover object-[46%_center] sm:object-[38%_center] lg:object-left brightness-[1.04] contrast-[0.96]"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-[#E9DFD0]/10" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.98)_0%,rgba(233,223,208,0.88)_30%,rgba(233,223,208,0.48)_50%,rgba(233,223,208,0.08)_76%,rgba(233,223,208,0.02)_100%)]" />
+        <div className="absolute inset-0 bg-[#E9DFD0]/65 md:bg-[#E9DFD0]/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.98)_0%,rgba(233,223,208,0.90)_25%,rgba(233,223,208,0.30)_46%,rgba(233,223,208,0.04)_62%,rgba(233,223,208,0.01)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/35 via-transparent to-[#F8F5EF]/10" />
       </div>
 
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/70 border border-[#4E7A36]/25 backdrop-blur-sm mb-6 shadow-sm">
@@ -93,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-[#34412F]/75 font-normal leading-relaxed mb-8 max-w-xl">
+          <p className="text-base sm:text-lg md:text-xl text-[#34412F]/75 font-normal leading-relaxed mb-8 max-w-lg">
             Massagens e rituais de cuidado pensados para relaxar, acolher diferentes necessidades e oferecer uma pausa de bem-estar em Belo Horizonte.
           </p>
 
