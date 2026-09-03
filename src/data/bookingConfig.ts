@@ -29,14 +29,9 @@ export const BOOKING_SERVICES: BookingServiceConfig[] = [
     durations: [50],
   },
   {
-    id: 'cranio-facial',
-    title: 'Crânio Facial',
-    durations: [30],
-  },
-  {
-    id: 'esfoliacao-corporal',
-    title: 'Esfoliação Corporal',
-    durations: [45],
+    id: 'cranio-facial-pes-relax',
+    title: 'Crânio Facial + Pés Relax',
+    durations: [60],
   },
   {
     id: 'relaxante',
@@ -52,16 +47,6 @@ export const BOOKING_SERVICES: BookingServiceConfig[] = [
     id: 'desportiva',
     title: 'Massagem Desportiva',
     durations: [50],
-  },
-  {
-    id: 'pes-relax',
-    title: 'Pés Relax',
-    durations: [30],
-  },
-  {
-    id: 'quick-massage',
-    title: 'Quick Massage',
-    durations: [15],
   },
 ];
 

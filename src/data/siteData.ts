@@ -1,15 +1,12 @@
 import { Service, TrustBadge } from '../types';
 
 import heroRenovoAdjustedImg from '../assets/images/hero_renovo_adjusted.webp';
-import renovoSpaRoomImg from '../assets/images/renovo_spa_room_1784953126229.jpg';
+import aboutRenovoSpaceImg from '../assets/images/about_renovo_space.webp';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
-import serviceReflexologyImg from '../assets/images/service_reflexology_1784953168367.jpg';
 import serviceBambuterapiaImg from '../assets/images/service_bambuterapia.png';
 import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
-import serviceEsfoliacaoImg from '../assets/images/service_esfoliacao_corporal.png';
 import serviceVentosaterapiaImg from '../assets/images/service_ventosaterapia.png';
-import serviceQuickMassageImg from '../assets/images/service_quick_massage.png';
 
 export const WHATSAPP_NUMBER = '5531994046817'; // (31) 99404-6817
 export const PHONE_DISPLAY = '(31) 99404-6817';
@@ -32,7 +29,7 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroRenovoAdjustedImg,
-  spaRoom: renovoSpaRoomImg,
+  spaRoom: aboutRenovoSpaceImg,
 };
 
 export const SERVICES: Service[] = [
@@ -53,36 +50,20 @@ export const SERVICES: Service[] = [
     recommendedFor: 'Quem gosta de uma massagem corporal ritmada, com pressão adaptada'
   },
   {
-    id: 'cranio-facial',
-    title: 'Crânio Facial',
-    shortDescription: 'Toques suaves na cabeça, face e pescoço para desacelerar e aliviar a sensação de tensão cotidiana.',
-    fullDescription: 'Uma massagem focalizada no couro cabeludo, testa, têmporas, face e parte superior do pescoço. As manobras são leves e cuidadosas, pensadas para proporcionar conforto, relaxar a expressão e oferecer uma pausa restauradora em meio à rotina.',
-    category: 'Cabeça e face',
+    id: 'cranio-facial-pes-relax',
+    title: 'Crânio Facial + Pés Relax',
+    shortDescription: 'Um cuidado combinado para cabeça, face, pés e tornozelos, com toques suaves e profundamente relaxantes.',
+    fullDescription: 'A sessão combina a massagem crânio facial, com manobras leves no couro cabeludo, testa, têmporas, face e pescoço, ao Pés Relax, focado em pés e tornozelos. É uma experiência integrada para desacelerar e cuidar de duas regiões muito exigidas pela rotina.',
+    category: 'Cabeça, face e pés',
     benefits: [
       'Relaxamento concentrado na cabeça e na face',
       'Sensação de conforto na testa, têmporas e couro cabeludo',
-      'Pausa relaxante para quem passa muito tempo diante de telas',
-      'Toque suave, acolhedor e pouco invasivo'
+      'Sensação de descanso para pés e tornozelos',
+      'Toque suave e acolhedor em uma experiência combinada'
     ],
-    indications: ['Tensão cotidiana na face', 'Rotina intensa de telas', 'Cansaço mental', 'Preferência por massagem suave'],
+    indications: ['Cansaço mental', 'Tensão cotidiana na face', 'Pés cansados', 'Preferência por massagem suave'],
     image: serviceCranioFacialImg,
-    recommendedFor: 'Quem busca uma experiência delicada e focada na região da cabeça'
-  },
-  {
-    id: 'esfoliacao-corporal',
-    title: 'Esfoliação Corporal',
-    shortDescription: 'Cuidado suave que remove células mortas da superfície e deixa a pele com toque mais liso e renovado.',
-    fullDescription: 'O ritual utiliza um esfoliante corporal adequado, aplicado com movimentos suaves e circulares. Depois da remoção do produto, a pele recebe hidratação para preservar o conforto e a maciez. A intensidade é escolhida conforme a sensibilidade e o tipo de pele.',
-    category: 'Cuidado da pele',
-    benefits: [
-      'Remoção suave de células mortas da superfície',
-      'Textura mais lisa e toque uniforme',
-      'Preparo da pele para a etapa de hidratação',
-      'Ritual corporal revigorante e acolhedor'
-    ],
-    indications: ['Pele áspera ou opaca', 'Renovação do toque da pele', 'Preparação para hidratação', 'Ritual de autocuidado'],
-    image: serviceEsfoliacaoImg,
-    recommendedFor: 'Quem deseja renovar a textura da pele com um cuidado delicado'
+    recommendedFor: 'Quem busca relaxar a cabeça e, na mesma sessão, descansar os pés'
   },
   {
     id: 'relaxante',
@@ -131,38 +112,6 @@ export const SERVICES: Service[] = [
     indications: ['Praticantes de atividade física', 'Pós-treino', 'Rotina frequente de exercícios', 'Sobrecarga muscular do esporte'],
     image: serviceTherapeuticImg,
     recommendedFor: 'Pessoas ativas que desejam cuidado muscular alinhado à rotina de treinos'
-  },
-  {
-    id: 'pes-relax',
-    title: 'Pés Relax',
-    shortDescription: 'Massagem concentrada nos pés e tornozelos para oferecer descanso, conforto e uma agradável sensação de leveza.',
-    fullDescription: 'Pés Relax é um ritual de cuidado focado nos pés e tornozelos. Deslizamentos, pressões confortáveis e mobilizações suaves são combinados para descansar uma região muito exigida pela rotina, sempre com intensidade adaptada à sua sensibilidade.',
-    category: 'Pés e tornozelos',
-    benefits: [
-      'Sensação de descanso para pés cansados',
-      'Relaxamento concentrado nos pés e tornozelos',
-      'Conforto após longos períodos em pé',
-      'Pausa rápida e acolhedora na rotina'
-    ],
-    indications: ['Pés cansados', 'Rotina em pé', 'Uso prolongado de calçados', 'Preferência por atendimento focalizado'],
-    image: serviceReflexologyImg,
-    recommendedFor: 'Quem sente os pés sobrecarregados e quer uma pausa de cuidado'
-  },
-  {
-    id: 'quick-massage',
-    title: 'Quick Massage',
-    shortDescription: 'Sessão expressa, realizada com roupa em cadeira ergonômica, com foco em costas, ombros, braços e pescoço.',
-    fullDescription: 'A Quick Massage é uma opção prática para uma pausa breve de bem-estar. A pessoa permanece vestida e acomodada em uma cadeira ergonômica enquanto recebe manobras rápidas nas costas, ombros, braços e pescoço. É especialmente conveniente para rotinas corridas e ações em empresas ou eventos.',
-    category: 'Sessão expressa',
-    benefits: [
-      'Atendimento rápido e sem necessidade de trocar de roupa',
-      'Foco nas regiões mais exigidas pela postura sentada',
-      'Pausa de relaxamento que cabe em uma rotina corrida',
-      'Formato prático para empresas e eventos'
-    ],
-    indications: ['Rotina de escritório', 'Pouco tempo disponível', 'Tensão em ombros e pescoço', 'Ações corporativas e eventos'],
-    image: serviceQuickMassageImg,
-    recommendedFor: 'Quem precisa de uma pausa prática, rápida e confortável'
   }
 ];
 

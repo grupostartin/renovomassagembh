@@ -28,7 +28,7 @@ dotenv.config({ path: path.join(projectRoot, '.env.local'), quiet: true });
 dotenv.config({ path: path.join(projectRoot, '.env'), quiet: true });
 
 const app = express();
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 5000;
 const isProduction = process.env.NODE_ENV === 'production';
 const isBookingEnabled = !isProduction || BOOKING_ENABLED_IN_PRODUCTION;
 const GOOGLE_REVIEWS_WINDOW_MS = 60_000;
