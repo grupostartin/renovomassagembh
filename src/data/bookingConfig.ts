@@ -24,29 +24,39 @@ export interface BusinessDayConfig {
 // comerciais com a Renovo antes de liberar BOOKING_ENABLED_IN_PRODUCTION.
 export const BOOKING_SERVICES: BookingServiceConfig[] = [
   {
-    id: 'bambuterapia',
-    title: 'Bambuterapia',
-    durations: [50],
+    id: 'desportiva',
+    title: 'Massagem Desportiva',
+    durations: [30, 60],
   },
   {
-    id: 'cranio-facial-pes-relax',
-    title: 'Crânio Facial + Pés Relax',
+    id: 'alivio-pes-cabeca',
+    title: 'Alívio Pés & Cabeça',
+    durations: [60],
+  },
+  {
+    id: 'pedras-quentes',
+    title: 'Pedras Quentes',
+    durations: [60, 90],
+  },
+  {
+    id: 'terapeutica-foco-na-dor',
+    title: 'Terapêutica — Foco na Dor',
+    durations: [60],
+  },
+  {
+    id: 'drenagem-linfatica-convencional',
+    title: 'Drenagem Linfática Convencional',
+    durations: [60],
+  },
+  {
+    id: 'relaxante-com-ventosas',
+    title: 'Relaxante + Ventosas',
     durations: [60],
   },
   {
     id: 'relaxante',
     title: 'Massagem Relaxante',
-    durations: [60, 80],
-  },
-  {
-    id: 'ventosaterapia',
-    title: 'Ventosaterapia',
-    durations: [30],
-  },
-  {
-    id: 'desportiva',
-    title: 'Massagem Desportiva',
-    durations: [50],
+    durations: [60, 90],
   },
 ];
 

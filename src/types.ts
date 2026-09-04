@@ -4,6 +4,11 @@ export interface Service {
   shortDescription: string;
   fullDescription: string;
   category: string;
+  sessionOptions: {
+    durationMinutes: number;
+    price?: number;
+    note?: string;
+  }[];
   benefits: string[];
   indications: string[];
   image: string;

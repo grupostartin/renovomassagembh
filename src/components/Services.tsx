@@ -4,6 +4,13 @@ import { Service } from '../types';
 import { ServiceModal } from './ServiceModal';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 0,
+  }).format(price);
+
 export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
@@ -29,7 +36,7 @@ export const Services: React.FC = () => {
             Nossos Serviços
           </h2>
           <p className="text-base sm:text-lg text-[#15140C]/70 font-normal">
-            Oito experiências de cuidado para diferentes necessidades e momentos
+            Sete experiências de cuidado para diferentes necessidades e momentos
           </p>
         </div>
 
@@ -69,6 +76,17 @@ export const Services: React.FC = () => {
                   <p className="hidden sm:block text-sm text-[#15140C]/70 font-normal leading-relaxed mb-4 line-clamp-3">
                     {service.shortDescription}
                   </p>
+                  <div className="mt-2 flex flex-wrap gap-1.5 sm:mt-0">
+                    {service.sessionOptions.map((option) => (
+                      <span
+                        key={option.durationMinutes}
+                        className="inline-flex items-center rounded-full bg-[#4D5240]/10 px-2 py-1 text-xs font-semibold leading-none text-[#4D5240]"
+                      >
+                        {option.durationMinutes} min
+                        {option.price ? ` · ${formatPrice(option.price)}` : ''}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 

@@ -1,12 +1,18 @@
 import React from 'react';
 import { Service } from '../types';
 import { getWhatsAppLink } from '../data/siteData';
-import { X, Sparkles, CheckCircle2, AlertCircle, MessageCircle, Heart, Info } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, AlertCircle, MessageCircle, Heart, Info, Clock3 } from 'lucide-react';
 
 interface ServiceModalProps {
   service: Service | null;
   onClose: () => void;
 }
+
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(price);
 
 export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
   if (!service) return null;
@@ -62,6 +68,36 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
           <p className="text-base text-[#15140C]/80 leading-relaxed font-normal">
             {service.fullDescription}
           </p>
+
+          {/* Session duration and price options */}
+          <div>
+            <h4 className="font-serif text-lg font-semibold text-[#15140C] mb-3 flex items-center gap-2">
+              <Clock3 className="h-4 w-4 text-[#4D5240]" />
+              Duração e valores
+            </h4>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {service.sessionOptions.map((option) => (
+                <div
+                  key={option.durationMinutes}
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-[#C4B49A]/30 bg-white/70 px-4 py-3"
+                >
+                  <div>
+                    <p className="text-sm font-semibold text-[#15140C]">
+                      {option.durationMinutes} minutos
+                    </p>
+                    {option.note && (
+                      <p className="mt-0.5 text-xs text-[#15140C]/60">{option.note}</p>
+                    )}
+                  </div>
+                  {option.price && (
+                    <strong className="shrink-0 text-sm text-[#4D5240]">
+                      {formatPrice(option.price)}
+                    </strong>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Recommended For Box */}
           <div className="p-4 rounded-2xl bg-[#4D5240]/10 border border-[#4D5240]/20 flex items-start gap-3">

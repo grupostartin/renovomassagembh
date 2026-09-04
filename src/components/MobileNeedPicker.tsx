@@ -48,7 +48,7 @@ const NEED_CARDS = [
     id: 'pernas',
     label: 'Descansar\nPés e\nPernas',
     image: serviceReflexologyImg,
-    message: 'Olá! Meus pés e pernas estão cansados. Quero conhecer a sessão Crânio Facial + Pés Relax da Renovo Massagem.',
+    message: 'Olá! Meus pés estão cansados. Quero conhecer a sessão Alívio Pés & Cabeça da Renovo Massagem.',
     accent: '#4E7A36',
   },
 ];
