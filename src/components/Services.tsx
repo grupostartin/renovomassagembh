@@ -34,16 +34,16 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {SERVICES.map((service) => (
             <div
               key={service.id}
               onClick={() => setSelectedService(service)}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#C4B49A]/20 hover:border-[#4D5240] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-1"
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#C4B49A]/20 hover:border-[#4D5240] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer transform hover:-translate-y-1"
             >
               <div>
                 {/* Image Container */}
-                <div className="relative h-52 w-full overflow-hidden">
+                <div className="relative h-32 sm:h-52 w-full overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -55,35 +55,36 @@ export const Services: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   
                   {/* Service Category Badge */}
-                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-xs font-medium backdrop-blur-md">
+                  <span className="absolute top-3 right-3 hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-xs font-medium backdrop-blur-md">
                     <Sparkles className="w-3 h-3 text-[#9BC47C]" />
                     {service.category}
                   </span>
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6">
-                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#15140C] mb-2 group-hover:text-[#4D5240] transition-colors">
+                <div className="p-3.5 sm:p-6">
+                  <h3 className="font-serif text-lg leading-tight sm:text-2xl font-semibold text-[#15140C] mb-0 sm:mb-2 group-hover:text-[#4D5240] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-[#15140C]/70 font-normal leading-relaxed mb-4 line-clamp-3">
+                  <p className="hidden sm:block text-sm text-[#15140C]/70 font-normal leading-relaxed mb-4 line-clamp-3">
                     {service.shortDescription}
                   </p>
                 </div>
               </div>
 
               {/* Action Link Footer */}
-              <div className="px-6 pb-6 pt-0">
+              <div className="px-3.5 pb-4 pt-0 sm:px-6 sm:pb-6">
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     setSelectedService(service);
                   }}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#4D5240] group-hover:text-[#15140C] transition-colors"
+                  className="inline-flex w-full items-center justify-between gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#4D5240] group-hover:text-[#15140C] transition-colors"
                 >
-                  <span>Saiba mais</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="sm:hidden">Detalhes</span>
+                  <span className="hidden sm:inline">Saiba mais</span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
 
