@@ -4,13 +4,6 @@ import { Service } from '../types';
 import { ServiceModal } from './ServiceModal';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 0,
-  }).format(price);
-
 export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
@@ -83,7 +76,6 @@ export const Services: React.FC = () => {
                         className="inline-flex items-center rounded-full bg-[#4D5240]/10 px-2 py-1 text-xs font-semibold leading-none text-[#4D5240]"
                       >
                         {option.durationMinutes} min
-                        {option.price ? ` · ${formatPrice(option.price)}` : ''}
                       </span>
                     ))}
                   </div>

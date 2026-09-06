@@ -8,12 +8,6 @@ interface ServiceModalProps {
   onClose: () => void;
 }
 
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(price);
-
 export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
   if (!service) return null;
 
@@ -69,11 +63,11 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
             {service.fullDescription}
           </p>
 
-          {/* Session duration and price options */}
+          {/* Session duration options */}
           <div>
             <h4 className="font-serif text-lg font-semibold text-[#15140C] mb-3 flex items-center gap-2">
               <Clock3 className="h-4 w-4 text-[#4D5240]" />
-              Duração e valores
+              Duração
             </h4>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {service.sessionOptions.map((option) => (
@@ -89,11 +83,6 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
                       <p className="mt-0.5 text-xs text-[#15140C]/60">{option.note}</p>
                     )}
                   </div>
-                  {option.price && (
-                    <strong className="shrink-0 text-sm text-[#4D5240]">
-                      {formatPrice(option.price)}
-                    </strong>
-                  )}
                 </div>
               ))}
             </div>

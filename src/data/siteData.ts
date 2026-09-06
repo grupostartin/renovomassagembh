@@ -42,8 +42,8 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem desportiva trabalha os tecidos moles com manobras definidas conforme a modalidade, o momento do treino e a sensibilidade de cada pessoa. O atendimento pode ser mais breve e localizado ou abranger diferentes grupos musculares.',
     category: 'Recuperação esportiva',
     sessionOptions: [
-      { durationMinutes: 30, price: 110 },
-      { durationMinutes: 60, price: 200 },
+      { durationMinutes: 30 },
+      { durationMinutes: 60 },
     ],
     benefits: [
       'Atenção aos grupos musculares mais solicitados',
@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
     shortDescription: 'Uma sessão focada nos pés e na cabeça, com toques suaves para desacelerar e relaxar.',
     fullDescription: 'O Alívio Pés & Cabeça reúne manobras suaves e cuidadosas nessas duas regiões. A sessão foi pensada como uma pausa acolhedora para quem deseja descansar os pés e aliviar a sensação de tensão acumulada na cabeça.',
     category: 'Cabeça e pés',
-    sessionOptions: [{ durationMinutes: 60, price: 180 }],
+    sessionOptions: [{ durationMinutes: 60 }],
     benefits: [
       'Relaxamento concentrado em duas regiões muito exigidas',
       'Sensação de descanso para os pés',
@@ -79,8 +79,8 @@ export const SERVICES: Service[] = [
     fullDescription: 'A sessão combina massagem relaxante com a aplicação de pedras aquecidas em temperatura confortável. A opção de 90 minutos amplia o ritual com escalda-pés, conforme a duração escolhida.',
     category: 'Relaxamento térmico',
     sessionOptions: [
-      { durationMinutes: 60, price: 195 },
-      { durationMinutes: 90, price: 240, note: 'Inclui escalda-pés' },
+      { durationMinutes: 60 },
+      { durationMinutes: 90, note: 'Inclui escalda-pés' },
     ],
     benefits: [
       'Calor confortável durante a massagem',
@@ -115,7 +115,7 @@ export const SERVICES: Service[] = [
     shortDescription: 'Movimentos leves, lentos e ritmados compõem uma sessão corporal de toque suave e cuidadoso.',
     fullDescription: 'A drenagem linfática convencional é realizada com movimentos manuais leves, lentos e ritmados. Antes da sessão, o atendimento considera as necessidades, o conforto e as condições informadas por cada pessoa.',
     category: 'Toque suave',
-    sessionOptions: [{ durationMinutes: 60, price: 180 }],
+    sessionOptions: [{ durationMinutes: 60 }],
     benefits: [
       'Manobras suaves e cadenciadas',
       'Experiência corporal delicada',
@@ -132,7 +132,7 @@ export const SERVICES: Service[] = [
     shortDescription: 'Massagem corporal relaxante combinada à aplicação controlada de ventosas.',
     fullDescription: 'A sessão reúne manobras de massagem relaxante e a aplicação de ventosas secas em pontos definidos após uma conversa inicial. A intensidade e o tempo são ajustados ao conforto de cada pessoa; as ventosas podem deixar marcas circulares temporárias.',
     category: 'Técnica combinada',
-    sessionOptions: [{ durationMinutes: 60, price: 180 }],
+    sessionOptions: [{ durationMinutes: 60 }],
     benefits: [
       'Combinação de massagem manual e ventosas',
       'Sensação de relaxamento corporal',
@@ -150,8 +150,8 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem relaxante utiliza movimentos contínuos, suaves e envolventes, com pressão ajustada ao seu conforto. É um momento de pausa para desacelerar, perceber o corpo e sair da sessão com uma agradável sensação de leveza e bem-estar.',
     category: 'Relaxamento',
     sessionOptions: [
-      { durationMinutes: 60, price: 180 },
-      { durationMinutes: 90, price: 230 },
+      { durationMinutes: 60 },
+      { durationMinutes: 90 },
     ],
     benefits: [
       'Sensação de relaxamento físico e mental',

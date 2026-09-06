@@ -32,10 +32,10 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
         <img
           src={HERO_IMAGES.main}
           alt="Recepção da Renovo Massagem em Belo Horizonte"
-          className="w-full h-full object-cover object-[72%_center] md:object-center"
+          className="w-full h-full object-cover object-[91%_center] md:object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-[#E9DFD0]/55 md:bg-[#E9DFD0]/5" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.68)_0%,rgba(233,223,208,0.50)_58%,rgba(233,223,208,0.16)_100%)] md:bg-[#E9DFD0]/5" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.30)_0%,rgba(233,223,208,0.14)_30%,rgba(233,223,208,0.00)_56%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/20 via-transparent to-[#F8F5EF]/5" />
       </div>
