@@ -9,9 +9,12 @@ export const Footer: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Serviços', href: '#servicos' },
-    { name: 'Depoimentos', href: '#depoimentos' },
+    { name: 'O que você precisa?', href: '#necessidades' },
+    { name: 'Nossas Massagens', href: '#servicos' },
+    { name: 'Sobre a Renovo', href: '#sobre' },
+    { name: 'Avaliações', href: '#depoimentos' },
+    { name: 'Localização', href: '#localizacao' },
+    { name: 'Dúvidas', href: '#duvidas' },
     { name: 'Contato', href: '#contato' },
   ];
 
@@ -24,20 +27,39 @@ export const Footer: React.FC = () => {
           
           {/* Brand Manifesto & Info (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Logo com variante light (fica branca sobre fundo escuro) */}
+            {/* Logo com variante light */}
             <BrandLogo variant="light" />
-            <p className="text-sm text-[#F2F0EA]/70 font-light leading-relaxed max-w-sm pt-2">
-              Seu bem-estar é nossa prioridade. Oferecemos técnicas de massoterapia pensadas para renovar corpo, mente e espírito em um ambiente calmo e acolhedor em Belo Horizonte.
+            <p className="text-sm text-[#F2F0EA]/80 font-light leading-relaxed max-w-sm pt-2">
+              Uma pausa na rotina para aliviar tensões, relaxar o corpo e cuidar do seu bem-estar.
             </p>
-            <div className="pt-2 flex items-center gap-3">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#9BC47C]">
+              Cuidado, Alívio e Bem-estar.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-xs font-medium text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
               >
-                <Instagram className="w-4 h-4 text-[#4E7A36]" />
-                <span>{INSTAGRAM_HANDLE}</span>
+                <Instagram className="w-3.5 h-3.5 text-[#4E7A36]" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#4E7A36]" />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href="#localizacao"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+              >
+                <MapPin className="w-3.5 h-3.5 text-[#4E7A36]" />
+                <span>Localização</span>
               </a>
             </div>
           </div>

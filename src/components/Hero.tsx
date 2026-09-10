@@ -78,29 +78,27 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
         <div className="max-w-xl">
           
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/70 border border-[#4E7A36]/25 backdrop-blur-sm mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/85 border border-[#4E7A36]/30 backdrop-blur-sm mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#4E7A36] animate-ping" />
-            <span className="text-xs font-semibold tracking-widest text-[#3F5D35] uppercase">
-              Atendimento Exclusivo em Belo Horizonte - MG
+            <span className="text-xs font-bold tracking-widest text-[#3F5D35] uppercase">
+              Uma pausa na sua rotina • Palmares, BH
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.08] mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
-            Renove seu corpo.<br />
-            <span className="text-[#4E7A36] italic font-semibold">Reequilibre</span>{' '}
-            <span className="text-[#3F5D35]">sua mente.</span>
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.1] mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
+            Seu corpo também precisa de uma <span className="text-[#4E7A36] italic font-semibold">pausa.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-[#34412F]/75 font-normal leading-relaxed mb-8 max-w-lg">
-            Massagens e rituais de cuidado pensados para relaxar, acolher diferentes necessidades e oferecer uma pausa de bem-estar em Belo Horizonte.
+          <p className="text-base sm:text-lg md:text-xl text-[#34412F]/85 font-normal leading-relaxed mb-8 max-w-lg">
+            Massagens para aliviar dores e tensões, relaxar o corpo e proporcionar bem-estar em meio à correria do dia a dia.
           </p>
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
             <a
-              href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar uma massagem na Renovo Massagem.')}
+              href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo Massagem.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#4D5240] transition-all duration-300 shadow-xl shadow-[#4E7A36]/20 hover:shadow-[#4E7A36]/40 hover:-translate-y-0.5 active:translate-y-0 text-center"
@@ -123,33 +121,33 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           {/* 3 Key Differentials */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-[#4D5240]/20">
             
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/70 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Ambiente Acolhedor</h4>
-                <p className="text-xs text-[#34412F]/60">Pausa e calma no seu dia</p>
+                <h4 className="text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
+                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">Um espaço simples, confortável e preparado para receber você.</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/70 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Profissionais Qualificados</h4>
-                <p className="text-xs text-[#34412F]/60">Técnicas especializadas</p>
+                <h4 className="text-sm font-semibold text-[#34412F]">Massagem de qualidade</h4>
+                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">Técnica, atenção e cuidado em cada atendimento.</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/70 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
                 <HeartHandshake className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Atendimento Personalizado</h4>
-                <p className="text-xs text-[#34412F]/60">Foco nas suas necessidades</p>
+                <h4 className="text-sm font-semibold text-[#34412F]">Fácil acesso</h4>
+                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">No coração do bairro Palmares, em uma das principais vias da região.</p>
               </div>
             </div>
 

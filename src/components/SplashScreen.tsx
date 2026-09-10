@@ -189,7 +189,7 @@ export function SplashScreen({ onFinished }: SplashScreenProps) {
             margin: 0,
             maxWidth: '300px',
           }}>
-            Permita-se descansar. Cada toque é um convite ao equilíbrio do corpo e da mente.
+            Seu corpo também precisa de uma pausa.
           </p>
         </div>
 
@@ -249,7 +249,7 @@ export function SplashScreen({ onFinished }: SplashScreenProps) {
           letterSpacing: '0.06em',
           margin: 0,
         }}>
-          "Renovar é cuidar de si."
+          "Cuidado, Alívio e Bem-estar."
         </p>
       </div>
 

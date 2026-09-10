@@ -25,30 +25,30 @@ export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBo
             </div>
 
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#4E7A36] mb-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-[#9BC47C] mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Atendimento Personalizado BH</span>
+                <span>Palmares • Belo Horizonte</span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#F2F0EA] tracking-wide mb-3">
-                Pronta para renovar?
+                Seu corpo também precisa de uma pausa.
               </h2>
 
-              <p className="text-base sm:text-lg text-[#F2F0EA]/80 font-light leading-relaxed">
-                Agende sua massagem e sinta a diferença no seu corpo e na sua mente. Atendimento com hora marcada em Belo Horizonte.
+              <p className="text-base sm:text-lg text-[#F2F0EA]/85 font-light leading-relaxed">
+                Reserve um momento para aliviar as tensões, descansar e cuidar de você.
               </p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
             <a
-              href={getWhatsAppLink('Olá! Gostaria de verificar horários disponíveis para agendar uma massagem.')}
+              href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#4D5240] transition-all duration-300 shadow-xl shadow-[#4E7A36]/20 hover:shadow-[#4E7A36]/35 hover:-translate-y-0.5 active:translate-y-0 text-center"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#3F5D35] transition-all duration-300 shadow-xl shadow-[#4E7A36]/20 hover:shadow-[#4E7A36]/35 hover:-translate-y-0.5 active:translate-y-0 text-center"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
-              <span>Agende via WhatsApp</span>
+              <span>Agendar minha massagem</span>
             </a>
 
             {bookingEnabled && (

@@ -2,23 +2,32 @@ import { useState, useCallback } from 'react';
 import { SplashScreen } from './components/SplashScreen';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { MobileNeedPicker } from './components/MobileNeedPicker';
+import { NeedPicker } from './components/NeedPicker';
 import { Services } from './components/Services';
 import { About } from './components/About';
 import { Testimonials } from './components/Testimonials';
+import { LocationSection } from './components/LocationSection';
+import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { BookingModal } from './components/BookingModal';
 import { LegalPage } from './components/LegalPage';
 import { BOOKING_ENABLED_IN_PRODUCTION } from './data/bookingConfig';
+import { NeedOption } from './data/siteData';
 
 const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 
 function MainSite() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
+  const [activeNeedFilterId, setActiveNeedFilterId] = useState<string | null>(null);
+
   const handleSplashFinished = useCallback(() => setSplashDone(true), []);
+
+  const handleSelectNeed = (need: NeedOption) => {
+    setActiveNeedFilterId(need.id);
+  };
 
   return (
     <div className="min-h-screen bg-[#15140C] text-[#F2F0EA] selection:bg-[#4E7A36] selection:text-[#F2F0EA] font-sans antialiased overflow-x-hidden">
@@ -34,25 +43,37 @@ function MainSite() {
 
       {/* Main Content Sections */}
       <main>
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section (Primeira tela) */}
         <Hero
           bookingEnabled={isBookingEnabled}
           onOpenBookingModal={() => setBookingModalOpen(true)}
         />
 
-        {/* 1b. Mobile-only: "Você precisa de que hoje?" picker */}
-        <MobileNeedPicker />
+        {/* 2. Escolha por necessidade */}
+        <NeedPicker
+          activeNeedId={activeNeedFilterId}
+          onSelectNeed={handleSelectNeed}
+        />
 
-        {/* 2. Services Section */}
-        <Services />
+        {/* 3. Nossas massagens & Massagem em dupla */}
+        <Services
+          activeNeedFilterId={activeNeedFilterId}
+          onClearFilter={() => setActiveNeedFilterId(null)}
+        />
 
-        {/* 3. About Section */}
+        {/* 4. Sobre a Renovo, Mensagem da Fundadora e Atendimento Profissional */}
         <About />
 
-        {/* 4. Testimonials Section */}
+        {/* 5. Avaliações reais do Google */}
         <Testimonials />
 
-        {/* 5. Final CTA Banner */}
+        {/* 6. Localização (Destaque Palmares - Belo Horizonte) */}
+        <LocationSection />
+
+        {/* 7. Dúvidas frequentes (FAQ) */}
+        <FAQSection />
+
+        {/* 8. Chamada final */}
         <CTASection
           bookingEnabled={isBookingEnabled}
           onOpenBookingModal={() => setBookingModalOpen(true)}

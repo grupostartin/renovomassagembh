@@ -238,19 +238,28 @@ export const Testimonials = () => {
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#F2F0EA] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#F2F0EA] mb-3">
             O que nossos clientes dizem
           </h2>
+          <p className="text-base sm:text-lg text-[#F2F0EA]/85 font-normal mb-4">
+            Experiências de quem já passou pela Renovo.
+          </p>
           <RatingStars
             rating={5}
-            className="justify-center mb-4"
+            className="justify-center mb-6"
             starClassName="w-5 h-5"
           />
-          <p className="text-base sm:text-lg text-[#F2F0EA]/75 font-light">
-            {reviewsData
-              ? `${reviewsData.rating.toFixed(1).replace('.', ',')} de 5 · ${reviewsData.userRatingCount.toLocaleString('pt-BR')} avaliações no Google Maps`
-              : 'Experiências publicadas no perfil oficial da Renovo Massagem'}
-          </p>
+          <div className="flex justify-center mb-2">
+            <a
+              href={googleMapsUri}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-xs uppercase tracking-wider hover:bg-[#4D5240] transition-colors shadow-lg"
+            >
+              <span>Ver avaliações no Google</span>
+              <ExternalLink className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         {loading ? <LoadingCards /> : null}

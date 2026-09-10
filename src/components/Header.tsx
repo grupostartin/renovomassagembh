@@ -25,11 +25,12 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
+    { name: 'Início', href: '#home' },
+    { name: 'Massagens', href: '#servicos' },
     { name: 'Sobre', href: '#sobre' },
-    { name: 'Serviços', href: '#servicos' },
-    { name: 'Depoimentos', href: '#depoimentos' },
-    { name: 'Contato', href: '#contato' },
+    { name: 'Localização', href: '#localizacao' },
+    { name: 'Dúvidas', href: '#duvidas' },
+    { name: 'Avaliações', href: '#depoimentos' },
   ];
 
   return (

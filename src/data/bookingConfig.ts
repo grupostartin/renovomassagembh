@@ -24,14 +24,19 @@ export interface BusinessDayConfig {
 // comerciais com a Renovo antes de liberar BOOKING_ENABLED_IN_PRODUCTION.
 export const BOOKING_SERVICES: BookingServiceConfig[] = [
   {
+    id: 'relaxante',
+    title: 'Massagem Relaxante',
+    durations: [60, 90],
+  },
+  {
+    id: 'terapeutica',
+    title: 'Massagem Terapêutica',
+    durations: [60],
+  },
+  {
     id: 'desportiva',
     title: 'Massagem Desportiva',
     durations: [30, 60],
-  },
-  {
-    id: 'alivio-pes-cabeca',
-    title: 'Alívio Pés & Cabeça',
-    durations: [60],
   },
   {
     id: 'pedras-quentes',
@@ -39,24 +44,14 @@ export const BOOKING_SERVICES: BookingServiceConfig[] = [
     durations: [60, 90],
   },
   {
-    id: 'terapeutica-foco-na-dor',
-    title: 'Terapêutica — Foco na Dor',
+    id: 'alivio-pes-cabeca',
+    title: 'Alívio Pés & Cabeça',
     durations: [60],
   },
   {
-    id: 'drenagem-linfatica-convencional',
-    title: 'Drenagem Linfática Convencional',
-    durations: [60],
-  },
-  {
-    id: 'relaxante-com-ventosas',
-    title: 'Relaxante + Ventosas',
-    durations: [60],
-  },
-  {
-    id: 'relaxante',
-    title: 'Massagem Relaxante',
-    durations: [60, 90],
+    id: 'pes-relax',
+    title: 'Pés Relax',
+    durations: [45],
   },
 ];
 
