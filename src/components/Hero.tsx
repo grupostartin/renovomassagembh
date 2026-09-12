@@ -1,5 +1,6 @@
 import React from 'react';
 import { HERO_IMAGES, getWhatsAppLink } from '../data/siteData';
+import { GlassButton } from './GlassButton';
 import { MessageCircle, Sparkles, Award, HeartHandshake, Calendar } from 'lucide-react';
 
 // Seeded random so positions are stable
@@ -97,15 +98,14 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
-            <a
+            <GlassButton
               href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo Massagem.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#4D5240] transition-all duration-300 shadow-xl shadow-[#4E7A36]/20 hover:shadow-[#4E7A36]/40 hover:-translate-y-0.5 active:translate-y-0 text-center"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Agendar minha massagem</span>
-            </a>
+            </GlassButton>
 
             {bookingEnabled && (
               <button

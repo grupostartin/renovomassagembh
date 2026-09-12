@@ -1,6 +1,7 @@
 import React from 'react';
 import { Service } from '../types';
 import { getWhatsAppLink } from '../data/siteData';
+import { GlassButton } from './GlassButton';
 import { X, Sparkles, CheckCircle2, AlertCircle, MessageCircle, Heart, Info, Clock3 } from 'lucide-react';
 
 interface ServiceModalProps {
@@ -147,15 +148,15 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
             <p>Sessões com hora marcada e ambiente esterilizado.</p>
           </div>
 
-          <a
+          <GlassButton
             href={getWhatsAppLink(whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-sm hover:bg-[#4D5240] transition-all duration-300 shadow-lg shadow-[#4E7A36]/20"
+            className="w-full sm:w-auto"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Agendar este serviço</span>
-          </a>
+          </GlassButton>
         </div>
 
       </div>

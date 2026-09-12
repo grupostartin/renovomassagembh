@@ -1,5 +1,6 @@
 import React from 'react';
 import { ADDRESS_FULL, GOOGLE_MAPS_URL, BUSINESS_HOURS, getWhatsAppLink } from '../data/siteData';
+import { GlassButton } from './GlassButton';
 import { MapPin, Navigation, MessageCircle, Clock, CheckCircle2, Building } from 'lucide-react';
 
 export const LocationSection: React.FC = () => {
@@ -84,15 +85,14 @@ export const LocationSection: React.FC = () => {
                 <span>Como chegar</span>
               </a>
 
-              <a
+              <GlassButton
                 href={getWhatsAppLink('Olá! Gostaria de agendar pelo WhatsApp e saber como chegar ao espaço no bairro Palmares.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#4E7A36] hover:bg-[#3F5D35] text-[#F2F0EA] font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#4E7A36]/20 text-center"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>Agendar pelo WhatsApp</span>
-              </a>
+              </GlassButton>
             </div>
           </div>
 

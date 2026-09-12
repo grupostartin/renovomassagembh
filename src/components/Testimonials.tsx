@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ExternalLink, Quote, Star } from 'lucide-rea
 import type { GoogleReview, GoogleReviewsResponse } from '../types';
 import { GOOGLE_REVIEWS_URL } from '../data/siteData';
 import { getGoogleReviews, GoogleReviewsApiError } from '../services/googleReviewsApi';
+import { GlassButton } from './GlassButton';
 
 const GOOGLE_REVIEW_POLICY_URL =
   'https://support.google.com/contributionpolicy/answer/7400114?hl=pt-BR';
@@ -138,15 +139,14 @@ function ReviewsUnavailable({ googleMapsUri, configured }: ReviewsUnavailablePro
           ? 'O Google Maps está temporariamente indisponível. Você ainda pode consultar todas as avaliações diretamente no perfil oficial.'
           : 'A conexão automática será ativada assim que a chave da Places API for configurada. Enquanto isso, consulte o perfil oficial.'}
       </p>
-      <a
+      <GlassButton
         href={googleMapsUri}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold hover:bg-[#4D5240] transition-colors"
       >
         Ver avaliações no Google Maps
         <ExternalLink className="w-4 h-4" aria-hidden="true" />
-      </a>
+      </GlassButton>
     </div>
   );
 }
@@ -250,15 +250,14 @@ export const Testimonials = () => {
             starClassName="w-5 h-5"
           />
           <div className="flex justify-center mb-2">
-            <a
-              href={googleMapsUri}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-xs uppercase tracking-wider hover:bg-[#4D5240] transition-colors shadow-lg"
-            >
-              <span>Ver avaliações no Google</span>
-              <ExternalLink className="w-4 h-4" aria-hidden="true" />
-            </a>
+              <GlassButton
+                href={googleMapsUri}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Ver avaliações no Google</span>
+                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+              </GlassButton>
           </div>
         </div>
 

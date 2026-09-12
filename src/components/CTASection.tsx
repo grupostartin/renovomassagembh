@@ -1,5 +1,6 @@
 import React from 'react';
 import { getWhatsAppLink } from '../data/siteData';
+import { GlassButton } from './GlassButton';
 import { MessageCircle, Sparkles, Calendar } from 'lucide-react';
 
 interface CTASectionProps {
@@ -41,15 +42,14 @@ export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBo
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
-            <a
+            <GlassButton
               href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#3F5D35] transition-all duration-300 shadow-xl shadow-[#4E7A36]/20 hover:shadow-[#4E7A36]/35 hover:-translate-y-0.5 active:translate-y-0 text-center"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Agendar minha massagem</span>
-            </a>
+            </GlassButton>
 
             {bookingEnabled && (
               <button

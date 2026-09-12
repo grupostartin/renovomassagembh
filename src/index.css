@@ -48,3 +48,54 @@ html {
   background: #4E7A36;
 }
 
+/* ─── Animação de Entrada com Blur (ao entrar no site) ───────────────────────── */
+@keyframes siteEntranceBlur {
+  0% {
+    filter: blur(22px);
+    transform: scale(0.982);
+    opacity: 0.7;
+  }
+  45% {
+    filter: blur(10px);
+    opacity: 0.9;
+  }
+  100% {
+    filter: blur(0px);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.site-pre-enter {
+  filter: blur(22px);
+  transform: scale(0.982);
+  opacity: 0.7;
+  will-change: filter, transform, opacity;
+}
+
+.site-enter-blur {
+  animation: siteEntranceBlur 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: filter, transform, opacity;
+}
+
+@keyframes splashTitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-pre-enter,
+  .site-enter-blur {
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

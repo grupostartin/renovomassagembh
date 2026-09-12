@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { SplashScreen } from './components/SplashScreen';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -22,19 +22,48 @@ const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 function MainSite() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [splashDone, setSplashDone] = useState(false);
+  const [isSiteEntering, setIsSiteEntering] = useState(false);
+  const [isEntranceFinished, setIsEntranceFinished] = useState(false);
   const [activeNeedFilterId, setActiveNeedFilterId] = useState<string | null>(null);
 
-  const handleSplashFinished = useCallback(() => setSplashDone(true), []);
+  const handleSplashLeaving = useCallback(() => {
+    setIsSiteEntering(true);
+  }, []);
+
+  const handleSplashFinished = useCallback(() => {
+    setSplashDone(true);
+  }, []);
+
+  useEffect(() => {
+    if (isSiteEntering && !isEntranceFinished) {
+      const timer = setTimeout(() => {
+        setIsEntranceFinished(true);
+      }, 1400);
+      return () => clearTimeout(timer);
+    }
+  }, [isSiteEntering, isEntranceFinished]);
 
   const handleSelectNeed = (need: NeedOption) => {
     setActiveNeedFilterId(need.id);
   };
 
   return (
-    <div className="min-h-screen bg-[#15140C] text-[#F2F0EA] selection:bg-[#4E7A36] selection:text-[#F2F0EA] font-sans antialiased overflow-x-hidden">
+    <div
+      onAnimationEnd={() => setIsEntranceFinished(true)}
+      className={`min-h-screen bg-[#15140C] text-[#F2F0EA] selection:bg-[#4E7A36] selection:text-[#F2F0EA] font-sans antialiased overflow-x-hidden ${
+        !isEntranceFinished
+          ? (isSiteEntering ? 'site-enter-blur' : 'site-pre-enter')
+          : ''
+      }`}
+    >
 
       {/* Splash Screen */}
-      {!splashDone && <SplashScreen onFinished={handleSplashFinished} />}
+      {!splashDone && (
+        <SplashScreen
+          onLeaving={handleSplashLeaving}
+          onFinished={handleSplashFinished}
+        />
+      )}
       
       {/* Header */}
       <Header

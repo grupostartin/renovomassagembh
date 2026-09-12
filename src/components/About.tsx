@@ -1,5 +1,6 @@
 import React from 'react';
 import { HERO_IMAGES, PROFESSIONAL_CARE_NOTICE, ENXOVAL_NOTICE, getWhatsAppLink } from '../data/siteData';
+import { GlassButton } from './GlassButton';
 import { MapPin, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -89,15 +90,14 @@ export const About: React.FC = () => {
 
             {/* WhatsApp Contact Action */}
             <div className="pt-2">
-              <a
-                href={getWhatsAppLink('Olá! Gostaria de saber mais sobre a Renovo Massagem e agendar meu horário.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-sm hover:bg-[#4D5240] transition-all duration-300 shadow-lg shadow-[#4E7A36]/20"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Converse conosco pelo WhatsApp</span>
-              </a>
+              <GlassButton
+              href={getWhatsAppLink('Olá! Gostaria de saber mais sobre a Renovo Massagem e agendar meu horário.')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Converse conosco pelo WhatsApp</span>
+            </GlassButton>
             </div>
 
           </div>

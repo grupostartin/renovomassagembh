@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { SERVICES, COUPLE_MASSAGE, NEED_OPTIONS, getWhatsAppLink } from '../data/siteData';
 import { Service } from '../types';
 import { ServiceModal } from './ServiceModal';
+import { GlassButton } from './GlassButton';
 import { Sparkles, Clock3, Tag, MessageCircle, Info, Users, ArrowRight } from 'lucide-react';
 
 interface ServicesProps {
@@ -189,15 +190,16 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
               {/* Card Footer: Botão AGENDAR + Botão Detalhes */}
               <div className="px-6 pb-6 pt-2 space-y-2">
                 {/* 5. Botão AGENDAR */}
-                <a
+                <GlassButton
                   href={getWhatsAppLink(`Olá! Gostaria de agendar a *${service.title}* na Renovo Massagem.`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#4E7A36] hover:bg-[#4D5240] text-[#F2F0EA] text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg text-center"
+                  size="sm"
+                  className="w-full uppercase tracking-wider"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span>Agendar</span>
-                </a>
+                </GlassButton>
 
                 <button
                   type="button"
@@ -240,15 +242,15 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
             </div>
 
             <div className="shrink-0 w-full sm:w-auto">
-              <a
+              <GlassButton
                 href={getWhatsAppLink(COUPLE_MASSAGE.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#4E7A36] text-[#F2F0EA] font-semibold text-base hover:bg-[#4D5240] transition-all duration-300 shadow-xl shadow-[#4E7A36]/25 hover:-translate-y-0.5 text-center"
+                className="w-full sm:w-auto"
               >
                 <MessageCircle className="w-5 h-5 fill-current" />
                 <span>{COUPLE_MASSAGE.buttonText}</span>
-              </a>
+              </GlassButton>
             </div>
           </div>
 
