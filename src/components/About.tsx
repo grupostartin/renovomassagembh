@@ -1,6 +1,6 @@
 import React from 'react';
-import { HERO_IMAGES, FOUNDER_MESSAGE, PROFESSIONAL_CARE_NOTICE, ENXOVAL_NOTICE, getWhatsAppLink } from '../data/siteData';
-import { MapPin, MessageCircle, Sparkles, ShieldCheck, Heart } from 'lucide-react';
+import { HERO_IMAGES, PROFESSIONAL_CARE_NOTICE, ENXOVAL_NOTICE, getWhatsAppLink } from '../data/siteData';
+import { MapPin, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
@@ -63,31 +63,14 @@ export const About: React.FC = () => {
               {/* 7. Texto institucional fiel */}
               <div className="space-y-4 text-base sm:text-lg text-[#15140C]/85 font-normal leading-relaxed">
                 <p>
-                  A <strong>Renovo</strong> nasceu com uma proposta simples: oferecer um lugar onde você possa parar por um momento, receber uma boa massagem e cuidar do corpo em meio à correria do dia a dia.
+                  A <strong>Renovo</strong> nasceu com uma proposta clara: oferecer um lugar onde você possa parar por um momento, receber uma boa massagem e cuidar do corpo em meio à correria do dia a dia.
                 </p>
                 <p>
                   Aqui, cada cliente é recebido com atenção e respeito. A massagem é realizada de acordo com suas necessidades — seja para aliviar dores e tensões, descansar o corpo ou simplesmente relaxar.
                 </p>
                 <p>
-                  Nosso espaço é simples, confortável e acolhedor. Valorizamos aquilo que consideramos essencial: um atendimento profissional, uma massagem bem-feita e cuidado com cada pessoa que chega até nós.
+                  Nosso espaço é acolhedor e confortável. Valorizamos aquilo que consideramos essencial: um atendimento profissional, uma massagem bem-feita e cuidado com cada pessoa que chega até nós.
                 </p>
-              </div>
-            </div>
-
-            {/* 8. Mensagem da Fundadora */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white border border-[#C4B49A]/35 shadow-md relative">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#4E7A36]/15 border border-[#4E7A36]/30 flex items-center justify-center text-[#4E7A36] shrink-0 mt-1">
-                  <Heart className="w-5 h-5 fill-current" />
-                </div>
-                <div>
-                  <blockquote className="font-serif italic text-base sm:text-lg text-[#15140C]/90 leading-relaxed mb-3">
-                    “{FOUNDER_MESSAGE.quote}”
-                  </blockquote>
-                  <p className="text-sm font-bold text-[#34412F]">
-                    {FOUNDER_MESSAGE.author} <span className="font-normal text-[#15140C]/60 text-xs sm:text-sm">— {FOUNDER_MESSAGE.role}</span>
-                  </p>
-                </div>
               </div>
             </div>
 

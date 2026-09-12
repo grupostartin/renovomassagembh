@@ -63,11 +63,11 @@ export const NEED_OPTIONS: NeedOption[] = [
     message: 'Olá! Vim pelo site da Renovo. Estou sentindo desconforto ou tensão muscular e gostaria de indicação e horários.',
   },
   {
-    id: 'cervical-costas',
-    title: 'CUIDAR DA CERVICAL E COSTAS',
-    subtitle: 'Minha maior tensão está nessa região.',
-    relatedServiceIds: ['terapeutica', 'desportiva'],
-    message: 'Olá! Vim pelo site da Renovo. Minha maior tensão está na região da cervical e costas, gostaria de agendar.',
+    id: 'desintoxicar-desinchar',
+    title: 'DESINTOXICAR E DESINCHAR',
+    subtitle: 'Quero eliminar o inchaço e sentir o corpo mais leve.',
+    relatedServiceIds: ['drenagem-linfatica'],
+    message: 'Olá! Vim pelo site da Renovo. Gostaria de agendar uma drenagem linfática para desinchar e desintoxicar o corpo.',
   },
   {
     id: 'pes-pernas',
@@ -78,7 +78,7 @@ export const NEED_OPTIONS: NeedOption[] = [
   },
 ];
 
-// ─── 5. Catálogo de Massagens (6 opções exatas do briefing) ────────────────────
+// ─── 5. Catálogo de Massagens ────────────────────────────────────────────────
 export const SERVICES: Service[] = [
   {
     id: 'relaxante',
@@ -100,6 +100,27 @@ export const SERVICES: Service[] = [
     indications: ['Estresse do dia a dia', 'Tensão muscular leve', 'Cansaço acumulado', 'Dificuldade para desacelerar'],
     image: serviceRelaxingImg,
     recommendedFor: 'Quem busca uma pausa acolhedora para desacelerar a rotina e relaxar o corpo',
+  },
+  {
+    id: 'drenagem-linfatica',
+    title: 'Drenagem Linfática',
+    shortDescription: 'A mais procurada para desinchar, desintoxicar o organismo e proporcionar leveza ao corpo.',
+    fullDescription: 'A drenagem linfática é realizada com movimentos suaves e rítmicos que estimulam o sistema linfático, ajudando a eliminar o excesso de líquidos e toxinas do organismo. Ideal para reduzir o inchaço, aliviar a sensação de peso e promover leveza e bem-estar duradouros.',
+    category: 'Drenagem',
+    sessionOptions: [
+      { durationMinutes: 60 },
+      { durationMinutes: 90 },
+    ],
+    priceInfo: 'Sob consulta',
+    benefits: [
+      'Reduz o inchaço e a retenção de líquidos',
+      'Auxilia na desintoxicação do organismo',
+      'Sensação de leveza e bem-estar duradoura',
+      'Movimentos suaves e muito relaxantes',
+    ],
+    indications: ['Inchaço e retenção de líquidos', 'Cansaço nas pernas', 'Desintoxicação do organismo', 'Pós-operatório (com indicação médica)'],
+    image: serviceRelaxingImg,
+    recommendedFor: 'Quem quer desinchar, sentir o corpo mais leve e cuidar do bem-estar de forma gentil',
   },
   {
     id: 'terapeutica',
@@ -226,9 +247,9 @@ export const FOUNDER_MESSAGE = {
 export const PROFESSIONAL_CARE_NOTICE =
   'A Renovo oferece serviços de massoterapia voltados ao alívio de tensões, relaxamento e bem-estar. Todos os atendimentos são exclusivamente profissionais e realizados com respeito aos clientes e às profissionais.';
 
-// ─── 10. Enxoval ─────────────────────────────────────────────────────────────
+// ─── 10. Ambiente e Conforto ──────────────────────────────────────────────────
 export const ENXOVAL_NOTICE =
-  'Lençóis e toalhas limpos são utilizados e trocados a cada atendimento.';
+  'Lençóis de tecido, maca aquecida e ambiente climatizado para o seu máximo conforto.';
 
 // ─── 12. Localização ─────────────────────────────────────────────────────────
 export const LOCATION_SECTION_DATA = {
@@ -267,10 +288,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Como confirmo meu horário?',
     answer: 'Para confirmação da reserva, solicitamos um sinal de 30% do valor do atendimento.',
-  },
-  {
-    question: 'Os lençóis são trocados?',
-    answer: 'Sim. Lençóis e toalhas limpos são utilizados e trocados a cada atendimento.',
   },
   {
     question: 'Posso fazer massagem em dupla?',

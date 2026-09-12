@@ -4,13 +4,12 @@ import { ArrowDown, MessageCircle, Sparkles } from 'lucide-react';
 
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
-import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
 import serviceReflexologyImg from '../assets/images/service_reflexology_1784953168367.jpg';
 
 const NEED_IMAGES: Record<string, string> = {
   'relaxar-descansar': serviceRelaxingImg,
   'aliviar-dores': serviceTherapeuticImg,
-  'cervical-costas': serviceCranioFacialImg,
+  'desintoxicar-desinchar': serviceRelaxingImg,
   'pes-pernas': serviceReflexologyImg,
 };
 

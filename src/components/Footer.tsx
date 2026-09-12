@@ -208,8 +208,17 @@ export const Footer: React.FC = () => {
 
         </div>
 
+        {/* Faith Motto */}
+        <div className="pt-8 pb-4 flex justify-center">
+          <p className="inline-flex items-center gap-2 text-sm text-[#F2F0EA]/60 font-light italic text-center">
+            <Heart className="w-4 h-4 text-[#9BC47C] fill-current shrink-0" aria-hidden="true" />
+            <span>Uma empresa que ama a Deus e serve as pessoas.</span>
+            <Heart className="w-4 h-4 text-[#9BC47C] fill-current shrink-0" aria-hidden="true" />
+          </p>
+        </div>
+
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between text-xs text-[#F2F0EA]/45 gap-4">
+        <div className="pt-4 border-t border-[#4D5240]/10 flex flex-col lg:flex-row items-center justify-between text-xs text-[#F2F0EA]/45 gap-4">
           <p>© {currentYear} Renovo Massagem. Todos os direitos reservados.</p>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Links legais">
             <a href="/politica-de-privacidade" className="hover:text-[#4E7A36] transition-colors">

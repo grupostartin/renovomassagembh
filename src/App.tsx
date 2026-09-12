@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { SplashScreen } from './components/SplashScreen';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { CoupleMassageBanner } from './components/CoupleMassageBanner';
 import { NeedPicker } from './components/NeedPicker';
 import { Services } from './components/Services';
 import { About } from './components/About';
@@ -48,6 +49,9 @@ function MainSite() {
           bookingEnabled={isBookingEnabled}
           onOpenBookingModal={() => setBookingModalOpen(true)}
         />
+
+        {/* 1b. Banner de destaque: Massagem em Dupla */}
+        <CoupleMassageBanner />
 
         {/* 2. Escolha por necessidade */}
         <NeedPicker

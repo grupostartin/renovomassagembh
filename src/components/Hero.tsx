@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/85 border border-[#4E7A36]/30 backdrop-blur-sm mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#4E7A36] animate-ping" />
-            <span className="text-xs font-bold tracking-widest text-[#3F5D35] uppercase">
+            <span className="text-sm font-bold tracking-widest text-[#3F5D35] uppercase">
               Uma pausa na sua rotina • Palmares, BH
             </span>
           </div>
@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-[#34412F]/85 font-normal leading-relaxed mb-8 max-w-lg">
+          <p className="text-lg sm:text-xl md:text-2xl text-[#34412F]/85 font-normal leading-relaxed mb-8 max-w-lg">
             Massagens para aliviar dores e tensões, relaxar o corpo e proporcionar bem-estar em meio à correria do dia a dia.
           </p>
 
