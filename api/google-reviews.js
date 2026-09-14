@@ -167,7 +167,37 @@ async function loadGoogleReviews() {
         flagContentUri: review.flagContentUri,
       };
     })
-    .filter(Boolean);
+    .filter(Boolean)
+    .filter((review) => {
+      // Nomes bloqueados (avaliações indesejadas pela cliente).
+      const BLOCKED_NAMES = ['flavia', 'flavia melissa'];
+      const name = review.authorName.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return !BLOCKED_NAMES.includes(name);
+    });
+
+  const PINNED_REVIEW = {
+    id: 'pinned-flavia-ribeiro',
+    authorName: 'Flávia Ribeiro',
+    authorUri: undefined,
+    authorPhotoUri: undefined,
+    rating: 5,
+    text: 'Uma verdadeira experiência a massagem da Mari! Eu vou de Lagoa Santa para BH só para fazer a massagem relaxante! Espaço aconchegante, atendimento impecável e garantia de qualidade! Perfeito, recomendo muito!',
+    relativePublishTimeDescription: '3 meses atrás',
+    publishTime: undefined,
+    googleMapsUri,
+    flagContentUri: undefined,
+  };
+
+  // Garante que a Flávia Ribeiro aparece sempre (pinada no início),
+  // removendo duplicata caso a API já a retorne.
+  const normalizeForDedup = (name) =>
+    name.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  const alreadyPresent = reviews.some(
+    (r) => normalizeForDedup(r.authorName) === normalizeForDedup(PINNED_REVIEW.authorName),
+  );
+
+  const finalReviews = alreadyPresent ? reviews : [PINNED_REVIEW, ...reviews];
 
   return {
     source: 'google-places',
@@ -177,7 +207,7 @@ async function loadGoogleReviews() {
     userRatingCount: details.userRatingCount ?? 0,
     googleMapsUri,
     orderBy: 'relevance',
-    reviews,
+    reviews: finalReviews,
   };
 }
 

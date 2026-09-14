@@ -19,9 +19,15 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
     if (!container) return;
 
     // Scene
+    const isMobileInitial = window.innerWidth < 768;
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 8.2);
+    const camera = new THREE.PerspectiveCamera(
+      isMobileInitial ? 48 : 42,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+    camera.position.set(0, 0, isMobileInitial ? 10.4 : 8.2);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -155,23 +161,38 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
     pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
     scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.09, color: 0x98b898, transparent: true, opacity: 0.65 })));
 
-    // Mouse parallax
-    const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    // Mouse & touch parallax
+    const pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
     const onMouseMove = (e: MouseEvent) => {
-      mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
+      pointer.targetX = (e.clientX / window.innerWidth) * 2 - 1;
+      pointer.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
+    };
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        pointer.targetX = (touch.clientX / window.innerWidth) * 2 - 1;
+        pointer.targetY = -(touch.clientY / window.innerHeight) * 2 + 1;
+      }
+    };
+    const onTouchEnd = () => {
+      pointer.targetX = 0;
+      pointer.targetY = 0;
     };
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
 
     // Entry animation
     logoGroup.scale.set(0.01, 0.01, 0.01);
-    const targetScale = 1.45;
+    const getTargetScale = () => (window.innerWidth < 768 ? 0.98 : 1.45);
     const startTime = performance.now();
     let rafId = 0;
 
     function animate() {
       rafId = requestAnimationFrame(animate);
       const elapsed = (performance.now() - startTime) / 1000;
+      const targetScale = getTargetScale();
+      const isMobile = window.innerWidth < 768;
 
       if (logoGroup.scale.x < targetScale) {
         logoGroup.scale.x += (targetScale - logoGroup.scale.x) * 0.055;
@@ -179,19 +200,29 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
         logoGroup.scale.z = logoGroup.scale.x;
       }
 
-      mouse.x += (mouse.targetX - mouse.x) * 0.05;
-      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+      pointer.x += (pointer.targetX - pointer.x) * 0.05;
+      pointer.y += (pointer.targetY - pointer.y) * 0.05;
 
-      logoGroup.position.y = -0.28 + Math.sin(elapsed * 1.4) * 0.08;
-      logoGroup.rotation.y = Math.sin(elapsed * 0.55) * 0.28 + mouse.x * 0.45;
-      logoGroup.rotation.x = -mouse.y * 0.32 + Math.cos(elapsed * 1.1) * 0.04;
+      // Vertical floating motion centered harmoniously on both mobile and desktop
+      const baseY = isMobile ? -0.10 : -0.28;
+      const floatAmp = isMobile ? 0.05 : 0.08;
+      logoGroup.position.y = baseY + Math.sin(elapsed * 1.35) * floatAmp;
+
+      // Dynamic auto-sway gives living light reflections even on mobile without pointer movement
+      const autoSwayY = Math.sin(elapsed * 0.6) * 0.22;
+      const autoSwayX = Math.cos(elapsed * 0.9) * 0.05;
+      logoGroup.rotation.y = autoSwayY + pointer.x * 0.38;
+      logoGroup.rotation.x = autoSwayX - pointer.y * 0.28;
 
       renderer.render(scene, camera);
     }
     animate();
 
     const onResize = () => {
+      const isMob = window.innerWidth < 768;
       camera.aspect = window.innerWidth / window.innerHeight;
+      camera.fov = isMob ? 48 : 42;
+      camera.position.z = isMob ? 10.4 : 8.2;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
@@ -200,6 +231,8 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
       window.removeEventListener("resize", onResize);
       renderer.dispose();
       if (container.contains(renderer.domElement)) {
@@ -235,7 +268,7 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
         inset: 0,
         width: "100%",
         height: "100%",
-        background: "radial-gradient(circle at 50% 50%, #f6fbf6 0%, #e5f0e6 48%, #d8e8da 100%)",
+        background: "radial-gradient(circle at 50% 46%, #f6fbf6 0%, #e5f0e6 50%, #d8e8da 100%)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -243,7 +276,7 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
         zIndex: 9999,
         transition: "opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
         opacity: leaving ? 0 : 1,
-        transform: leaving ? "scale(1.05)" : "scale(1)",
+        transform: leaving ? "scale(1.04)" : "scale(1)",
         pointerEvents: leaving ? "none" : "auto",
       }}
     >
@@ -251,7 +284,7 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
       <div
         style={{
           position: "absolute",
-          top: "calc(max(24px, 6.5vh))",
+          top: "calc(max(20px, 5.5vh) + env(safe-area-inset-top, 0px))",
           zIndex: 20,
           display: "flex",
           flexDirection: "column",
@@ -260,17 +293,19 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
           pointerEvents: "none",
           userSelect: "none",
           animation: "splashTitleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+          paddingLeft: "16px",
+          paddingRight: "16px",
         }}
       >
         <span
           style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "clamp(2rem, 5.5vw, 3.25rem)",
+            fontSize: "clamp(2.1rem, 6.5vw, 3.25rem)",
             fontWeight: 600,
             letterSpacing: "0.22em",
             color: "#343d2c",
             textTransform: "uppercase",
-            lineHeight: 1,
+            lineHeight: 1.1,
             textShadow: "0 2px 18px rgba(79, 88, 68, 0.12)",
           }}
         >
@@ -279,13 +314,13 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
         <span
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
-            fontSize: "clamp(0.72rem, 1.8vw, 0.88rem)",
+            fontSize: "clamp(0.72rem, 2.2vw, 0.88rem)",
             fontWeight: 600,
-            letterSpacing: "0.45em",
+            letterSpacing: "0.42em",
             color: "#546048",
             textTransform: "uppercase",
             marginTop: "6px",
-            paddingLeft: "0.45em",
+            paddingLeft: "0.42em",
           }}
         >
           Massagem
@@ -295,7 +330,7 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
             width: "36px",
             height: "1.5px",
             background: "linear-gradient(90deg, transparent, rgba(79, 88, 68, 0.4), transparent)",
-            marginTop: "12px",
+            marginTop: "10px",
           }}
         />
       </div>
@@ -310,22 +345,23 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
       <div
         style={{
           position: "absolute",
-          bottom: 40,
+          bottom: "calc(max(28px, 4.5vh) + env(safe-area-inset-bottom, 0px))",
           zIndex: 10,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 8,
-          width: 140,
+          gap: 9,
+          width: "clamp(150px, 42vw, 190px)",
         }}
       >
         <div
           style={{
             width: "100%",
-            height: 2.5,
+            height: 3,
             background: "rgba(79, 88, 68, 0.15)",
             borderRadius: 999,
             overflow: "hidden",
+            boxShadow: "inset 0 1px 2px rgba(0,0,0,0.04)",
           }}
         >
           <div
@@ -341,11 +377,12 @@ export function SplashScreen({ onFinished, onLeaving }: SplashScreenProps) {
         <span
           style={{
             fontSize: 10,
-            letterSpacing: "0.25em",
+            letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(78, 87, 67, 0.7)",
-            fontWeight: 500,
-            fontFamily: "monospace",
+            color: "rgba(78, 87, 67, 0.75)",
+            fontWeight: 600,
+            fontFamily: "'Plus Jakarta Sans', monospace, sans-serif",
+            paddingLeft: "0.28em",
           }}
         >
           Carregando

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FC } from 'react';
+import { useEffect, useRef, useState, type FC, type TouchEvent } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Quote, Star } from 'lucide-react';
 import type { GoogleReview, GoogleReviewsResponse } from '../types';
 import { GOOGLE_REVIEWS_URL } from '../data/siteData';
@@ -151,6 +151,43 @@ function ReviewsUnavailable({ googleMapsUri, configured }: ReviewsUnavailablePro
   );
 }
 
+const FALLBACK_REVIEWS: GoogleReview[] = [
+  {
+    id: 'pinned-flavia-ribeiro',
+    authorName: 'Flávia Ribeiro',
+    authorUri: undefined,
+    authorPhotoUri: undefined,
+    rating: 5,
+    text: 'Uma verdadeira experiência a massagem da Mari! Eu vou de Lagoa Santa para BH só para fazer a massagem relaxante! Espaço aconchegante, atendimento impecável e garantia de qualidade! Perfeito, recomendo muito!',
+    relativePublishTimeDescription: '3 meses atrás',
+    googleMapsUri: GOOGLE_REVIEWS_URL,
+  },
+  {
+    id: 'review-sara-domingos',
+    authorName: 'Sara Domingos',
+    authorUri: 'https://www.google.com/maps/contrib/114864809748864210850/reviews',
+    authorPhotoUri:
+      'https://lh3.googleusercontent.com/a-/ALV-UjVh8CSFTj4Ie-jyNhh86RzJc5lRSoyqUzEgGhEbiu8j4T1RA2YbIA=s128-c0x00000000-cc-rp-mo',
+    rating: 5,
+    text: 'Tive uma experiência maravilhosa! O atendimento é impecável, com muito profissionalismo, cuidado e atenção em cada detalhe. A massagem é simplesmente perfeita, feita com muita técnica e sensibilidade, proporcionando um relaxamento profundo.\n\nO espaço também merece destaque: tudo muito limpo, organizado, aconchegante e preparado para trazer conforto desde o primeiro momento. Dá pra perceber o carinho e dedicação em cada detalhe, tanto no atendimento quanto no ambiente.\n\nCom certeza voltarei mais vezes e recomendo de olhos fechados!',
+    relativePublishTimeDescription: '5 meses atrás',
+    googleMapsUri:
+      'https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25OYVV6ZFhXSG96U0VWTWNFZHdVR0ZhYzFoTmNrRRAB!2m1!1s0xa69b87b76ea913:0x5743866344688f14',
+  },
+  {
+    id: 'review-gabriela-felizardo',
+    authorName: 'Gabriela Felizardo',
+    authorUri: 'https://www.google.com/maps/contrib/117777499716202728783/reviews',
+    authorPhotoUri:
+      'https://lh3.googleusercontent.com/a-/ALV-UjXWZ5OFhvMgocPGD-bY3f9LL_ESRqQsojuV8lPsM1Kbak5xfpNA=s128-c0x00000000-cc-rp-mo',
+    rating: 5,
+    text: 'Fui por indicação da minha irmã, que tinha só elogios do trabalho dela e realmente superou minhas expectativas. Fui muito bem recebida, com chocolate, um ambiente super aconchegante, música agradável. A massagem é impecável! Eu sou super sensível e achei simplesmente maravilhosa, dá vontade de ir todos os dias. E, para fechar com chave de ouro, ainda me serviu um chá delicioso com biscoitinhos no final. Amei a experiência e recomendo demais a Mari, principalmente para quem está se sentindo estressada, ansiosa e precisando relaxar o corpo e a mente.',
+    relativePublishTimeDescription: '7 meses atrás',
+    googleMapsUri:
+      'https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT201NFlVUk1TV0pQU0VKRlRIUnpVRFowV0dOUU0xRRAB!2m1!1s0xa69b87b76ea913:0x5743866344688f14',
+  },
+];
+
 export const Testimonials = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -211,18 +248,42 @@ export const Testimonials = () => {
     };
   }, [shouldLoad]);
 
-  const reviews = reviewsData?.reviews ?? [];
-  const activeReview = reviews[activeIndex] ?? reviews[0];
-  const showReviews = reviews.length > 0;
+  // Mantém estritamente as mesmas 3 avaliações solicitadas tanto no Desktop quanto no Mobile
+  const rawReviews = (reviewsData?.reviews && reviewsData.reviews.length > 0)
+    ? reviewsData.reviews
+    : FALLBACK_REVIEWS;
+  const displayReviews = rawReviews.slice(0, 3);
+  const activeReview = displayReviews[activeIndex] ?? displayReviews[0];
+  const showReviews = displayReviews.length > 0;
 
   const nextTestimonial = () => {
-    if (reviews.length > 0) setActiveIndex((previous) => (previous + 1) % reviews.length);
+    if (displayReviews.length > 0) {
+      setActiveIndex((previous) => (previous + 1) % displayReviews.length);
+    }
   };
 
   const prevTestimonial = () => {
-    if (reviews.length > 0) {
-      setActiveIndex((previous) => (previous - 1 + reviews.length) % reviews.length);
+    if (displayReviews.length > 0) {
+      setActiveIndex((previous) => (previous - 1 + displayReviews.length) % displayReviews.length);
     }
+  };
+
+  // Gestos de swipe no mobile
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextTestimonial();
+      } else {
+        prevTestimonial();
+      }
+    }
+    touchStartX.current = null;
   };
 
   return (
@@ -269,24 +330,32 @@ export const Testimonials = () => {
 
         {!loading && showReviews ? (
           <>
+            {/* Desktop 3-Card Grid */}
             <div className="hidden lg:grid grid-cols-3 gap-6">
-              {reviews.slice(0, 3).map((review) => (
+              {displayReviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
               ))}
             </div>
 
+            {/* Mobile Touch Carousel — exatamente as mesmas 3 avaliações */}
             {activeReview ? (
-              <div className="lg:hidden relative max-w-xl mx-auto">
-                <ReviewCard review={activeReview} />
+              <div
+                className="lg:hidden relative max-w-xl mx-auto touch-pan-y"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <div key={activeReview.id} className="transition-all duration-300">
+                  <ReviewCard review={activeReview} />
+                </div>
 
-                {reviews.length > 1 ? (
+                {displayReviews.length > 1 ? (
                   <div className="flex items-center justify-between mt-6">
                     <div className="flex items-center gap-2">
-                      {reviews.map((review, index) => (
+                      {displayReviews.map((review, index) => (
                         <button
                           key={review.id}
                           onClick={() => setActiveIndex(index)}
-                          className={`h-2.5 rounded-full transition-all ${
+                          className={`h-2.5 rounded-full transition-all duration-300 ${
                             index === activeIndex ? 'w-8 bg-[#4E7A36]' : 'w-2.5 bg-[#4D5240]/50'
                           }`}
                           aria-label={`Ir para avaliação ${index + 1}`}
@@ -297,14 +366,14 @@ export const Testimonials = () => {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={prevTestimonial}
-                        className="p-2.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:bg-[#4D5240]/30"
+                        className="p-2.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:bg-[#4D5240]/30 transition-colors active:scale-95"
                         aria-label="Avaliação anterior"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextTestimonial}
-                        className="p-2.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:bg-[#4D5240]/30"
+                        className="p-2.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:bg-[#4D5240]/30 transition-colors active:scale-95"
                         aria-label="Próxima avaliação"
                       >
                         <ChevronRight className="w-5 h-5" />
