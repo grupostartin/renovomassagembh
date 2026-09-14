@@ -48,22 +48,22 @@ function MainSite() {
   };
 
   return (
-    <div
-      onAnimationEnd={() => setIsEntranceFinished(true)}
-      className={`min-h-screen bg-[#15140C] text-[#F2F0EA] selection:bg-[#4E7A36] selection:text-[#F2F0EA] font-sans antialiased overflow-x-hidden ${
-        !isEntranceFinished
-          ? (isSiteEntering ? 'site-enter-blur' : 'site-pre-enter')
-          : ''
-      }`}
-    >
-
-      {/* Splash Screen */}
+    <>
+      {/* Splash Screen — 100% nítida e totalmente isolada de qualquer filtro de blur */}
       {!splashDone && (
         <SplashScreen
           onLeaving={handleSplashLeaving}
           onFinished={handleSplashFinished}
         />
       )}
+
+      {/* Conteúdo Principal — revela com transição suave assim que a splash sai */}
+      <div
+        onAnimationEnd={() => setIsEntranceFinished(true)}
+        className={`min-h-screen bg-[#15140C] text-[#F2F0EA] selection:bg-[#4E7A36] selection:text-[#F2F0EA] font-sans antialiased overflow-x-hidden ${
+          !isEntranceFinished && isSiteEntering ? 'site-enter-blur' : ''
+        }`}
+      >
       
       {/* Header */}
       <Header
@@ -128,6 +128,7 @@ function MainSite() {
       )}
 
     </div>
+    </>
   );
 }
 
