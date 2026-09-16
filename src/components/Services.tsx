@@ -168,20 +168,23 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
                     {service.shortDescription}
                   </p>
 
-                  {/* 3. Duração e 4. Valor */}
-                  <div className="pt-1.5 sm:pt-3 border-t border-[#C4B49A]/25 space-y-1 sm:space-y-2">
-                    <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-medium text-[#15140C]/75">
-                      <Clock3 className="w-3 h-3 sm:w-4 sm:h-4 text-[#4D5240] shrink-0" />
-                      <span className="truncate">
-                        {service.sessionOptions.map((o) => `${o.durationMinutes}m`).join('/')}
-                      </span>
-                    </div>
-
-                    <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-[#15140C]/75">
-                      <Tag className="w-4 h-4 text-[#4E7A36] shrink-0" />
-                      <span>
-                        <strong>Valor:</strong> Sob consulta no WhatsApp
-                      </span>
+                  {/* 3. Duração e 4. Valor Minimalista */}
+                  <div className="pt-1.5 sm:pt-3 border-t border-[#C4B49A]/25">
+                    <div className="flex items-center justify-between gap-1 text-[10px] sm:text-xs font-semibold text-[#15140C]/85">
+                      <div className="flex items-center gap-1 sm:gap-1.5 truncate">
+                        <Clock3 className="w-3 h-3 sm:w-4 sm:h-4 text-[#4D5240] shrink-0" />
+                        <span className="truncate">
+                          {service.sessionOptions.map((o) => `${o.durationMinutes}m`).join('/')}
+                        </span>
+                      </div>
+                      {service.sessionOptions.some(o => o.price) && (
+                        <div className="flex items-center gap-1 text-[#4E7A36] font-bold shrink-0">
+                          <Tag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                          <span>
+                            {service.sessionOptions.map(o => o.price ? `R$ ${o.price}` : '').filter(Boolean).join(' / ')}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

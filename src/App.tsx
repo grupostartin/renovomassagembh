@@ -60,6 +60,12 @@ function MainSite() {
         />
       )}
 
+      {/* Header — Fixo na Viewport Raiz (livre de filtros ou transforms) */}
+      <Header
+        bookingEnabled={isBookingEnabled}
+        onOpenBookingModal={() => setBookingModalOpen(true)}
+      />
+
       {/* Conteúdo Principal — revela com transição suave assim que a splash sai */}
       <div
         onAnimationEnd={() => setIsEntranceFinished(true)}
@@ -67,78 +73,68 @@ function MainSite() {
           !isEntranceFinished && isSiteEntering ? 'site-enter-blur' : ''
         }`}
       >
-      
-      {/* Header */}
-      <Header
-        bookingEnabled={isBookingEnabled}
-        onOpenBookingModal={() => setBookingModalOpen(true)}
-      />
-
-      {/* Main Content Sections */}
-      <main>
-        {/* SCROLL 1: Hero Section (Primeira tela) */}
-        <Hero
-          bookingEnabled={isBookingEnabled}
-          onOpenBookingModal={() => setBookingModalOpen(true)}
-        />
-
-        {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
-        <div className="hidden md:block">
-          <CoupleMassageBanner />
-        </div>
-
-        {/* 2. Escolha por necessidade (Desktop apenas) */}
-        <div className="hidden md:block">
-          <NeedPicker
-            activeNeedId={activeNeedFilterId}
-            onSelectNeed={handleSelectNeed}
-          />
-        </div>
-
-        {/* SCROLL 2: Nossas massagens & Massagem em dupla (Com carrossel snap-x no mobile) */}
-        <Services
-          activeNeedFilterId={activeNeedFilterId}
-          onClearFilter={() => setActiveNeedFilterId(null)}
-        />
-
-        {/* SCROLL 3 MOBILE: Sobre a Renovo & Avaliações Google comutáveis por Abas */}
-        <AboutAndReviewsMobile />
-
-        {/* SCROLL 3 DESKTOP: Sobre a Renovo e Depoimentos completos */}
-        <div className="hidden md:block">
-          <About />
-          <Testimonials />
-        </div>
-
-        {/* SCROLL 4: Localização, FAQ & Chamada final */}
-        <div id="localizacao-faq">
-          <LocationSection />
-          <FAQSection />
-          <CTASection
+        {/* Main Content Sections */}
+        <main>
+          {/* SCROLL 1: Hero Section (Primeira tela) */}
+          <Hero
             bookingEnabled={isBookingEnabled}
             onOpenBookingModal={() => setBookingModalOpen(true)}
           />
-        </div>
-      </main>
 
-      {/* Footer */}
-      <Footer />
+          {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
+          <div className="hidden md:block">
+            <CoupleMassageBanner />
+          </div>
 
-      {/* Indicador discreto dos 4 scrolls no mobile */}
+          {/* 2. Escolha por necessidade (Desktop apenas) */}
+          <div className="hidden md:block">
+            <NeedPicker
+              activeNeedId={activeNeedFilterId}
+              onSelectNeed={handleSelectNeed}
+            />
+          </div>
+
+          {/* SCROLL 2: Nossas massagens & Massagem em dupla (Grid 3 colunas no mobile) */}
+          <Services
+            activeNeedFilterId={activeNeedFilterId}
+            onClearFilter={() => setActiveNeedFilterId(null)}
+          />
+
+          {/* SCROLL 3 MOBILE: Sobre a Renovo & Avaliações Google comutáveis por Abas */}
+          <AboutAndReviewsMobile />
+
+          {/* SCROLL 3 DESKTOP: Sobre a Renovo e Depoimentos completos */}
+          <div className="hidden md:block">
+            <About />
+            <Testimonials />
+          </div>
+
+          {/* SCROLL 4: Localização, FAQ & Chamada final */}
+          <div id="localizacao-faq">
+            <LocationSection />
+            <FAQSection />
+            <CTASection
+              bookingEnabled={isBookingEnabled}
+              onOpenBookingModal={() => setBookingModalOpen(true)}
+            />
+          </div>
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+
+      {/* UI Flutuante Fixa na Viewport Raiz — Pinned no Rodapé Mobile */}
       <MobileScrollIndicator />
-
-      {/* Floating Sticky WhatsApp Button */}
       <FloatingWhatsApp />
 
-      {/* Interactive Quick Booking Modal */}
+      {/* Quick Booking Modal */}
       {isBookingEnabled && (
         <BookingModal
           isOpen={bookingModalOpen}
           onClose={() => setBookingModalOpen(false)}
         />
       )}
-
-    </div>
     </>
   );
 }

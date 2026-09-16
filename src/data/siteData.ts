@@ -87,10 +87,10 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem relaxante utiliza movimentos contínuos, suaves e envolventes, com pressão ajustada ao seu conforto. É uma pausa para desacelerar da rotina, aliviar o estresse acumulado e proporcionar bem-estar e relaxamento ao corpo.',
     category: 'Relaxamento',
     sessionOptions: [
-      { durationMinutes: 60 },
-      { durationMinutes: 90 },
+      { durationMinutes: 60, price: 180 },
+      { durationMinutes: 90, price: 230 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'A partir de R$ 180',
     benefits: [
       'Desacelera a mente e relaxa o corpo',
       'Alivia o estresse e tensões do dia a dia',
@@ -108,10 +108,10 @@ export const SERVICES: Service[] = [
     fullDescription: 'A drenagem linfática é realizada com movimentos suaves e rítmicos que estimulam o sistema linfático, ajudando a eliminar o excesso de líquidos e toxinas do organismo. Ideal para reduzir o inchaço, aliviar a sensação de peso e promover leveza e bem-estar duradouros.',
     category: 'Drenagem',
     sessionOptions: [
-      { durationMinutes: 60 },
-      { durationMinutes: 90 },
+      { durationMinutes: 60, price: 180 },
+      { durationMinutes: 90, price: 230 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'A partir de R$ 180',
     benefits: [
       'Reduz o inchaço e a retenção de líquidos',
       'Auxilia na desintoxicação do organismo',
@@ -129,9 +129,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem terapêutica concentra o atendimento nas áreas de maior incômodo relatadas na conversa inicial. As manobras e a pressão são ajustadas conforme a necessidade e a sensibilidade de cada pessoa para soltar contraturas e aliviar tensões musculares.',
     category: 'Foco na tensão',
     sessionOptions: [
-      { durationMinutes: 60 },
+      { durationMinutes: 60, price: 180 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'R$ 180',
     benefits: [
       'Atenção concentrada nas regiões de maior desconforto',
       'Pressão ajustada à sensibilidade individual',
@@ -149,10 +149,10 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem desportiva trabalha a musculatura profunda com manobras precisas, definidas conforme a prática física e a sensibilidade de cada cliente. Ajuda no alívio de sobrecargas e na recuperação muscular.',
     category: 'Muscular',
     sessionOptions: [
-      { durationMinutes: 30 },
-      { durationMinutes: 60 },
+      { durationMinutes: 30, price: 120 },
+      { durationMinutes: 60, price: 180 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'A partir de R$ 120',
     benefits: [
       'Atenção aos grupos musculares mais exigidos',
       'Pressão firme adaptada à tolerância do cliente',
@@ -170,10 +170,10 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem associa manobras relaxantes ao contato confortável de pedras aquecidas. O calor suave penetra nas fibras musculares, potencializando o relaxamento do corpo e auxiliando no alívio das tensões acumuladas.',
     category: 'Calor e relaxamento',
     sessionOptions: [
-      { durationMinutes: 60 },
-      { durationMinutes: 90 },
+      { durationMinutes: 60, price: 195 },
+      { durationMinutes: 90, price: 240, note: 'Inclui escalda-pés' },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'A partir de R$ 195',
     benefits: [
       'Conforto térmico acolhedor durante toda a massagem',
       'Relaxamento profundo com o auxílio do calor das pedras',
@@ -191,9 +191,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'Sessão combinada que une toques cuidadosos na cabeça, pescoço e face com manobras focadas nos pés. Ideal para quem passa o dia em frente a telas ou em pé e quer uma pausa focada nas duas extremidades que mais acumulam estresse.',
     category: 'Foco e descanso',
     sessionOptions: [
-      { durationMinutes: 60 },
+      { durationMinutes: 60, price: 180 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'R$ 180',
     benefits: [
       'Alívio da tensão acumulada na cabeça e pescoço',
       'Sensação imediata de descanso para pés cansados',
@@ -211,9 +211,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'O Pés Relax é realizado em uma confortável poltrona, sem necessidade de retirar a roupa. O atendimento inicia-se com escalda-pés morno e acolhedor, seguido de uma massagem cuidadosa nos pés para aliviar o peso e o cansaço do dia a dia.',
     category: 'Pés e escalda-pés',
     sessionOptions: [
-      { durationMinutes: 45 },
+      { durationMinutes: 45, price: 130 },
     ],
-    priceInfo: 'Sob consulta',
+    priceInfo: 'R$ 130',
     benefits: [
       'Escalda-pés morno e relaxante no início da sessão',
       'Atendimento prático na poltrona, sem retirar a roupa',

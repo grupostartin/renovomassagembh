@@ -6,6 +6,7 @@ export interface Service {
   category: string;
   sessionOptions: {
     durationMinutes: number;
+    price?: number;
     note?: string;
   }[];
   benefits: string[];
