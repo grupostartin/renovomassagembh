@@ -123,17 +123,17 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
           </div>
         )}
 
-        {/* Services Grid (No mobile: grade vertical limpa / No desktop: 3 colunas) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+        {/* Services Grid (3 colunas no mobile: 3-3-1 / 3 colunas no desktop) */}
+        <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 lg:gap-8">
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#C4B49A]/30 hover:border-[#4E7A36] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#C4B49A]/30 hover:border-[#4E7A36] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Image Container */}
                 <div 
-                  className="relative h-44 sm:h-52 w-full overflow-hidden cursor-pointer"
+                  className="relative h-24 sm:h-52 w-full overflow-hidden cursor-pointer"
                   onClick={() => setSelectedService(service)}
                 >
                   <img
@@ -146,38 +146,38 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
                   <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   
                   {/* Category badge */}
-                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-xs font-medium backdrop-blur-md">
-                    <Sparkles className="w-3 h-3 text-[#9BC47C]" />
-                    {service.category}
+                  <span className="absolute top-1.5 right-1.5 sm:top-3 sm:right-3 inline-flex items-center gap-1 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-[9px] sm:text-xs font-medium backdrop-blur-md">
+                    <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#9BC47C]" />
+                    <span className="hidden sm:inline">{service.category}</span>
+                    <span className="sm:hidden">{service.category.split(' ')[0]}</span>
                   </span>
                 </div>
 
                 {/* Card Content */}
-                <div className="p-5 sm:p-6">
+                <div className="p-2 sm:p-6">
                   {/* 1. Nome */}
                   <h3 
                     onClick={() => setSelectedService(service)}
-                    className="font-serif text-xl sm:text-2xl font-semibold text-[#15140C] mb-2 hover:text-[#4E7A36] transition-colors cursor-pointer"
+                    className="font-serif text-xs sm:text-2xl font-semibold text-[#15140C] mb-1 sm:mb-2 hover:text-[#4E7A36] transition-colors cursor-pointer line-clamp-2 leading-tight"
                   >
                     {service.title}
                   </h3>
 
-                  {/* 2. Descrição curta */}
-                  <p className="text-xs sm:text-sm text-[#15140C]/75 font-normal leading-relaxed mb-4 sm:min-h-[44px]">
+                  {/* 2. Descrição curta (Desktop e telas maiores) */}
+                  <p className="hidden sm:block text-xs sm:text-sm text-[#15140C]/75 font-normal leading-relaxed mb-4 sm:min-h-[44px]">
                     {service.shortDescription}
                   </p>
 
                   {/* 3. Duração e 4. Valor */}
-                  <div className="pt-3 border-t border-[#C4B49A]/25 space-y-2">
-                    <div className="flex items-center gap-2 text-xs font-medium text-[#15140C]/75">
-                      <Clock3 className="w-4 h-4 text-[#4D5240] shrink-0" />
-                      <span>
-                        <strong>Duração:</strong>{' '}
-                        {service.sessionOptions.map((o) => `${o.durationMinutes} min`).join(' ou ')}
+                  <div className="pt-1.5 sm:pt-3 border-t border-[#C4B49A]/25 space-y-1 sm:space-y-2">
+                    <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-medium text-[#15140C]/75">
+                      <Clock3 className="w-3 h-3 sm:w-4 sm:h-4 text-[#4D5240] shrink-0" />
+                      <span className="truncate">
+                        {service.sessionOptions.map((o) => `${o.durationMinutes}m`).join('/')}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-xs font-medium text-[#15140C]/75">
+                    <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-[#15140C]/75">
                       <Tag className="w-4 h-4 text-[#4E7A36] shrink-0" />
                       <span>
                         <strong>Valor:</strong> Sob consulta no WhatsApp
@@ -188,27 +188,27 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
               </div>
 
               {/* Card Footer: Botão AGENDAR + Botão Detalhes */}
-              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 space-y-2">
+              <div className="p-2 sm:px-6 sm:pb-6 sm:pt-1 space-y-1 sm:space-y-2">
                 {/* Botão AGENDAR */}
                 <GlassButton
                   href={getWhatsAppLink(`Olá! Gostaria de agendar a *${service.title}* na Renovo Massagem.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   size="sm"
-                  className="w-full uppercase tracking-wider text-xs sm:text-sm"
+                  className="w-full uppercase tracking-wider text-[10px] sm:text-sm py-1.5 sm:py-2.5 px-1"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 fill-current shrink-0" />
                   <span>Agendar</span>
                 </GlassButton>
 
                 <button
                   type="button"
                   onClick={() => setSelectedService(service)}
-                  className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold text-[#4D5240] hover:text-[#15140C] transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-1 py-1 text-[10px] sm:text-xs font-semibold text-[#4D5240] hover:text-[#15140C] transition-colors"
                 >
-                  <Info className="w-3.5 h-3.5" />
-                  <span>Ver mais detalhes e benefícios</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  <Info className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <span className="hidden sm:inline">Ver mais detalhes</span>
+                  <span className="sm:hidden">Detalhes</span>
                 </button>
               </div>
 
