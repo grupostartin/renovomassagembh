@@ -11,7 +11,7 @@ interface CTASectionProps {
 export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   return (
     // Gradiente: verde militar escuro → preto esverdeado
-    <section id="contato" className="py-20 bg-gradient-to-r from-[#2a2c1e] via-[#1f2117] to-[#15140C] text-[#F2F0EA] relative overflow-hidden border-y border-[#4D5240]/30">
+    <section id="contato" className="py-10 md:py-20 bg-gradient-to-r from-[#2a2c1e] via-[#1f2117] to-[#15140C] text-[#F2F0EA] relative overflow-hidden border-y border-[#4D5240]/30">
       
       {/* Background organic blur — verde folha suave */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#4E7A36]/08 blur-3xl pointer-events-none rounded-full" />

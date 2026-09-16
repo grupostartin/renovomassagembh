@@ -65,14 +65,14 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 mb-8 md:mb-12 no-scrollbar md:flex-wrap md:justify-center">
           <button
             type="button"
             onClick={() => {
               setLocalFilter(null);
               if (onClearFilter) onClearFilter();
             }}
-            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap transition-all shrink-0 ${
               !localFilter
                 ? 'bg-[#4D5240] text-[#F2F0EA] shadow-md'
                 : 'bg-white/80 text-[#15140C]/75 hover:bg-white border border-[#C4B49A]/30'
@@ -88,7 +88,7 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
                 key={need.id}
                 type="button"
                 onClick={() => setLocalFilter(isActive ? null : need.id)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide whitespace-nowrap transition-all shrink-0 ${
                   isActive
                     ? 'bg-[#4E7A36] text-[#F2F0EA] shadow-md'
                     : 'bg-white/80 text-[#15140C]/75 hover:bg-white border border-[#C4B49A]/30'
@@ -102,7 +102,7 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
 
         {/* Active Filter Notice if filtered */}
         {localFilter && activeNeed && (
-          <div className="mb-8 p-4 rounded-2xl bg-white/70 border border-[#4E7A36]/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="mb-6 p-4 rounded-2xl bg-white/70 border border-[#4E7A36]/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-[#4E7A36]">
                 Filtrando por: {activeNeed.title}
@@ -123,8 +123,89 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
           </div>
         )}
 
-        {/* Services Grid (Padrão: nome + descrição curta + duração + valor + botão AGENDAR) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Swipe Hint on Mobile */}
+        <div className="md:hidden flex items-center justify-between mb-3 text-xs text-[#15140C]/70 font-medium px-1">
+          <span>{filteredServices.length} opções disponíveis</span>
+          <span className="text-[#4E7A36] flex items-center gap-1">Deslize para ver todas 👉</span>
+        </div>
+
+        {/* Mobile Swipeable Carousel (md:hidden) */}
+        <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 pt-1 -mx-4 px-4 no-scrollbar">
+          {filteredServices.map((service) => (
+            <div
+              key={service.id}
+              className="snap-center shrink-0 w-[85vw] max-w-[320px] bg-white rounded-3xl overflow-hidden border border-[#C4B49A]/30 shadow-md flex flex-col justify-between"
+            >
+              <div>
+                <div 
+                  className="relative h-44 w-full overflow-hidden cursor-pointer"
+                  onClick={() => setSelectedService(service)}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent" />
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#15140C]/80 text-[#F2F0EA] text-[11px] font-medium backdrop-blur-md">
+                    <Sparkles className="w-3 h-3 text-[#9BC47C]" />
+                    {service.category}
+                  </span>
+                </div>
+
+                <div className="p-5">
+                  <h3 
+                    onClick={() => setSelectedService(service)}
+                    className="font-serif text-xl font-semibold text-[#15140C] mb-1.5 cursor-pointer"
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p className="text-xs text-[#15140C]/75 line-clamp-2 mb-3">
+                    {service.shortDescription}
+                  </p>
+
+                  <div className="pt-2 border-t border-[#C4B49A]/20 space-y-1.5 text-xs text-[#15140C]/80">
+                    <div className="flex items-center gap-2">
+                      <Clock3 className="w-3.5 h-3.5 text-[#4D5240] shrink-0" />
+                      <span>{service.sessionOptions.map((o) => `${o.durationMinutes} min`).join(' / ')}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Tag className="w-3.5 h-3.5 text-[#4E7A36] shrink-0" />
+                      <span>Sob consulta no WhatsApp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 pt-0 space-y-2">
+                <GlassButton
+                  href={getWhatsAppLink(`Olá! Gostaria de agendar a *${service.title}* na Renovo Massagem.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="sm"
+                  className="w-full uppercase text-xs"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <span>Agendar</span>
+                </GlassButton>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedService(service)}
+                  className="w-full text-center py-1 text-xs font-medium text-[#4D5240] hover:text-[#15140C]"
+                >
+                  Ver mais detalhes
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Services Grid (hidden md:grid) */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredServices.map((service) => (
             <div
               key={service.id}
@@ -217,26 +298,26 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
         </div>
 
         {/* ─── 6. Massagem em Dupla (Destaque Especial) ────────────────────── */}
-        <div className="mt-16 bg-gradient-to-br from-[#1a1910] via-[#24261a] to-[#15140C] rounded-3xl p-8 sm:p-12 text-[#F2F0EA] border border-[#4E7A36]/30 shadow-2xl relative overflow-hidden">
+        <div className="mt-8 md:mt-16 bg-gradient-to-br from-[#1a1910] via-[#24261a] to-[#15140C] rounded-3xl p-6 sm:p-12 text-[#F2F0EA] border border-[#4E7A36]/30 shadow-2xl relative overflow-hidden">
           
           <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-[#4E7A36]/15 blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4E7A36]/25 border border-[#4E7A36]/40 text-[#F2F0EA] text-xs font-bold uppercase tracking-widest mb-4">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+            <div className="max-w-2xl text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4E7A36]/25 border border-[#4E7A36]/40 text-[#F2F0EA] text-xs font-bold uppercase tracking-widest mb-3">
                 <Users className="w-4 h-4 text-[#9BC47C]" />
                 <span>Experiência compartilhada</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#F2F0EA] mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#F2F0EA] mb-2 sm:mb-3">
                 {COUPLE_MASSAGE.title}
               </h3>
 
-              <p className="text-base sm:text-lg text-[#F2F0EA]/85 font-light leading-relaxed mb-4">
+              <p className="text-sm sm:text-lg text-[#F2F0EA]/85 font-light leading-relaxed mb-3">
                 {COUPLE_MASSAGE.description}
               </p>
 
-              <p className="text-xs sm:text-sm text-[#C4B49A]/90 italic">
+              <p className="text-xs text-[#C4B49A]/90 italic">
                 * Realizada para casais, amigos, mães e filhas ou qualquer dupla, no mesmo ambiente e ao mesmo tempo.
               </p>
             </div>

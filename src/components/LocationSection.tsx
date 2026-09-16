@@ -5,7 +5,7 @@ import { MapPin, Navigation, MessageCircle, Clock, CheckCircle2, Building } from
 
 export const LocationSection: React.FC = () => {
   return (
-    <section id="localizacao" className="py-24 bg-[#F2F0EA] text-[#15140C] relative overflow-hidden border-t border-[#C4B49A]/30">
+    <section id="localizacao" className="py-10 md:py-24 bg-[#F2F0EA] text-[#15140C] relative overflow-hidden border-t border-[#C4B49A]/30">
       
       {/* Decorative background glow */}
       <div className="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-[#4E7A36]/8 blur-3xl pointer-events-none" />

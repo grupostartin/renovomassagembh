@@ -10,7 +10,7 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="duvidas" className="py-24 bg-[#EAE5DB] text-[#15140C] relative overflow-hidden">
+    <section id="duvidas" className="py-10 md:py-24 bg-[#EAE5DB] text-[#15140C] relative overflow-hidden">
       
       {/* Decorative background glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#4E7A36]/5 blur-3xl pointer-events-none" />

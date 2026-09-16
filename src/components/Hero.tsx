@@ -27,7 +27,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }) => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
+    <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
       {/* Foto real do espaço em tela cheia, com bege concentrado atrás do texto */}
       <div className="absolute inset-0 z-0">
         <img
@@ -36,9 +36,9 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           className="w-full h-full object-cover object-[91%_center] md:object-center"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.68)_0%,rgba(233,223,208,0.50)_58%,rgba(233,223,208,0.16)_100%)] md:bg-[#E9DFD0]/5" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.30)_0%,rgba(233,223,208,0.14)_30%,rgba(233,223,208,0.00)_56%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/20 via-transparent to-[#F8F5EF]/5" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.78)_0%,rgba(233,223,208,0.65)_58%,rgba(233,223,208,0.25)_100%)] md:bg-[#E9DFD0]/5" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.40)_0%,rgba(233,223,208,0.20)_30%,rgba(233,223,208,0.00)_56%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/40 via-transparent to-[#F8F5EF]/10" />
       </div>
 
       <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/45 blur-3xl pointer-events-none" />
@@ -79,29 +79,30 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
         <div className="max-w-xl">
           
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F5EF]/85 border border-[#4E7A36]/30 backdrop-blur-sm mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#F8F5EF]/90 border border-[#4E7A36]/30 backdrop-blur-sm mb-4 sm:mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#4E7A36] animate-ping" />
-            <span className="text-sm font-bold tracking-widest text-[#3F5D35] uppercase">
+            <span className="text-xs sm:text-sm font-bold tracking-widest text-[#3F5D35] uppercase">
               Uma pausa na sua rotina • Palmares, BH
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.1] mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.15] mb-3 sm:mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
             Seu corpo também precisa de uma <span className="text-[#4E7A36] italic font-semibold">pausa.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-[#34412F]/85 font-normal leading-relaxed mb-8 max-w-lg">
-            Massagens para aliviar dores e tensões, relaxar o corpo e proporcionar bem-estar em meio à correria do dia a dia.
+          <p className="text-base sm:text-xl md:text-2xl text-[#34412F]/90 font-normal leading-relaxed mb-6 sm:mb-8 max-w-lg">
+            Massagens para aliviar dores e tensões, relaxar o corpo e proporcionar bem-estar no bairro Palmares.
           </p>
 
           {/* CTA Group */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-12">
             <GlassButton
               href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo Massagem.')}
               target="_blank"
               rel="noopener noreferrer"
+              className="py-3.5 text-sm"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Agendar minha massagem</span>
@@ -110,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
             {bookingEnabled && (
               <button
                 onClick={onOpenBookingModal}
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#F8F5EF]/70 hover:bg-white text-[#34412F] border border-[#4D5240]/25 hover:border-[#4E7A36] text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#F8F5EF]/85 hover:bg-white text-[#34412F] border border-[#4D5240]/25 hover:border-[#4E7A36] text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
               >
                 <Calendar className="w-4 h-4 text-[#4E7A36]" />
                 <span>Escolher serviço e horário</span>
@@ -118,36 +119,36 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
             )}
           </div>
 
-          {/* 3 Key Differentials */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-[#4D5240]/20">
+          {/* 3 Key Differentials (Horizontal Scroll or Compact Grid on mobile) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 pt-4 sm:pt-6 border-t border-[#4D5240]/20">
             
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
-                <Sparkles className="w-5 h-5" />
+            <div className="flex items-center sm:items-start gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#F8F5EF]/90 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
-                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">Um espaço simples, confortável e preparado para receber você.</p>
+                <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
+                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço simples, confortável e silencioso.</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
-                <Award className="w-5 h-5" />
+            <div className="flex items-center sm:items-start gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#F8F5EF]/90 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Massagem de qualidade</h4>
-                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">Técnica, atenção e cuidado em cada atendimento.</p>
+                <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Massagem de qualidade</h4>
+                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Técnica e cuidado personalizado.</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F8F5EF]/80 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm mt-0.5">
-                <HeartHandshake className="w-5 h-5" />
+            <div className="flex items-center sm:items-start gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#F8F5EF]/90 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
+                <HeartHandshake className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#34412F]">Fácil acesso</h4>
-                <p className="text-xs text-[#34412F]/75 leading-snug mt-0.5">No coração do bairro Palmares, em uma das principais vias da região.</p>
+                <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Fácil acesso</h4>
+                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">No coração do bairro Palmares, BH.</p>
               </div>
             </div>
 

@@ -188,16 +188,24 @@ const FALLBACK_REVIEWS: GoogleReview[] = [
   },
 ];
 
-export const Testimonials = () => {
+interface TestimonialsProps {
+  isMobileTab?: boolean;
+}
+
+export const Testimonials: FC<TestimonialsProps> = ({ isMobileTab = false }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [reviewsData, setReviewsData] = useState<GoogleReviewsResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(isMobileTab);
   const [configured, setConfigured] = useState(false);
   const [googleMapsUri, setGoogleMapsUri] = useState(GOOGLE_REVIEWS_URL);
 
   useEffect(() => {
+    if (isMobileTab) {
+      setShouldLoad(true);
+      return;
+    }
     const section = sectionRef.current;
     if (!section || !('IntersectionObserver' in window)) {
       setShouldLoad(true);
@@ -216,7 +224,7 @@ export const Testimonials = () => {
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [isMobileTab]);
 
   useEffect(() => {
     if (!shouldLoad) return;

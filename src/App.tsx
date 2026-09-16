@@ -17,6 +17,9 @@ import { LegalPage } from './components/LegalPage';
 import { BOOKING_ENABLED_IN_PRODUCTION } from './data/bookingConfig';
 import { NeedOption } from './data/siteData';
 
+import { AboutAndReviewsMobile } from './components/AboutAndReviewsMobile';
+import { MobileScrollIndicator } from './components/MobileScrollIndicator';
+
 const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 
 function MainSite() {
@@ -73,48 +76,56 @@ function MainSite() {
 
       {/* Main Content Sections */}
       <main>
-        {/* 1. Hero Section (Primeira tela) */}
+        {/* SCROLL 1: Hero Section (Primeira tela) */}
         <Hero
           bookingEnabled={isBookingEnabled}
           onOpenBookingModal={() => setBookingModalOpen(true)}
         />
 
-        {/* 1b. Banner de destaque: Massagem em Dupla */}
-        <CoupleMassageBanner />
+        {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
+        <div className="hidden md:block">
+          <CoupleMassageBanner />
+        </div>
 
-        {/* 2. Escolha por necessidade */}
-        <NeedPicker
-          activeNeedId={activeNeedFilterId}
-          onSelectNeed={handleSelectNeed}
-        />
+        {/* 2. Escolha por necessidade (Desktop apenas) */}
+        <div className="hidden md:block">
+          <NeedPicker
+            activeNeedId={activeNeedFilterId}
+            onSelectNeed={handleSelectNeed}
+          />
+        </div>
 
-        {/* 3. Nossas massagens & Massagem em dupla */}
+        {/* SCROLL 2: Nossas massagens & Massagem em dupla (Com carrossel snap-x no mobile) */}
         <Services
           activeNeedFilterId={activeNeedFilterId}
           onClearFilter={() => setActiveNeedFilterId(null)}
         />
 
-        {/* 4. Sobre a Renovo, Mensagem da Fundadora e Atendimento Profissional */}
-        <About />
+        {/* SCROLL 3 MOBILE: Sobre a Renovo & Avaliações Google comutáveis por Abas */}
+        <AboutAndReviewsMobile />
 
-        {/* 5. Avaliações reais do Google */}
-        <Testimonials />
+        {/* SCROLL 3 DESKTOP: Sobre a Renovo e Depoimentos completos */}
+        <div className="hidden md:block">
+          <About />
+          <Testimonials />
+        </div>
 
-        {/* 6. Localização (Destaque Palmares - Belo Horizonte) */}
-        <LocationSection />
-
-        {/* 7. Dúvidas frequentes (FAQ) */}
-        <FAQSection />
-
-        {/* 8. Chamada final */}
-        <CTASection
-          bookingEnabled={isBookingEnabled}
-          onOpenBookingModal={() => setBookingModalOpen(true)}
-        />
+        {/* SCROLL 4: Localização, FAQ & Chamada final */}
+        <div id="localizacao-faq">
+          <LocationSection />
+          <FAQSection />
+          <CTASection
+            bookingEnabled={isBookingEnabled}
+            onOpenBookingModal={() => setBookingModalOpen(true)}
+          />
+        </div>
       </main>
 
       {/* Footer */}
       <Footer />
+
+      {/* Indicador discreto dos 4 scrolls no mobile */}
+      <MobileScrollIndicator />
 
       {/* Floating Sticky WhatsApp Button */}
       <FloatingWhatsApp />
