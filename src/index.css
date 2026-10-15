@@ -82,6 +82,11 @@ html {
   }
 }
 
+/* ─── Scroll Reveal (ver src/hooks/useScrollReveal.ts) ───────────────────── */
+[data-sr="pending"] {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-enter-blur {
     animation: none !important;

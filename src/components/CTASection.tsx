@@ -18,10 +18,10 @@ export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBo
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 bg-[#15140C]/40 p-8 sm:p-12 rounded-3xl border border-[#4E7A36]/20 backdrop-blur-md">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 bg-[#15140C]/40 p-6 sm:p-12 rounded-3xl border border-[#4E7A36]/20 backdrop-blur-md">
           
           <div className="flex items-start gap-5 max-w-2xl">
-            <div className="w-14 h-14 rounded-2xl bg-[#4E7A36]/20 border border-[#4E7A36]/40 flex items-center justify-center text-[#4E7A36] shrink-0 mt-1">
+            <div className="hidden sm:flex w-14 h-14 rounded-2xl bg-[#4E7A36]/20 border border-[#4E7A36]/40 items-center justify-center text-[#4E7A36] shrink-0 mt-1">
               <MessageCircle className="w-8 h-8 fill-current" />
             </div>
 
@@ -46,6 +46,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ bookingEnabled, onOpenBo
               href={getWhatsAppLink('Olá! Vim pelo site e gostaria de agendar minha massagem na Renovo.')}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Agendar minha massagem</span>

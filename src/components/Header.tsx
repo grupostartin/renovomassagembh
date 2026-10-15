@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({ bookingEnabled, onOpenBookingMod
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center p-2 rounded-full bg-[#4E7A36] text-[#F2F0EA] hover:bg-[#4D5240]"
+              className="inline-flex items-center justify-center p-2.5 rounded-full bg-[#4E7A36] text-[#F2F0EA] hover:bg-[#4D5240]"
               aria-label="WhatsApp"
             >
               <MessageCircle className="w-4 h-4 fill-current" />

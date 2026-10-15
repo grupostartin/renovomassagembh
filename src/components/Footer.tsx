@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#15140C] text-[#F2F0EA] pt-16 pb-8 border-t border-[#4D5240]/25">
+    <footer className="bg-[#15140C] text-[#F2F0EA] pt-16 pb-32 md:pb-8 border-t border-[#4D5240]/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
               >
                 <Instagram className="w-3.5 h-3.5 text-[#4E7A36]" />
                 <span>Instagram</span>
@@ -49,14 +49,14 @@ export const Footer: React.FC = () => {
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#4E7A36]" />
                 <span>WhatsApp</span>
               </a>
               <a
                 href="#localizacao"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#1a1910] border border-[#4D5240]/40 text-[#F2F0EA] hover:border-[#4E7A36] hover:text-[#4E7A36] transition-all"
               >
                 <MapPin className="w-3.5 h-3.5 text-[#4E7A36]" />
                 <span>Localização</span>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-[#4E7A36] transition-colors duration-200"
+                    className="inline-block py-1 md:py-0 hover:text-[#4E7A36] transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
                 <li key={serv.id}>
                   <a
                     href="#servicos"
-                    className="hover:text-[#4E7A36] transition-colors duration-200"
+                    className="inline-block py-1 md:py-0 hover:text-[#4E7A36] transition-colors duration-200"
                   >
                     {serv.title}
                   </a>
@@ -221,10 +221,10 @@ export const Footer: React.FC = () => {
         <div className="pt-4 border-t border-[#4D5240]/10 flex flex-col lg:flex-row items-center justify-between text-xs text-[#F2F0EA]/45 gap-4">
           <p>© {currentYear} Renovo Massagem. Todos os direitos reservados.</p>
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2" aria-label="Links legais">
-            <a href="/politica-de-privacidade" className="hover:text-[#4E7A36] transition-colors">
+            <a href="/politica-de-privacidade" className="py-1 hover:text-[#4E7A36] transition-colors">
               Política de Privacidade
             </a>
-            <a href="/termos-de-uso" className="hover:text-[#4E7A36] transition-colors">
+            <a href="/termos-de-uso" className="py-1 hover:text-[#4E7A36] transition-colors">
               Termos de Uso
             </a>
           </nav>

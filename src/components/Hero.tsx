@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HERO_IMAGES, getWhatsAppLink } from '../data/siteData';
 import { GlassButton } from './GlassButton';
 import { MessageCircle, Sparkles, Award, HeartHandshake, Calendar } from 'lucide-react';
@@ -20,12 +20,80 @@ const HERO_PARTICLES = Array.from({ length: 22 }, (_, i) => ({
       : `rgba(141,128,116,${(0.1 + sr(i * 13 + 10) * 0.12).toFixed(2)})`,
 }));
 
+// Headline digitada como máquina de escrever (cada letra surge com fade)
+const HEADLINE_PARTS = [
+  { text: 'Seu corpo também precisa de uma ', accent: false },
+  { text: 'pausa.', accent: true },
+];
+const HEADLINE_TEXT = HEADLINE_PARTS.map((p) => p.text).join('');
+export const TYPE_START_DELAY_MS = 450;
+export const TYPE_SPEED_MS = 48;
+export const TYPING_TOTAL_MS = TYPE_START_DELAY_MS + HEADLINE_TEXT.length * TYPE_SPEED_MS;
+
+const TypewriterHeadline: React.FC<{ start: boolean }> = ({ start }) => {
+  const [typed, setTyped] = useState(0);
+  const done = typed >= HEADLINE_TEXT.length;
+
+  useEffect(() => {
+    if (!start || done) return;
+    const timer = setTimeout(
+      () => setTyped((n) => n + 1),
+      typed === 0 ? TYPE_START_DELAY_MS : TYPE_SPEED_MS,
+    );
+    return () => clearTimeout(timer);
+  }, [start, typed, done]);
+
+  let index = 0;
+  const caret = (
+    <span key="caret" aria-hidden="true" className="relative inline-block w-0">
+      <span
+        className="absolute left-[2px] -top-[0.85em] h-[1em] w-[2px] bg-[#4E7A36]"
+        style={{ animation: `hero-caret 0.9s steps(1) infinite${done ? ', hero-caret-out 0.6s ease 1.6s forwards' : ''}` }}
+      />
+    </span>
+  );
+
+  return (
+    <>
+      <span className="sr-only">{HEADLINE_TEXT}</span>
+      <span aria-hidden="true">
+        {typed === 0 && start && caret}
+        {HEADLINE_PARTS.map((part, p) => {
+          const chars = Array.from(part.text).map((char) => {
+            const i = index++;
+            return (
+              <React.Fragment key={i}>
+                <span
+                  style={{
+                    opacity: i < typed ? 1 : 0,
+                    filter: i < typed ? 'blur(0px)' : 'blur(4px)',
+                    transition: 'opacity 0.35s ease-out, filter 0.35s ease-out',
+                  }}
+                >
+                  {char}
+                </span>
+                {i === typed - 1 && caret}
+              </React.Fragment>
+            );
+          });
+          return part.accent ? (
+            <span key={p} className="text-[#4E7A36] italic font-semibold">{chars}</span>
+          ) : (
+            <React.Fragment key={p}>{chars}</React.Fragment>
+          );
+        })}
+      </span>
+    </>
+  );
+};
+
 interface HeroProps {
   bookingEnabled: boolean;
   onOpenBookingModal: () => void;
+  startTyping: boolean;
 }
 
-export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }) => {
+export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, startTyping }) => {
   return (
     <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
       {/* Foto real do espaço em tela cheia, com bege concentrado atrás do texto */}
@@ -45,6 +113,8 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
 
       {/* Floating ambient particles */}
       <style>{`
+        @keyframes hero-caret { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+        @keyframes hero-caret-out { to { visibility: hidden; } }
         @keyframes hero-rise {
           0%   { transform: translateY(0)      translateX(0)            scale(1);   opacity: 0;    }
           7%   { opacity: 1; }
@@ -81,14 +151,14 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#F8F5EF]/90 border border-[#4E7A36]/30 backdrop-blur-sm mb-4 sm:mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#4E7A36] animate-ping" />
-            <span className="text-xs sm:text-sm font-bold tracking-widest text-[#3F5D35] uppercase">
+            <span className="text-[11px] sm:text-sm font-bold tracking-wider sm:tracking-widest text-[#3F5D35] uppercase">
               Uma pausa na sua rotina • Palmares, BH
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-medium tracking-wide text-[#34412F] leading-[1.15] mb-3 sm:mb-6 drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]">
-            Seu corpo também precisa de uma <span className="text-[#4E7A36] italic font-semibold">pausa.</span>
+            <TypewriterHeadline start={startTyping} />
           </h1>
 
           {/* Subtitle */}
@@ -128,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
-                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço simples, confortável e silencioso.</p>
+                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço simples, confortável e silencioso.</p>
               </div>
             </div>
 
@@ -138,7 +208,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Massagem de qualidade</h4>
-                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Técnica e cuidado personalizado.</p>
+                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Técnica e cuidado personalizado.</p>
               </div>
             </div>
 
@@ -148,7 +218,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal }
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Fácil acesso</h4>
-                <p className="text-[11px] sm:text-xs text-[#34412F]/75 leading-tight sm:leading-snug">No coração do bairro Palmares, BH.</p>
+                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">No coração do bairro Palmares, BH.</p>
               </div>
             </div>
 

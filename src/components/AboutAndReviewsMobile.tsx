@@ -30,7 +30,7 @@ export const AboutAndReviewsMobile: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('about')}
-            className={`flex-1 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${
+            className={`flex-1 py-2.5 rounded-full text-xs font-semibold transition-all duration-300 ${
               activeTab === 'about'
                 ? 'bg-[#4E7A36] text-[#F2F0EA] shadow-md'
                 : 'text-[#15140C]/70 hover:text-[#15140C]'
@@ -41,7 +41,7 @@ export const AboutAndReviewsMobile: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('reviews')}
-            className={`flex-1 py-2 rounded-full text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-1 ${
+            className={`flex-1 py-2.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-1 ${
               activeTab === 'reviews'
                 ? 'bg-[#4E7A36] text-[#F2F0EA] shadow-md'
                 : 'text-[#15140C]/70 hover:text-[#15140C]'

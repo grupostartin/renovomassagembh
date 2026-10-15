@@ -19,6 +19,8 @@ import { NeedOption } from './data/siteData';
 
 import { AboutAndReviewsMobile } from './components/AboutAndReviewsMobile';
 import { MobileScrollIndicator } from './components/MobileScrollIndicator';
+import { useScrollReveal } from './hooks/useScrollReveal';
+import { useSmoothAnchorScroll } from './hooks/useSmoothAnchorScroll';
 
 const isBookingEnabled = import.meta.env.DEV || BOOKING_ENABLED_IN_PRODUCTION;
 
@@ -28,6 +30,9 @@ function MainSite() {
   const [isSiteEntering, setIsSiteEntering] = useState(false);
   const [isEntranceFinished, setIsEntranceFinished] = useState(false);
   const [activeNeedFilterId, setActiveNeedFilterId] = useState<string | null>(null);
+
+  useScrollReveal(isSiteEntering);
+  useSmoothAnchorScroll();
 
   const handleSplashLeaving = useCallback(() => {
     setIsSiteEntering(true);
@@ -79,6 +84,7 @@ function MainSite() {
           <Hero
             bookingEnabled={isBookingEnabled}
             onOpenBookingModal={() => setBookingModalOpen(true)}
+            startTyping={isSiteEntering}
           />
 
           {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
