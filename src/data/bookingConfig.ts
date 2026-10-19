@@ -36,7 +36,7 @@ export const BOOKING_SERVICES: BookingServiceConfig[] = [
   {
     id: 'desportiva',
     title: 'Massagem Desportiva',
-    durations: [30, 60],
+    durations: [60],
   },
   {
     id: 'pedras-quentes',

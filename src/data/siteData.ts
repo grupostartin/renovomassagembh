@@ -24,12 +24,12 @@ export const GOOGLE_REVIEWS_URL = GOOGLE_MAPS_URL;
 
 export const BUSINESS_HOURS = [
   { day: 'Segunda-feira', hours: '09:00 – 18:00', open: true },
-  { day: 'Terça-feira',   hours: '09:00 – 18:00', open: true },
-  { day: 'Quarta-feira',  hours: '09:00 – 18:00', open: true },
-  { day: 'Quinta-feira',  hours: '09:00 – 18:00', open: true },
-  { day: 'Sexta-feira',   hours: '09:00 – 18:00', open: true },
-  { day: 'Sábado',        hours: '09:00 – 16:00', open: true },
-  { day: 'Domingo',       hours: 'Fechado',        open: false },
+  { day: 'Terça-feira', hours: '09:00 – 18:00', open: true },
+  { day: 'Quarta-feira', hours: '09:00 – 18:00', open: true },
+  { day: 'Quinta-feira', hours: '09:00 – 18:00', open: true },
+  { day: 'Sexta-feira', hours: '09:00 – 18:00', open: true },
+  { day: 'Sábado', hours: '09:00 – 16:00', open: true },
+  { day: 'Domingos e Feriados', hours: 'Fechado', open: false },
 ];
 
 export const HERO_IMAGES = {
@@ -107,7 +107,6 @@ export const SERVICES: Service[] = [
     category: 'Drenagem',
     sessionOptions: [
       { durationMinutes: 60 },
-      { durationMinutes: 90 },
     ],
     benefits: [
       'Reduz o inchaço e a retenção de líquidos',
@@ -145,14 +144,13 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem desportiva trabalha a musculatura profunda com manobras precisas, definidas conforme a prática física e a sensibilidade de cada cliente. Ajuda no alívio de sobrecargas e na recuperação muscular.',
     category: 'Muscular',
     sessionOptions: [
-      { durationMinutes: 30 },
       { durationMinutes: 60 },
     ],
     benefits: [
       'Atenção aos grupos musculares mais exigidos',
       'Pressão firme adaptada à tolerância do cliente',
       'Alívio da sobrecarga pós-treino ou esforço físico',
-      'Opções de sessão de 30 min ou 60 min',
+      'Sessão focada e profunda de 60 min',
     ],
     indications: ['Praticantes de atividade física', 'Sobrecarga muscular', 'Sensação de rigidez após treinos', 'Manutenção corporal'],
     image: serviceTherapeuticImg,
@@ -218,7 +216,7 @@ export const FOUNDER_MESSAGE = {
 
 // ─── 9. Atendimento Exclusivamente Profissional ──────────────────────────────
 export const PROFESSIONAL_CARE_NOTICE =
-  'A Renovo oferece serviços de massoterapia voltados ao alívio de tensões, relaxamento e bem-estar. Todos os atendimentos são exclusivamente profissionais e realizados com respeito aos clientes e às profissionais.';
+  'A Renovo oferece serviços voltados ao alívio de tensões, relaxamento e bem-estar. Todos os atendimentos são exclusivamente profissionais e realizados com respeito ao cliente.';
 
 // ─── 10. Ambiente e Conforto ──────────────────────────────────────────────────
 export const ENXOVAL_NOTICE =

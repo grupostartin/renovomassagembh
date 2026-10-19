@@ -6,14 +6,14 @@ import { MapPin, MessageCircle, Sparkles, ShieldCheck } from 'lucide-react';
 export const About: React.FC = () => {
   return (
     <section id="sobre" className="py-24 bg-[#F2F0EA] text-[#15140C] relative overflow-hidden">
-      
+
       {/* Decorative background aura */}
       <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-[#4D5240]/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* Left Column: Real photo of space + Location Tag */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-[#C4B49A]/30 shadow-2xl">
@@ -23,7 +23,7 @@ export const About: React.FC = () => {
                 className="w-full h-[400px] sm:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent" />
-              
+
               {/* Location Tag */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#F2F0EA]/95 backdrop-blur-md border border-[#C4B49A]/30 flex items-center gap-3 shadow-lg">
                 <div className="w-10 h-10 rounded-full bg-[#4E7A36] text-[#F2F0EA] flex items-center justify-center shrink-0">
@@ -47,7 +47,7 @@ export const About: React.FC = () => {
 
           {/* Right Column: Institutional narrative, Founder message & Professional commitment */}
           <div className="lg:col-span-7 space-y-8">
-            
+
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D5240]/10 border border-[#4D5240]/25 mb-4 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#4D5240]" />
@@ -64,7 +64,7 @@ export const About: React.FC = () => {
               {/* 7. Texto institucional fiel */}
               <div className="space-y-4 text-base sm:text-lg text-[#15140C]/85 font-normal leading-relaxed">
                 <p>
-                  A <strong>Renovo</strong> nasceu com uma proposta clara: oferecer um lugar onde você possa parar por um momento, receber uma boa massagem e cuidar do corpo em meio à correria do dia a dia.
+                  A <strong>Renovo</strong> nasceu com uma proposta clara: oferecer um lugar onde você possa parar, relaxar e receber uma boa massagem.
                 </p>
                 <p>
                   Aqui, cada cliente é recebido com atenção e respeito. A massagem é realizada de acordo com suas necessidades — seja para aliviar dores e tensões, descansar o corpo ou simplesmente relaxar.
@@ -91,19 +91,19 @@ export const About: React.FC = () => {
             {/* WhatsApp Contact Action */}
             <div className="pt-2">
               <GlassButton
-              href={getWhatsAppLink('Olá! Gostaria de saber mais sobre a Renovo Massagem e agendar meu horário.')}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Converse conosco pelo WhatsApp</span>
-            </GlassButton>
+                href={getWhatsAppLink('Olá! Gostaria de saber mais sobre a Renovo Massagem e agendar meu horário.')}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>Converse conosco pelo WhatsApp</span>
+              </GlassButton>
             </div>
 
           </div>
 
         </div>
-        
+
       </div>
     </section>
   );
