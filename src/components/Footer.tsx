@@ -32,9 +32,6 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-[#F2F0EA]/80 font-light leading-relaxed max-w-sm pt-2">
               Uma pausa na rotina para aliviar tensões, relaxar o corpo e cuidar do seu bem-estar.
             </p>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#9BC47C]">
-              Cuidado, Alívio e Bem-estar.
-            </p>
             <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
               <a
                 href={INSTAGRAM_URL}
