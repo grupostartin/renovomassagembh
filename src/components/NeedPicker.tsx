@@ -78,7 +78,7 @@ export const NeedPicker: React.FC<NeedPickerProps> = ({ onSelectNeed, activeNeed
 
                   {/* Title pill over image */}
                   <div className="absolute bottom-3 left-3 right-3">
-                    <span className="inline-block px-2.5 py-1 rounded-full bg-[#4E7A36] text-[#F2F0EA] text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1.5">
+                    <span className="inline-block px-2.5 py-1 rounded-full bg-[#4E7A36] text-[#F2F0EA] text-[10px] sm:text-xs font-medium tracking-wide mb-1.5">
                       Foco do atendimento
                     </span>
                     <h3 className="font-serif text-lg sm:text-xl font-semibold text-[#F2F0EA] leading-tight">

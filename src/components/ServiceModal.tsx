@@ -84,11 +84,6 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
                       <p className="mt-0.5 text-[11px] sm:text-xs text-[#15140C]/60">{option.note}</p>
                     )}
                   </div>
-                  {option.price && (
-                    <span className="text-sm sm:text-base font-bold text-[#4E7A36]">
-                      R$ {option.price}
-                    </span>
-                  )}
                 </div>
               ))}
             </div>

@@ -1,8 +1,7 @@
 import React from "react";
-import { COUPLE_MASSAGE, getWhatsAppLink } from "../data/siteData";
+import { COUPLE_MASSAGE, HERO_IMAGES, getWhatsAppLink } from "../data/siteData";
 import { GlassButton } from "./GlassButton";
 import { Heart, Sparkles, Users } from "lucide-react";
-import coupleImg from "../assets/images/hot_stones_zen_1784953117607.jpg";
 
 export const CoupleMassageBanner: React.FC = () => {
   return (
@@ -13,7 +12,7 @@ export const CoupleMassageBanner: React.FC = () => {
     >
       <div className="absolute inset-0 z-0">
         <img
-          src={coupleImg}
+          src={HERO_IMAGES.main}
           alt="Ambiente relaxante para massagem em dupla na Renovo Massagem"
           className="w-full h-full object-cover object-center"
           loading="lazy"

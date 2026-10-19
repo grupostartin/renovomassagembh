@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { HERO_IMAGES, getWhatsAppLink } from '../data/siteData';
+import { getWhatsAppLink } from '../data/siteData';
 import { GlassButton } from './GlassButton';
 import { MessageCircle, Sparkles, Award, HeartHandshake, Calendar } from 'lucide-react';
 
@@ -7,17 +7,17 @@ import { MessageCircle, Sparkles, Award, HeartHandshake, Calendar } from 'lucide
 const sr = (s: number) => { const x = Math.sin(s + 1) * 10000; return x - Math.floor(x); };
 const HERO_PARTICLES = Array.from({ length: 22 }, (_, i) => ({
   id: i,
-  x:        sr(i * 13 + 1) * 100,
-  size:     2 + sr(i * 13 + 2) * 3.5,
-  delay:    sr(i * 13 + 3) * 14,
+  x: sr(i * 13 + 1) * 100,
+  size: 2 + sr(i * 13 + 2) * 3.5,
+  delay: sr(i * 13 + 3) * 14,
   duration: 10 + sr(i * 13 + 4) * 16,
-  sway:     25 + sr(i * 13 + 6) * 55,
+  sway: 25 + sr(i * 13 + 6) * 55,
   color:
     sr(i * 13 + 7) > 0.55
       ? `rgba(78,122,54,${(0.16 + sr(i * 13 + 8) * 0.16).toFixed(2)})`
       : sr(i * 13 + 7) > 0.28
-      ? `rgba(77,82,64,${(0.12 + sr(i * 13 + 9) * 0.14).toFixed(2)})`
-      : `rgba(141,128,116,${(0.1 + sr(i * 13 + 10) * 0.12).toFixed(2)})`,
+        ? `rgba(77,82,64,${(0.12 + sr(i * 13 + 9) * 0.14).toFixed(2)})`
+        : `rgba(141,128,116,${(0.1 + sr(i * 13 + 10) * 0.12).toFixed(2)})`,
 }));
 
 // Headline digitada como máquina de escrever (cada letra surge com fade)
@@ -96,18 +96,8 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, startTyping }) => {
   return (
     <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
-      {/* Foto real do espaço em tela cheia, com bege concentrado atrás do texto */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={HERO_IMAGES.main}
-          alt="Recepção da Renovo Massagem em Belo Horizonte"
-          className="w-full h-full object-cover object-[91%_center] md:object-center"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.78)_0%,rgba(233,223,208,0.65)_58%,rgba(233,223,208,0.25)_100%)] md:bg-[#E9DFD0]/5" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(233,223,208,0.40)_0%,rgba(233,223,208,0.20)_30%,rgba(233,223,208,0.00)_56%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#E9DFD0]/40 via-transparent to-[#F8F5EF]/10" />
-      </div>
+      {/* Background limpo sem foto por enquanto */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#E9DFD0] via-[#EFE6D8] to-[#E5D9C7]" />
 
       <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/45 blur-3xl pointer-events-none" />
 
@@ -129,9 +119,9 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
           aria-hidden="true"
           style={{
             position: 'absolute',
-            left:   `${p.x}%`,
+            left: `${p.x}%`,
             bottom: 0,
-            width:  `${p.size}px`,
+            width: `${p.size}px`,
             height: `${p.size}px`,
             borderRadius: '50%',
             background: p.color,
@@ -147,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-xl">
-          
+
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#F8F5EF]/90 border border-[#4E7A36]/30 backdrop-blur-sm mb-4 sm:mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#4E7A36] animate-ping" />
@@ -191,14 +181,14 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
 
           {/* 3 Key Differentials (Horizontal Scroll or Compact Grid on mobile) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 pt-4 sm:pt-6 border-t border-[#4D5240]/20">
-            
+
             <div className="flex items-center sm:items-start gap-3">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#F8F5EF]/90 border border-[#4E7A36]/25 flex items-center justify-center text-[#4E7A36] shrink-0 shadow-sm">
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
-                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço simples, confortável e silencioso.</p>
+                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço aconchegante, confortável e silencioso.</p>
               </div>
             </div>
 

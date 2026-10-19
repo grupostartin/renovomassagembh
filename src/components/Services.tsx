@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { SERVICES, COUPLE_MASSAGE, NEED_OPTIONS, getWhatsAppLink } from '../data/siteData';
+import { SERVICES, NEED_OPTIONS, getWhatsAppLink } from '../data/siteData';
 import { Service } from '../types';
 import { ServiceModal } from './ServiceModal';
 import { GlassButton } from './GlassButton';
-import { Sparkles, Clock3, Tag, MessageCircle, Info, Users, ArrowRight } from 'lucide-react';
+import { Sparkles, Clock3, MessageCircle, Info, ArrowRight } from 'lucide-react';
 
 interface ServicesProps {
   activeNeedFilterId?: string | null;
@@ -168,23 +168,13 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
                     {service.shortDescription}
                   </p>
 
-                  {/* 3. Duração e 4. Valor Minimalista */}
+                  {/* 3. Duração */}
                   <div className="pt-1.5 sm:pt-3 border-t border-[#C4B49A]/25">
-                    <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[11px] sm:text-xs font-semibold text-[#15140C]/85">
-                      <div className="flex items-center gap-1 sm:gap-1.5 truncate">
-                        <Clock3 className="w-3 h-3 sm:w-4 sm:h-4 text-[#4D5240] shrink-0" />
-                        <span className="truncate">
-                          {service.sessionOptions.map((o) => `${o.durationMinutes}m`).join('/')}
-                        </span>
-                      </div>
-                      {service.sessionOptions.some(o => o.price) && (
-                        <div className="flex items-center gap-1 text-[#4E7A36] font-bold shrink-0">
-                          <Tag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                          <span>
-                            {service.sessionOptions.map(o => o.price ? `R$ ${o.price}` : '').filter(Boolean).join(' / ')}
-                          </span>
-                        </div>
-                      )}
+                    <div className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-semibold text-[#15140C]/85">
+                      <Clock3 className="w-3 h-3 sm:w-4 sm:h-4 text-[#4D5240] shrink-0" />
+                      <span className="truncate">
+                        {service.sessionOptions.map((o) => `${o.durationMinutes}m`).join(' / ')}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -217,46 +207,6 @@ export const Services: React.FC<ServicesProps> = ({ activeNeedFilterId, onClearF
 
             </div>
           ))}
-        </div>
-
-        {/* ─── 6. Massagem em Dupla (Destaque Especial) ────────────────────── */}
-        <div className="mt-8 md:mt-16 bg-gradient-to-br from-[#1a1910] via-[#24261a] to-[#15140C] rounded-3xl p-6 sm:p-12 text-[#F2F0EA] border border-[#4E7A36]/30 shadow-2xl relative overflow-hidden">
-          
-          <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-[#4E7A36]/15 blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
-            <div className="max-w-2xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4E7A36]/25 border border-[#4E7A36]/40 text-[#F2F0EA] text-xs font-bold uppercase tracking-widest mb-3">
-                <Users className="w-4 h-4 text-[#9BC47C]" />
-                <span>Experiência compartilhada</span>
-              </div>
-
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#F2F0EA] mb-2 sm:mb-3">
-                {COUPLE_MASSAGE.title}
-              </h3>
-
-              <p className="text-sm sm:text-lg text-[#F2F0EA]/85 font-light leading-relaxed mb-3">
-                {COUPLE_MASSAGE.description}
-              </p>
-
-              <p className="text-xs text-[#C4B49A]/90 italic">
-                * Realizada para casais, amigos, mães e filhas ou qualquer dupla, no mesmo ambiente e ao mesmo tempo.
-              </p>
-            </div>
-
-            <div className="shrink-0 w-full sm:w-auto">
-              <GlassButton
-                href={getWhatsAppLink(COUPLE_MASSAGE.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <MessageCircle className="w-5 h-5 fill-current" />
-                <span>{COUPLE_MASSAGE.buttonText}</span>
-              </GlassButton>
-            </div>
-          </div>
-
         </div>
 
       </div>

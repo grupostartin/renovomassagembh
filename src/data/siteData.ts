@@ -1,12 +1,11 @@
 import { Service, TrustBadge } from '../types';
 
 import heroRenovoAdjustedImg from '../assets/images/hero_renovo_adjusted.webp';
-import aboutRenovoSpaceImg from '../assets/images/about_renovo_space.webp';
+import spaceRenovoNewImg from '../assets/images/space_renovo_new.webp';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
 import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
 import serviceHotStonesImg from '../assets/images/service_hot_stones_1784953159084.jpg';
-import serviceReflexologyImg from '../assets/images/service_reflexology_1784953168367.jpg';
 
 export const BRAND_TAGLINE = 'Cuidado, Alívio e Bem-estar.';
 export const BRAND_CONCEPT = 'Seu corpo também precisa de uma pausa.';
@@ -35,7 +34,7 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroRenovoAdjustedImg,
-  spaRoom: aboutRenovoSpaceImg,
+  spaRoom: spaceRenovoNewImg,
 };
 
 // ─── 4. Escolha por Necessidade ───────────────────────────────────────────────
@@ -50,30 +49,30 @@ export interface NeedOption {
 export const NEED_OPTIONS: NeedOption[] = [
   {
     id: 'relaxar-descansar',
-    title: 'RELAXAR E DESCANSAR',
+    title: 'Relaxar e descansar',
     subtitle: 'Quero uma pausa e aliviar as tensões do dia a dia.',
     relatedServiceIds: ['relaxante', 'pedras-quentes'],
     message: 'Olá! Vim pelo site da Renovo. Quero uma pausa para relaxar, descansar e aliviar as tensões do dia a dia.',
   },
   {
     id: 'aliviar-dores',
-    title: 'ALIVIAR DORES E TENSÕES',
+    title: 'Aliviar dores e tensões',
     subtitle: 'Estou sentindo desconforto ou tensão muscular.',
     relatedServiceIds: ['terapeutica', 'desportiva'],
     message: 'Olá! Vim pelo site da Renovo. Estou sentindo desconforto ou tensão muscular e gostaria de indicação e horários.',
   },
   {
     id: 'desintoxicar-desinchar',
-    title: 'DESINTOXICAR E DESINCHAR',
+    title: 'Desintoxicar e desinchar',
     subtitle: 'Quero eliminar o inchaço e sentir o corpo mais leve.',
     relatedServiceIds: ['drenagem-linfatica'],
     message: 'Olá! Vim pelo site da Renovo. Gostaria de agendar uma drenagem linfática para desinchar e desintoxicar o corpo.',
   },
   {
     id: 'pes-pernas',
-    title: 'DESCANSAR PÉS E PERNAS',
+    title: 'Descansar pés e pernas',
     subtitle: 'Quero aliviar o cansaço e a sensação de peso.',
-    relatedServiceIds: ['alivio-pes-cabeca', 'pes-relax'],
+    relatedServiceIds: ['alivio-pes-cabeca'],
     message: 'Olá! Vim pelo site da Renovo. Quero aliviar o cansaço e a sensação de peso nos pés e pernas.',
   },
 ];
@@ -87,10 +86,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem relaxante utiliza movimentos contínuos, suaves e envolventes, com pressão ajustada ao seu conforto. É uma pausa para desacelerar da rotina, aliviar o estresse acumulado e proporcionar bem-estar e relaxamento ao corpo.',
     category: 'Relaxamento',
     sessionOptions: [
-      { durationMinutes: 60, price: 180 },
-      { durationMinutes: 90, price: 230 },
+      { durationMinutes: 60 },
+      { durationMinutes: 90 },
     ],
-    priceInfo: 'A partir de R$ 180',
     benefits: [
       'Desacelera a mente e relaxa o corpo',
       'Alivia o estresse e tensões do dia a dia',
@@ -108,10 +106,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'A drenagem linfática é realizada com movimentos suaves e rítmicos que estimulam o sistema linfático, ajudando a eliminar o excesso de líquidos e toxinas do organismo. Ideal para reduzir o inchaço, aliviar a sensação de peso e promover leveza e bem-estar duradouros.',
     category: 'Drenagem',
     sessionOptions: [
-      { durationMinutes: 60, price: 180 },
-      { durationMinutes: 90, price: 230 },
+      { durationMinutes: 60 },
+      { durationMinutes: 90 },
     ],
-    priceInfo: 'A partir de R$ 180',
     benefits: [
       'Reduz o inchaço e a retenção de líquidos',
       'Auxilia na desintoxicação do organismo',
@@ -129,9 +126,8 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem terapêutica concentra o atendimento nas áreas de maior incômodo relatadas na conversa inicial. As manobras e a pressão são ajustadas conforme a necessidade e a sensibilidade de cada pessoa para soltar contraturas e aliviar tensões musculares.',
     category: 'Foco na tensão',
     sessionOptions: [
-      { durationMinutes: 60, price: 180 },
+      { durationMinutes: 60 },
     ],
-    priceInfo: 'R$ 180',
     benefits: [
       'Atenção concentrada nas regiões de maior desconforto',
       'Pressão ajustada à sensibilidade individual',
@@ -149,10 +145,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem desportiva trabalha a musculatura profunda com manobras precisas, definidas conforme a prática física e a sensibilidade de cada cliente. Ajuda no alívio de sobrecargas e na recuperação muscular.',
     category: 'Muscular',
     sessionOptions: [
-      { durationMinutes: 30, price: 120 },
-      { durationMinutes: 60, price: 180 },
+      { durationMinutes: 30 },
+      { durationMinutes: 60 },
     ],
-    priceInfo: 'A partir de R$ 120',
     benefits: [
       'Atenção aos grupos musculares mais exigidos',
       'Pressão firme adaptada à tolerância do cliente',
@@ -170,10 +165,9 @@ export const SERVICES: Service[] = [
     fullDescription: 'A massagem associa manobras relaxantes ao contato confortável de pedras aquecidas. O calor suave penetra nas fibras musculares, potencializando o relaxamento do corpo e auxiliando no alívio das tensões acumuladas.',
     category: 'Calor e relaxamento',
     sessionOptions: [
-      { durationMinutes: 60, price: 195 },
-      { durationMinutes: 90, price: 240, note: 'Inclui escalda-pés' },
+      { durationMinutes: 60 },
+      { durationMinutes: 90, note: 'Inclui escalda-pés' },
     ],
-    priceInfo: 'A partir de R$ 195',
     benefits: [
       'Conforto térmico acolhedor durante toda a massagem',
       'Relaxamento profundo com o auxílio do calor das pedras',
@@ -191,9 +185,8 @@ export const SERVICES: Service[] = [
     fullDescription: 'Sessão combinada que une toques cuidadosos na cabeça, pescoço e face com manobras focadas nos pés. Ideal para quem passa o dia em frente a telas ou em pé e quer uma pausa focada nas duas extremidades que mais acumulam estresse.',
     category: 'Foco e descanso',
     sessionOptions: [
-      { durationMinutes: 60, price: 180 },
+      { durationMinutes: 60 },
     ],
-    priceInfo: 'R$ 180',
     benefits: [
       'Alívio da tensão acumulada na cabeça e pescoço',
       'Sensação imediata de descanso para pés cansados',
@@ -203,26 +196,6 @@ export const SERVICES: Service[] = [
     indications: ['Cansaço mental e visual', 'Pés pesados ou doloridos', 'Rotina intensa', 'Desejo de desaceleração pontual'],
     image: serviceCranioFacialImg,
     recommendedFor: 'Quem quer relaxar a cabeça e, na mesma sessão, descansar os pés do peso do dia',
-  },
-  {
-    id: 'pes-relax',
-    title: 'Pés Relax',
-    shortDescription: 'Massagem nos pés acompanhada de escalda-pés, realizada confortavelmente na poltrona e sem necessidade de retirar a roupa.',
-    fullDescription: 'O Pés Relax é realizado em uma confortável poltrona, sem necessidade de retirar a roupa. O atendimento inicia-se com escalda-pés morno e acolhedor, seguido de uma massagem cuidadosa nos pés para aliviar o peso e o cansaço do dia a dia.',
-    category: 'Pés e escalda-pés',
-    sessionOptions: [
-      { durationMinutes: 45, price: 130 },
-    ],
-    priceInfo: 'R$ 130',
-    benefits: [
-      'Escalda-pés morno e relaxante no início da sessão',
-      'Atendimento prático na poltrona, sem retirar a roupa',
-      'Alívio rápido da sensação de pernas e pés pesados',
-      'Pausa rápida e extremamente acolhedora',
-    ],
-    indications: ['Pés cansados e doloridos', 'Rotina que exige muito tempo em pé', 'Preferência por não deitar em maca ou tirar roupa'],
-    image: serviceReflexologyImg,
-    recommendedFor: 'Quem procura uma pausa prática, confortável e acolhedora com escalda-pés e massagem',
   },
 ];
 

@@ -48,11 +48,6 @@ export const BOOKING_SERVICES: BookingServiceConfig[] = [
     title: 'Alívio Pés & Cabeça',
     durations: [60],
   },
-  {
-    id: 'pes-relax',
-    title: 'Pés Relax',
-    durations: [45],
-  },
 ];
 
 // JavaScript weekday: 0 = Sunday, 1 = Monday, ... 6 = Saturday.
