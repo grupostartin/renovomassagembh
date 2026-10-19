@@ -115,7 +115,7 @@ export const LocationSection: React.FC = () => {
 
             <div className="mt-8 pt-6 border-t border-[#4D5240]/30 text-xs text-[#C4B49A]/80">
               <p>
-                * Atendimentos com agendamento prévio para garantir total pontualidade, silêncio e conforto.
+                * Atendimentos com agendamento prévio.
               </p>
             </div>
           </div>

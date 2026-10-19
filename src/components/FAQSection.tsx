@@ -26,12 +26,9 @@ export const FAQSection: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#15140C] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wide text-[#15140C]">
             Dúvidas frequentes
           </h2>
-          <p className="text-base sm:text-lg text-[#15140C]/75 font-normal leading-relaxed">
-            Respostas simples para as principais perguntas sobre nossos atendimentos.
-          </p>
         </div>
 
         {/* Accordion List */}
