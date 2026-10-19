@@ -11,12 +11,12 @@ export const FAQSection: React.FC = () => {
 
   return (
     <section id="duvidas" className="py-10 md:py-24 bg-[#EAE5DB] text-[#15140C] relative overflow-hidden">
-      
+
       {/* Decorative background glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#4E7A36]/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4D5240]/10 border border-[#4D5240]/25 mb-4 shadow-sm">
@@ -52,9 +52,8 @@ export const FAQSection: React.FC = () => {
                   </span>
                   <div className="w-8 h-8 rounded-full bg-[#4D5240]/10 flex items-center justify-center shrink-0 text-[#4D5240]">
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-[#4E7A36]' : ''
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#4E7A36]' : ''
+                        }`}
                     />
                   </div>
                 </button>
@@ -80,7 +79,7 @@ export const FAQSection: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold text-[#15140C]">Ainda tem alguma dúvida?</h4>
             <p className="text-xs sm:text-sm text-[#15140C]/70 mt-0.5">
-              Fale diretamente conosco e responderemos com atenção no WhatsApp.
+              Fale diretamente conosco.
             </p>
           </div>
           <a
