@@ -130,6 +130,21 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) 
             </div>
           </div>
 
+          {/* Contraindicações (se houver) */}
+          {service.contraindications && service.contraindications.length > 0 && (
+            <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-start gap-2.5 sm:gap-3">
+              <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-800">
+                  Contraindicação
+                </h4>
+                <p className="text-xs sm:text-sm font-medium text-[#15140C] mt-0.5 leading-snug">
+                  {service.contraindications.join(', ')}
+                </p>
+              </div>
+            </div>
+          )}
+
           <div className="flex items-start gap-2 rounded-xl sm:rounded-2xl border border-[#C4B49A]/30 bg-white/65 p-3 sm:p-4 text-[11px] sm:text-xs leading-relaxed text-[#15140C]/65">
             <Info className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-[#4D5240]" />
             <p>

@@ -13,7 +13,7 @@ export interface Service {
   indications: string[];
   image: string;
   recommendedFor: string;
-  priceInfo?: string;
+  contraindications?: string[];
 }
 
 export interface GoogleReview {

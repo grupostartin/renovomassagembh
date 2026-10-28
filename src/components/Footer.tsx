@@ -21,16 +21,16 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#15140C] text-[#F2F0EA] pt-16 pb-32 md:pb-8 border-t border-[#4D5240]/25">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#4D5240]/20">
-          
+
           {/* Brand Manifesto & Info (4 Cols) */}
           <div className="lg:col-span-4 space-y-4">
             {/* Logo com variante light */}
             <BrandLogo variant="light" />
             <p className="text-sm text-[#F2F0EA]/80 font-light leading-relaxed max-w-sm pt-2">
-              Uma pausa na rotina para aliviar tensões, relaxar o corpo e cuidar do seu bem-estar.
+              Uma pausa na sua rotina para aliviar tensões e relaxar o corpo.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
               <a
@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-serif text-lg font-semibold text-[#F2F0EA] tracking-wide">
               Contato & Local
             </h4>
-            
+
             <ul className="space-y-3 text-sm text-[#F2F0EA]/75">
               {/* Phone */}
               <li className="flex items-start gap-2.5">

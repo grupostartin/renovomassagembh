@@ -1,7 +1,7 @@
 import { Service, TrustBadge } from '../types';
 
 import heroRenovoAdjustedImg from '../assets/images/hero_renovo_adjusted.webp';
-import spaceRenovoNewImg from '../assets/images/space_renovo_new.webp';
+import spaceRenovoSalaImg from '../assets/images/space_renovo_sala.jpg';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
 import serviceCranioFacialImg from '../assets/images/service_cranio_facial.png';
@@ -34,7 +34,7 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroRenovoAdjustedImg,
-  spaRoom: spaceRenovoNewImg,
+  spaRoom: spaceRenovoSalaImg,
 };
 
 // ─── 4. Escolha por Necessidade ───────────────────────────────────────────────
@@ -80,120 +80,151 @@ export const NEED_OPTIONS: NeedOption[] = [
 // ─── 5. Catálogo de Massagens ────────────────────────────────────────────────
 export const SERVICES: Service[] = [
   {
-    id: 'relaxante',
-    title: 'Massagem Relaxante',
-    shortDescription: 'Para desacelerar, aliviar as tensões do dia a dia e proporcionar relaxamento ao corpo.',
-    fullDescription: 'A massagem relaxante utiliza movimentos contínuos, suaves e envolventes, com pressão ajustada ao seu conforto. É uma pausa para desacelerar da rotina, aliviar o estresse acumulado e proporcionar bem-estar e relaxamento ao corpo.',
-    category: 'Relaxamento',
-    sessionOptions: [
-      { durationMinutes: 60 },
-      { durationMinutes: 90 },
-    ],
-    benefits: [
-      'Desacelera a mente e relaxa o corpo',
-      'Alivia o estresse e tensões do dia a dia',
-      'Pressão e ritmo adaptados ao seu conforto',
-      'Sensação prolongada de descanso e leveza',
-    ],
-    indications: ['Estresse do dia a dia', 'Tensão muscular leve', 'Cansaço acumulado', 'Dificuldade para desacelerar'],
-    image: serviceRelaxingImg,
-    recommendedFor: 'Quem busca uma pausa acolhedora para desacelerar a rotina e relaxar o corpo',
-  },
-  {
-    id: 'drenagem-linfatica',
-    title: 'Drenagem Linfática',
-    shortDescription: 'A mais procurada para desinchar, desintoxicar o organismo e proporcionar leveza ao corpo.',
-    fullDescription: 'A drenagem linfática é realizada com movimentos suaves e rítmicos que estimulam o sistema linfático, ajudando a eliminar o excesso de líquidos e toxinas do organismo. Ideal para reduzir o inchaço, aliviar a sensação de peso e promover leveza e bem-estar duradouros.',
-    category: 'Drenagem',
+    id: 'alivio-pes-cabeca',
+    title: 'Alívio Pés & Cabeça',
+    shortDescription: 'Massagem focada nos pés e na região da cabeça, pescoço e face, promovendo relaxamento profundo em pontos estratégicos de tensão.',
+    fullDescription: 'Massagem focada nos pés e na região da cabeça, pescoço e face, promovendo relaxamento profundo em pontos estratégicos de tensão.',
+    category: 'Foco e descanso',
     sessionOptions: [
       { durationMinutes: 60 },
     ],
     benefits: [
-      'Reduz o inchaço e a retenção de líquidos',
-      'Auxilia na desintoxicação do organismo',
-      'Sensação de leveza e bem-estar duradoura',
-      'Movimentos suaves e muito relaxantes',
+      'Alívio da tensão',
+      'Melhora da circulação',
+      'Redução da dor de cabeça',
+      'Sensação imediata de leveza e bem-estar',
     ],
-    indications: ['Inchaço e retenção de líquidos', 'Cansaço nas pernas', 'Desintoxicação do organismo', 'Pós-operatório (com indicação médica)'],
-    image: serviceRelaxingImg,
-    recommendedFor: 'Quem quer desinchar, sentir o corpo mais leve e cuidar do bem-estar de forma gentil',
-  },
-  {
-    id: 'terapeutica',
-    title: 'Massagem Terapêutica',
-    shortDescription: 'Direcionada às regiões de maior tensão e desconforto, de acordo com a necessidade de cada cliente.',
-    fullDescription: 'A massagem terapêutica concentra o atendimento nas áreas de maior incômodo relatadas na conversa inicial. As manobras e a pressão são ajustadas conforme a necessidade e a sensibilidade de cada pessoa para soltar contraturas e aliviar tensões musculares.',
-    category: 'Foco na tensão',
-    sessionOptions: [
-      { durationMinutes: 60 },
+    indications: [
+      'Pés cansados',
+      'Estresse',
+      'Cansaço mental',
+      'Dores de cabeça tensionais',
+      'Distúrbios da ATM',
     ],
-    benefits: [
-      'Atenção concentrada nas regiões de maior desconforto',
-      'Pressão ajustada à sensibilidade individual',
-      'Alívio de dores posturais e contraturas',
-      'Atendimento personalizado após conversa inicial',
-    ],
-    indications: ['Dores na coluna e lombar', 'Tensão na cervical e ombros', 'Contraturas musculares', 'Sobrecarga postural'],
-    image: serviceTherapeuticImg,
-    recommendedFor: 'Quem sente dores pontuais ou tensão concentrada em regiões específicas do corpo',
+    image: serviceCranioFacialImg,
+    recommendedFor: 'Pessoas com pés cansados, estresse acumulado, tensão na cabeça ou distúrbios da ATM',
   },
   {
     id: 'desportiva',
-    title: 'Massagem Desportiva',
-    shortDescription: 'Indicada para quem pratica atividade física ou apresenta tensão e sobrecarga muscular.',
-    fullDescription: 'A massagem desportiva trabalha a musculatura profunda com manobras precisas, definidas conforme a prática física e a sensibilidade de cada cliente. Ajuda no alívio de sobrecargas e na recuperação muscular.',
+    title: 'Massagem Esportiva',
+    shortDescription: 'Massagem com técnicas específicas para recuperação muscular, podendo incluir ventosas, liberação miofascial manual e/ou uso de instrumentos.',
+    fullDescription: 'Massagem com técnicas específicas para recuperação muscular, podendo incluir ventosas, liberação miofascial manual e/ou uso de instrumentos.',
     category: 'Muscular',
     sessionOptions: [
       { durationMinutes: 60 },
     ],
     benefits: [
-      'Atenção aos grupos musculares mais exigidos',
-      'Pressão firme adaptada à tolerância do cliente',
-      'Alívio da sobrecarga pós-treino ou esforço físico',
-      'Sessão focada e profunda de 60 min',
+      'Reduz dor',
+      'Melhora a mobilidade',
+      'Acelera a recuperação',
     ],
-    indications: ['Praticantes de atividade física', 'Sobrecarga muscular', 'Sensação de rigidez após treinos', 'Manutenção corporal'],
+    indications: [
+      'Prática esportiva',
+      'Dores pós-treino',
+      'Contraturas',
+    ],
+    contraindications: [
+      'Pessoas sensíveis à dor',
+    ],
     image: serviceTherapeuticImg,
-    recommendedFor: 'Pessoas ativas ou praticantes de exercícios que buscam cuidado e recuperação muscular',
+    recommendedFor: 'Praticantes de esportes, quem tem dores pós-treino ou necessita de recuperação muscular profunda',
   },
   {
     id: 'pedras-quentes',
     title: 'Pedras Quentes',
-    shortDescription: 'Massagem associada ao calor das pedras para proporcionar relaxamento e auxiliar no alívio das tensões musculares.',
-    fullDescription: 'A massagem associa manobras relaxantes ao contato confortável de pedras aquecidas. O calor suave penetra nas fibras musculares, potencializando o relaxamento do corpo e auxiliando no alívio das tensões acumuladas.',
+    shortDescription: 'Escalda pés + Massagem relaxante realizada com uso e aplicação de pedras aquecidas em pontos estratégicos do corpo.',
+    fullDescription: 'Escalda pés + Massagem relaxante realizada com uso e aplicação de pedras aquecidas em pontos estratégicos do corpo.',
     category: 'Calor e relaxamento',
     sessionOptions: [
       { durationMinutes: 60 },
       { durationMinutes: 90, note: 'Inclui escalda-pés' },
     ],
     benefits: [
-      'Conforto térmico acolhedor durante toda a massagem',
-      'Relaxamento profundo com o auxílio do calor das pedras',
-      'Auxilia no alívio de tensões musculares persistentes',
-      'Pausa revigorante e muito confortável',
+      'Relaxamento muscular profundo',
+      'Melhora da circulação',
+      'Sensação prolongada de bem-estar',
     ],
-    indications: ['Cansaço físico geral', 'Sensibilidade ao frio ou rigidez', 'Estresse acumulado', 'Necessidade de descanso profundo'],
+    indications: [
+      'Tensão muscular intensa',
+      'Estresse acumulado',
+      'Cansaço profundo',
+    ],
     image: serviceHotStonesImg,
-    recommendedFor: 'Quem aprecia o conforto do calor para aliviar tensões e descansar o corpo por completo',
+    recommendedFor: 'Quem procura alívio profundo de tensões acumuladas com o conforto acolhedor das pedras aquecidas',
   },
   {
-    id: 'alivio-pes-cabeca',
-    title: 'Alívio Pés & Cabeça',
-    shortDescription: 'Uma pausa para aliviar o cansaço e proporcionar uma agradável sensação de descanso.',
-    fullDescription: 'Sessão combinada que une toques cuidadosos na cabeça, pescoço e face com manobras focadas nos pés. Ideal para quem passa o dia em frente a telas ou em pé e quer uma pausa focada nas duas extremidades que mais acumulam estresse.',
-    category: 'Foco e descanso',
+    id: 'terapeutica',
+    title: 'Massagem Terapêutica – Foco na Dor',
+    shortDescription: 'Atendimento direcionado para regiões com dor e tensão muscular, utilizando diferentes técnicas conforme a necessidade do seu corpo.',
+    fullDescription: 'Atendimento direcionado para regiões com dor e tensão muscular, utilizando diferentes técnicas conforme a necessidade do seu corpo. Indicada para aliviar desconfortos, reduzir rigidez e melhorar a mobilidade, promovendo recuperação e bem-estar.',
+    category: 'Foco na dor',
     sessionOptions: [
       { durationMinutes: 60 },
     ],
     benefits: [
-      'Alívio da tensão acumulada na cabeça e pescoço',
-      'Sensação imediata de descanso para pés cansados',
-      'Excelente para quem trabalha em computador ou rotina acelerada',
-      'Uma experiência completa de alívio sem sobrecarga',
+      'Alívio de desconfortos e dores musculares',
+      'Redução da rigidez corporal',
+      'Melhora da mobilidade',
+      'Promoção de recuperação e bem-estar',
     ],
-    indications: ['Cansaço mental e visual', 'Pés pesados ou doloridos', 'Rotina intensa', 'Desejo de desaceleração pontual'],
-    image: serviceCranioFacialImg,
-    recommendedFor: 'Quem quer relaxar a cabeça e, na mesma sessão, descansar os pés do peso do dia',
+    indications: [
+      'Regiões com dor muscular',
+      'Tensão muscular concentrada',
+      'Rigidez e redução de mobilidade',
+      'Desconfortos corporais',
+    ],
+    image: serviceTherapeuticImg,
+    recommendedFor: 'Quem necessita de um atendimento direcionado para soltar regiões de dor, rigidez e tensão muscular',
+  },
+  {
+    id: 'drenagem-linfatica',
+    title: 'Drenagem Linfática',
+    shortDescription: 'Técnica com movimentos leves e rítmicos que estimulam o sistema linfático.',
+    fullDescription: 'Técnica com movimentos leves e rítmicos que estimulam o sistema linfático.',
+    category: 'Drenagem',
+    sessionOptions: [
+      { durationMinutes: 60 },
+    ],
+    benefits: [
+      'Reduz inchaço',
+      'Melhora a circulação',
+      'Auxilia na eliminação de toxinas',
+      'Promove leveza corporal',
+    ],
+    indications: [
+      'Retenção de líquido',
+      'Inchaço',
+      'Sensação de peso nas pernas',
+      'Lipedema',
+      'Grávidas a partir de 12 semanas (com liberação médica)',
+    ],
+    image: serviceRelaxingImg,
+    recommendedFor: 'Quem sofre com retenção de líquido, pernas pesadas, inchaço ou gestantes com liberação médica',
+  },
+  {
+    id: 'relaxante',
+    title: 'Massagem Relaxante',
+    shortDescription: 'Massagem realizada em todo o corpo, com movimentos suaves e contínuos que promovem relaxamento profundo e aliviam as tensões do dia a dia.',
+    fullDescription: 'Massagem realizada em todo o corpo, com movimentos suaves e contínuos que promovem relaxamento profundo e aliviam as tensões do dia a dia. Ideal para reduzir o estresse, acalmar a mente e restaurar o equilíbrio.',
+    category: 'Relaxamento',
+    sessionOptions: [
+      { durationMinutes: 60 },
+      { durationMinutes: 90 },
+    ],
+    benefits: [
+      'Relaxamento profundo do corpo',
+      'Alívio das tensões do dia a dia',
+      'Redução do estresse',
+      'Acalma a mente e restaura o equilíbrio',
+    ],
+    indications: [
+      'Estresse do dia a dia',
+      'Tensão e cansaço',
+      'Necessidade de descanso e desaceleração',
+      'Busca por equilíbrio físico e mental',
+    ],
+    image: serviceRelaxingImg,
+    recommendedFor: 'Ideal para quem busca reduzir o estresse, acalmar a mente e restaurar o equilíbrio do corpo',
   },
 ];
 
