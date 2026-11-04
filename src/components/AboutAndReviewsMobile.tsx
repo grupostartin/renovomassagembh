@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HERO_IMAGES, PROFESSIONAL_CARE_NOTICE, ENXOVAL_NOTICE, getWhatsAppLink } from '../data/siteData';
 import { GlassButton } from './GlassButton';
 import { MapPin, MessageCircle, Sparkles, ShieldCheck, Star } from 'lucide-react';
@@ -7,21 +7,38 @@ import { Testimonials } from './Testimonials';
 export const AboutAndReviewsMobile: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'about' | 'reviews'>('about');
 
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#depoimentos') {
+        setActiveTab('reviews');
+      } else if (window.location.hash === '#sobre') {
+        setActiveTab('about');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   return (
     <section id="sobre-avaliacoes" className="md:hidden py-12 bg-[#F2F0EA] text-[#15140C] relative overflow-hidden">
+      {/* Âncoras para navegação do menu mobile */}
+      <div id="sobre" className="absolute -top-20" />
+      <div id="depoimentos" className="absolute -top-20" />
+
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4D5240]/10 border border-[#4D5240]/25 mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#4E7A36]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#4D5240]" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-[#4D5240]">
-              Credibilidade & Experiência
+              Sobre a Renovo
             </span>
           </div>
 
           <h2 className="font-serif text-2xl font-normal text-[#15140C]">
-            Sobre a Renovo & Depoimentos
+            Um espaço pensado para o seu bem-estar
           </h2>
         </div>
 
@@ -73,10 +90,13 @@ export const AboutAndReviewsMobile: React.FC = () => {
 
             <div className="bg-white p-5 rounded-2xl border border-[#C4B49A]/30 space-y-3 text-xs sm:text-sm text-[#15140C]/85 leading-relaxed">
               <p>
-                A <strong>Renovo</strong> nasceu com uma proposta clara: oferecer um lugar tranquilo para você parar, receber uma boa massagem e cuidar do corpo no bairro Palmares.
+                A <strong>Renovo</strong> nasceu com uma proposta clara: oferecer um lugar onde você possa parar, relaxar e receber uma boa massagem.
               </p>
               <p>
-                Atendimento atencioso, ambiente climatizado, higienizado e focado na sua saúde e relaxamento.
+                Aqui, cada cliente é recebido com atenção e respeito. A massagem é realizada de acordo com suas necessidades — seja para aliviar dores e tensões, descansar o corpo ou simplesmente relaxar.
+              </p>
+              <p>
+                Nosso ambiente é higienizado, climatizado e preparado para que você se sinta seguro e confortável durante todo o atendimento.
               </p>
             </div>
 
@@ -95,13 +115,13 @@ export const AboutAndReviewsMobile: React.FC = () => {
             </div>
 
             <GlassButton
-              href={getWhatsAppLink('Olá! Gostaria de agendar meu horário na Renovo Massagem.')}
+              href={getWhatsAppLink('Olá! Gostaria de saber mais sobre a Renovo Massagem e agendar meu horário.')}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-xs"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Agendar pelo WhatsApp</span>
+              <span>Converse conosco pelo WhatsApp</span>
             </GlassButton>
           </div>
         )}

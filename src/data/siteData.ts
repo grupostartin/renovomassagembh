@@ -1,6 +1,7 @@
 import { Service, TrustBadge } from '../types';
 
 import heroRenovoAdjustedImg from '../assets/images/hero_renovo_adjusted.webp';
+import heroSalaImg from '../assets/images/hero_renovo_sala.jpg';
 import spaceRenovoSalaImg from '../assets/images/space_renovo_sala.jpg';
 import serviceRelaxingImg from '../assets/images/service_relaxing_1784953138023.jpg';
 import serviceTherapeuticImg from '../assets/images/service_therapeutic_1784953146980.jpg';
@@ -34,6 +35,7 @@ export const BUSINESS_HOURS = [
 
 export const HERO_IMAGES = {
   main: heroRenovoAdjustedImg,
+  hero: heroSalaImg,
   spaRoom: spaceRenovoSalaImg,
 };
 

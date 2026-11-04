@@ -88,9 +88,7 @@ function MainSite() {
           />
 
           {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
-          <div className="hidden md:block">
-            <CoupleMassageBanner />
-          </div>
+          <CoupleMassageBanner />
 
           {/* 2. Escolha por necessidade (Desktop apenas) */}
           <div className="hidden md:block">
@@ -158,3 +156,4 @@ export default function App() {
 
   return <MainSite />;
 }
+

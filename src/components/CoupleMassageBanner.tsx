@@ -21,6 +21,8 @@ export const CoupleMassageBanner: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent" />
       </div>
 
+      <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-[#15140C] to-transparent pointer-events-none z-[1]" />
+
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[28rem] h-[28rem] rounded-full bg-[#4E7A36]/10 blur-3xl pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
