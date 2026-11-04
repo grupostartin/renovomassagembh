@@ -38,7 +38,7 @@ export const AboutAndReviewsMobile: React.FC = () => {
           </div>
 
           <h2 className="font-serif text-2xl font-normal text-[#15140C]">
-            Um espaço pensado para o seu bem-estar
+            Uma pausa em meio à rotina
           </h2>
         </div>
 
@@ -96,15 +96,20 @@ export const AboutAndReviewsMobile: React.FC = () => {
                 Aqui, cada cliente é recebido com atenção e respeito. A massagem é realizada de acordo com suas necessidades — seja para aliviar dores e tensões, descansar o corpo ou simplesmente relaxar.
               </p>
               <p>
-                Nosso ambiente é higienizado, climatizado e preparado para que você se sinta seguro e confortável durante todo o atendimento.
+                Nosso espaço é acolhedor e confortável. Valorizamos aquilo que consideramos essencial: um atendimento profissional, uma massagem bem-feita e cuidado com cada pessoa que chega até nós.
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#4D5240]/10 border border-[#4D5240]/25 flex items-start gap-2.5">
               <ShieldCheck className="w-4 h-4 text-[#4E7A36] shrink-0 mt-0.5" />
-              <p className="text-xs text-[#15140C]/80 leading-snug">
-                {PROFESSIONAL_CARE_NOTICE}
-              </p>
+              <div>
+                <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#4D5240] mb-1">
+                  Atendimento exclusivamente profissional
+                </h4>
+                <p className="text-xs text-[#15140C]/80 leading-snug">
+                  {PROFESSIONAL_CARE_NOTICE}
+                </p>
+              </div>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-white border border-[#C4B49A]/30 flex items-center gap-2.5">
