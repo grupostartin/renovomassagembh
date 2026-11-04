@@ -103,7 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
         alt="Sala de massagem da Renovo, com macas e iluminação suave"
         className="absolute inset-0 z-0 w-full h-full object-cover object-[70%_center]"
       />
-      <div className="absolute inset-0 z-[1] bg-[#EFE6D8]/85 md:bg-transparent md:bg-gradient-to-r md:from-[#EFE6D8] md:via-[#EFE6D8]/90 md:via-35% md:to-[#EFE6D8]/0 md:to-75%" />
+      <div className="absolute inset-0 z-[1] bg-[#EFE6D8]/90 md:bg-transparent md:bg-gradient-to-r md:from-[#EFE6D8] md:via-[#EFE6D8]/90 md:via-35% md:to-[#EFE6D8]/0 md:to-75%" />
 
       <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/45 blur-3xl pointer-events-none" />
 
@@ -224,7 +224,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
       </div>
 
       {/* Decorative Bottom Curve Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-48 bg-gradient-to-t from-[#15140C] via-[#15140C]/40 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 hidden md:block md:h-48 bg-gradient-to-t from-[#15140C] via-[#15140C]/40 to-transparent pointer-events-none z-[1]" />
     </section>
   );
 };

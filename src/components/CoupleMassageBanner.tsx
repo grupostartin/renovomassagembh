@@ -8,24 +8,26 @@ export const CoupleMassageBanner: React.FC = () => {
     <section
       id="massagem-em-dupla"
       aria-label="Massagem em Dupla — Experiência Compartilhada"
-      className="relative overflow-hidden bg-[#15140C]"
+      className="relative overflow-hidden bg-[#15140C] -mt-8 rounded-t-[2rem] z-[2] md:mt-0 md:rounded-none"
     >
-      <div className="absolute inset-0 z-0">
+      {/* Mobile: foto em bloco acima do texto (logo visível). Desktop: foto de fundo. */}
+      <div className="relative h-64 md:h-auto md:absolute md:inset-0 z-0">
         <img
           src={HERO_IMAGES.main}
           alt="Ambiente relaxante para massagem em dupla na Renovo Massagem"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[84%_center] md:object-center"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#15140C]/92 via-[#15140C]/75 to-[#15140C]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#15140C]/92 via-[#15140C]/75 to-[#15140C]/30" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#15140C]/60 via-transparent to-transparent" />
+        <div className="md:hidden absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#15140C] to-transparent" />
       </div>
 
-      <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-[#15140C] to-transparent pointer-events-none z-[1]" />
+      <div className="hidden md:block absolute top-0 left-0 right-0 md:h-32 bg-gradient-to-b from-[#15140C] to-transparent pointer-events-none z-[1]" />
 
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[28rem] h-[28rem] rounded-full bg-[#4E7A36]/10 blur-3xl pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:py-20">
         <div className="max-w-2xl">
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4E7A36]/20 border border-[#4E7A36]/40 backdrop-blur-sm mb-5">
