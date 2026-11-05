@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getWhatsAppLink, HERO_IMAGES } from '../data/siteData';
+import { getWhatsAppLink } from '../data/siteData';
 import { GlassButton } from './GlassButton';
 import { MessageCircle, Sparkles, Award, HeartHandshake, Calendar } from 'lucide-react';
 
@@ -96,14 +96,8 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, startTyping }) => {
   return (
     <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-[#E9DFD0] text-[#34412F]">
-      {/* Foto da sala de massagem */}
+      {/* Background limpo sem foto */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#E9DFD0] via-[#EFE6D8] to-[#E5D9C7]" />
-      <img
-        src={HERO_IMAGES.hero}
-        alt="Sala de massagem da Renovo, com macas e iluminação suave"
-        className="absolute inset-0 z-0 w-full h-full object-cover object-[70%_center]"
-      />
-      <div className="absolute inset-0 z-[1] bg-[#EFE6D8]/90 md:bg-transparent md:bg-gradient-to-r md:from-[#EFE6D8] md:via-[#EFE6D8]/90 md:via-35% md:to-[#EFE6D8]/0 md:to-75%" />
 
       <div className="absolute -top-24 -left-20 w-[30rem] h-[30rem] rounded-full bg-[#F8F5EF]/45 blur-3xl pointer-events-none" />
 
