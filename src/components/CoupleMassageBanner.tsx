@@ -13,9 +13,9 @@ export const CoupleMassageBanner: React.FC = () => {
       {/* Mobile: foto em bloco acima do texto (logo visível). Desktop: foto de fundo. */}
       <div className="relative h-64 md:h-auto md:absolute md:inset-0 z-0">
         <img
-          src={HERO_IMAGES.main}
-          alt="Ambiente relaxante para massagem em dupla na Renovo Massagem"
-          className="w-full h-full object-cover object-[84%_center] md:object-center"
+          src={HERO_IMAGES.hero}
+          alt="Sala de massagem em dupla na Renovo Massagem"
+          className="w-full h-full object-cover object-center"
           loading="lazy"
         />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#15140C]/92 via-[#15140C]/75 to-[#15140C]/30" />
