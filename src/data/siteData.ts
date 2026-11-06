@@ -259,13 +259,13 @@ export const ENXOVAL_NOTICE =
 export const LOCATION_SECTION_DATA = {
   headline: 'Sua pausa está mais perto do que você imagina.',
   description:
-    'A Renovo está localizada no coração do bairro Palmares, na Rua José Cleto, uma das principais vias da região, com fácil acesso pela Avenida Bernardo de Vasconcelos e próxima ao Minas Shopping.',
+    'O espaço da Renovo fica no coração do bairro Palmares, na Rua José Cleto, uma das principais vias da região, com fácil acesso pela Avenida Bernardo de Vasconcelos e próximo ao Minas Shopping.',
   addressLine1: 'Rua José Cleto, 200',
   addressLine2: 'Palmares - Belo Horizonte/MG',
   highlights: [
     'No coração do bairro Palmares',
     'Fácil acesso pela Av. Bernardo de Vasconcelos',
-    'Próxima ao Minas Shopping',
+    'Próximo ao Minas Shopping',
     'Atendimento com horário marcado',
   ],
 };
@@ -295,7 +295,11 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     question: 'Posso fazer massagem em dupla?',
-    answer: 'Sim, mediante agendamento e disponibilidade.',
+    answer: 'Sim, somente aos sábados, mediante agendamento e disponibilidade.',
+  },
+  {
+    question: 'Qual o valor do investimento?',
+    answer: 'Massagens a partir de R$ 180.',
   },
 ];
 

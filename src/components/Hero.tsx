@@ -153,7 +153,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
 
           {/* Subtitle */}
           <p className="text-base sm:text-xl md:text-2xl text-[#34412F]/90 font-normal leading-relaxed mb-6 sm:mb-8 max-w-lg">
-            Massagens para aliviar dores e tensões, relaxar o corpo e proporcionar bem-estar no bairro Palmares.
+            Massagens para alívio de dores e tensões, ou simplesmente relaxar!
           </p>
 
           {/* CTA Group */}
@@ -188,7 +188,7 @@ export const Hero: React.FC<HeroProps> = ({ bookingEnabled, onOpenBookingModal, 
               </div>
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-[#34412F]">Ambiente acolhedor</h4>
-                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço aconchegante, confortável e silencioso.</p>
+                <p className="text-xs text-[#34412F]/75 leading-tight sm:leading-snug">Espaço aconchegante e confortável.</p>
               </div>
             </div>
 

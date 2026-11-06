@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { SplashScreen } from './components/SplashScreen';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { CoupleMassageBanner } from './components/CoupleMassageBanner';
+import { FounderBanner } from './components/FounderBanner';
 import { NeedPicker } from './components/NeedPicker';
 import { Services } from './components/Services';
 import { About } from './components/About';
@@ -87,8 +87,8 @@ function MainSite() {
             startTyping={isSiteEntering}
           />
 
-          {/* 1b. Banner de destaque (Desktop apenas ou secundário no mobile) */}
-          <CoupleMassageBanner />
+          {/* 1b. Banner com a mensagem da fundadora (massagem em dupla fica só no FAQ por enquanto) */}
+          <FounderBanner />
 
           {/* 2. Escolha por necessidade (Desktop apenas) */}
           <div className="hidden md:block">

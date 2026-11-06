@@ -1,20 +1,20 @@
 import React from "react";
-import { COUPLE_MASSAGE, HERO_IMAGES, getWhatsAppLink } from "../data/siteData";
+import { FOUNDER_MESSAGE, HERO_IMAGES, getWhatsAppLink } from "../data/siteData";
 import { GlassButton } from "./GlassButton";
-import { Heart, Sparkles, Users } from "lucide-react";
+import { Heart, Quote } from "lucide-react";
 
-export const CoupleMassageBanner: React.FC = () => {
+export const FounderBanner: React.FC = () => {
   return (
     <section
-      id="massagem-em-dupla"
-      aria-label="Massagem em Dupla — Experiência Compartilhada"
+      id="mensagem-da-fundadora"
+      aria-label="Mensagem da fundadora da Renovo Massagem"
       className="relative overflow-hidden bg-[#15140C] -mt-8 rounded-t-[2rem] z-[2] md:mt-0 md:rounded-none"
     >
       {/* Mobile: foto em bloco acima do texto (logo visível). Desktop: foto de fundo. */}
       <div className="relative h-64 md:h-auto md:absolute md:inset-0 z-0">
         <img
           src={HERO_IMAGES.hero}
-          alt="Sala de massagem em dupla na Renovo Massagem"
+          alt="Sala de atendimento da Renovo Massagem"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
@@ -31,48 +31,31 @@ export const CoupleMassageBanner: React.FC = () => {
         <div className="max-w-2xl">
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4E7A36]/20 border border-[#4E7A36]/40 backdrop-blur-sm mb-5">
-            <Users className="w-3.5 h-3.5 text-[#9BC47C]" aria-hidden="true" />
+            <Heart className="w-3.5 h-3.5 text-[#9BC47C]" aria-hidden="true" />
             <span className="text-xs font-bold tracking-widest text-[#9BC47C] uppercase">
-              Experiência Compartilhada
+              Quem cuida de você
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#F2F0EA] leading-tight mb-4 tracking-wide">
-            Massagem em Dupla —{" "}
-            <span className="italic text-[#C4B49A]">
-              para curtir junto.
-            </span>
-          </h2>
+          <Quote className="w-8 h-8 text-[#C4B49A]/60 mb-3" aria-hidden="true" />
 
-          <p className="text-base sm:text-lg text-[#F2F0EA]/80 font-light leading-relaxed mb-3 max-w-xl">
-            {COUPLE_MASSAGE.description}
+          <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl font-normal text-[#F2F0EA] leading-snug mb-5 tracking-wide">
+            {FOUNDER_MESSAGE.quote}
+          </blockquote>
+
+          <p className="text-sm text-[#C4B49A] mb-8">
+            <span className="font-semibold">{FOUNDER_MESSAGE.author}</span>
+            <span className="text-[#C4B49A]/70"> — {FOUNDER_MESSAGE.role}</span>
           </p>
-
-          <p className="text-sm text-[#C4B49A]/80 italic mb-8 flex items-center gap-1.5">
-            <Heart className="w-3.5 h-3.5 fill-current text-[#C4B49A]/70 shrink-0" aria-hidden="true" />
-            Casais, amigas, mães e filhas — qualquer dupla é bem-vinda.
-          </p>
-
-          <div className="flex flex-wrap gap-2 mb-8">
-            {["No mesmo ambiente", "Ao mesmo tempo", "Sessão simultânea"].map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F2F0EA]/10 border border-[#F2F0EA]/15 text-xs text-[#F2F0EA]/80 backdrop-blur-sm"
-              >
-                <Sparkles className="w-3 h-3 text-[#9BC47C]" aria-hidden="true" />
-                {tag}
-              </span>
-            ))}
-          </div>
 
           <GlassButton
-            id="couple-massage-cta"
-            href={getWhatsAppLink(COUPLE_MASSAGE.whatsappMessage)}
+            id="founder-cta"
+            href={getWhatsAppLink("Olá! Gostaria de agendar uma massagem na Renovo Massagem.")}
             target="_blank"
             rel="noopener noreferrer"
           >
             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.444h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.48-8.447z"/></svg>
-            <span>Agendar Massagem em Dupla</span>
+            <span>Agendar minha massagem</span>
           </GlassButton>
         </div>
       </div>

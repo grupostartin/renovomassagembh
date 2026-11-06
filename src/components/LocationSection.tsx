@@ -59,7 +59,7 @@ export const LocationSection: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#15140C]/80">
                   <CheckCircle2 className="w-4 h-4 text-[#4E7A36] shrink-0" />
-                  <span>Próxima ao Minas Shopping</span>
+                  <span>Próximo ao Minas Shopping</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#15140C]/80">
                   <CheckCircle2 className="w-4 h-4 text-[#4E7A36] shrink-0" />
